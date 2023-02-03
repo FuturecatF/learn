@@ -1,12 +1,11 @@
-import { Suspense, useContext, useState } from 'react';
+import { Suspense } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
-import { MainPageAsync } from '../../pages/MainPage/MainPage.lazy';
-import { AboutPageAsync } from '../../pages/AboutPages/AboutPage.lazy';
-import { ThemeContext } from '../../theme/ThemeContext';
-import { useTheme } from '../../theme/useTheme';
+import { MainPageAsync } from 'pages/MainPage';
+import { AboutPageAsync } from 'pages/AboutPage';
+import { useTheme } from 'app/provider/ThemeProvider';
+import { classNames } from 'shared/config/theme/lib/classNames';
 
-import '../../styles/index.scss';
-import { classNames } from '../../helpers/classNames/classNames';
+import 'app/styles/index.scss';
 
 export const App = () => {
 	const { theme, toggleTheme } = useTheme();
