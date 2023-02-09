@@ -1,3 +1,1 @@
-export const getSomeFunc = (arg: number): string => {
-	return String(arg);
-};
+export const getSomeFunc = (arg: number): string => String(arg);

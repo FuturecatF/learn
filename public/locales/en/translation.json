@@ -1,0 +1,10 @@
+{
+  "language": "en",
+  "aboutPage": {
+    "title": "About Page"
+  },
+  "mainPage": {
+    "title": "Main Page"
+  },
+  "somePage": "Some Page"
+}

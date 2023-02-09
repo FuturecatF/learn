@@ -1,0 +1,10 @@
+{
+	"language": "ru",
+	"aboutPage": {
+		"title": "О Сайте"
+	},
+	"mainPage": {
+		"title": "Главная Страница"
+	},
+	"somePage": "Какая-то страница"
+}
