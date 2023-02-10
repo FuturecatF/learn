@@ -1,1 +1,4 @@
-export { LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher';
+export { LanguageSwitcher } from './LanguageSwitcher/ui/LanguageSwitcher';
+export { Navbar } from './Navbar';
+export { Sidebar } from './Sidebar';
+export { PageLoader } from './PageLoader/ui/PageLoader';

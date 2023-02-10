@@ -35,7 +35,7 @@ module.exports = {
     'react/jsx-curly-brace-presence': 'off',
     'implicit-arrow-linebreak': 'off',
     'i18next/no-literal-string': ['warn', { markupOnly: true }],
-    'max-len': ['error', { code: 120 }],
+    'max-len': ['error', { code: 120, ignoreComments: true }],
   },
   globals: {
     __IS_DEV__: true,
