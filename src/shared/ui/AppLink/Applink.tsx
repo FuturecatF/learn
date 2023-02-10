@@ -4,7 +4,7 @@ import { classNames } from 'shared/config/theme/lib/classNames';
 
 import classes from './Applink.module.scss';
 
-const AppLinkTheme = {
+export const AppLinkTheme = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
 } as const;
