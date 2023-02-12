@@ -8,5 +8,15 @@
   },
   "notFoundPage": {
     "title": "title"
+  },
+  "pageError": {
+    "reloadButton": "reloadButton",
+    "title": "title"
+  },
+  "someError": {
+    "reloadButton": "reloadButton",
+    "reloadPage": "reloadPage",
+    "title": "title",
+    "titled": "titled"
   }
 }

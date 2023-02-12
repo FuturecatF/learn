@@ -5,7 +5,6 @@ import { classNames } from 'shared/config/theme/lib/classNames';
 interface LanguageSwitcherProps {
   className?: string;
 }
-
 export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
   const { t, i18n } = useTranslation();
 

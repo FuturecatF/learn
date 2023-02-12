@@ -6,5 +6,8 @@
   "mainPage": {
     "title": "Main Page"
   },
-  "somePage": "Some Page"
+  "pageError": {
+    "title": "An unexpected error occurred",
+    "reloadButton": "Reload page"
+  }
 }
