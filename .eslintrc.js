@@ -34,10 +34,18 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn',
     'react/jsx-curly-brace-presence': 'off',
     'implicit-arrow-linebreak': 'off',
-    'i18next/no-literal-string': ['warn', { markupOnly: true }],
+    'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
     'max-len': ['error', { code: 120, ignoreComments: true }],
   },
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
 };

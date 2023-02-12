@@ -4,12 +4,12 @@ import { Button, ThemeButton } from 'shared';
 describe('Button', () => {
   test('Test render', () => {
     render(<Button>TEST</Button>);
-    expect(screen.getByText('TEXT')).toBeInTheDocument();
+    expect(screen.getByText('TEST')).toBeInTheDocument();
   });
 
   test('Test render clear theme', () => {
     render(<Button theme={ThemeButton.CLEAR}>TEST</Button>);
-    expect(screen.getByText('TEXT')).toHaveClass('clear');
+    expect(screen.getByText('TEST')).toHaveClass('clear');
     screen.debug();
   });
 });
