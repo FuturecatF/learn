@@ -5,6 +5,7 @@ import classes from './Button.module.scss';
 
 export const ThemeButton = {
   CLEAR: 'clear',
+  OUTLINE: 'outline',
 } as const;
 
 type ValueOf<T> = T[keyof T];

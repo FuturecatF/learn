@@ -7,6 +7,7 @@ import classes from './Applink.module.scss';
 export const AppLinkTheme = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
+  RED: 'red',
 } as const;
 
 type ValueOf<T> = T[keyof T];
