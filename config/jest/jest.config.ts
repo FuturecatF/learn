@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from 'path';
+import { path } from 'path';
 
 export default {
   // All imported modules in your tests should be mocked automatically
@@ -28,9 +28,6 @@ export default {
   moduleNameMapper: {
     '\\.(s?css)$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-  },
-  testEnvironmentOptions: {
-    browsers: ['chrome', 'firefox', 'safari'],
   },
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
