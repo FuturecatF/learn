@@ -6,7 +6,7 @@
 .pnp.js
 /build
 /dist
-
+/storybook-static
 # testing
 /coverage
 
