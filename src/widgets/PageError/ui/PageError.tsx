@@ -16,7 +16,7 @@ export const PageError = ({ className }: PageErrorProps) => {
   };
 
   return (
-    <div className={classNames(classes.pageError, {}, [])}>
+    <div className={classNames(classes.pageError, {}, [className])}>
       <p>{t('pageError.title')}</p>
       <Button onClick={reloadPage}>{t('pageError.reloadButton')}</Button>
     </div>
