@@ -11,7 +11,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "*": ["./src/*"]
+      "*": ["./src/*"],
+      "react": ["./node_modules/@types/react"]
     }
   },
   "include": ["src", "./config/jest/setupTests.ts"],
