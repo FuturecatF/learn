@@ -6,10 +6,6 @@
   transition: width 300ms;
 }
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
   position: absolute;
   bottom: 20px;
@@ -20,4 +16,37 @@
   gap: 12px;
   justify-content: center;
   transition: 1000ms;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.collapseBtn {
+  position: absolute;
+  right: -32px;
+  bottom: 40px;
+}
+
+.links {
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
+}
+
+.linkItem {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+.icon {
+  fill: var(--inverted-primary-color);
 }

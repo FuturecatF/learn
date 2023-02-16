@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta, addDecorator } from '@storybook/react';
 
-import { Applink, AppLinkTheme, ThemeButton } from 'shared';
+import { Applink, AppLinkTheme, ButtonTheme } from 'shared';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/provider/ThemeProvider';
 
