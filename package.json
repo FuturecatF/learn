@@ -72,6 +72,7 @@
     "jest-environment-jsdom": "^29.4.2",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "2.5.3",
+    "postcss": "^8.4.21",
     "react-refresh": "0.12.0",
     "reg-cli": "^0.17.6",
     "regenerator-runtime": "0.13.9",
