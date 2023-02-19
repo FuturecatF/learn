@@ -4,6 +4,7 @@
   },
   "language": "language",
   "languageShort": "languageShort",
+  "login": "login",
   "mainPage": {
     "title": "title"
   },
@@ -14,6 +15,7 @@
     "reloadButton": "reloadButton",
     "title": "title"
   },
+  "signIn": "signIn",
   "someError": {
     "reloadButton": "reloadButton",
     "reloadPage": "reloadPage",

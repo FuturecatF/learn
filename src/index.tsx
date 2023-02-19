@@ -5,6 +5,8 @@ import { ErrorBoundary } from 'app/provider/ErrorBoundary';
 import { App } from 'app/App';
 import { ThemeProvider } from './app/provider/ThemeProvider';
 
+import 'app/styles/index.scss';
+
 render(
   <BrowserRouter>
     <ErrorBoundary>

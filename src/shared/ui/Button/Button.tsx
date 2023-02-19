@@ -1,10 +1,11 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
 
 import cls from './Button.module.scss';
 
 export const ButtonTheme = {
   CLEAR: 'clear',
+  CLEAR_INVERTED: 'clearInverted',
   OUTLINE: 'outline',
   BACKGROUND: 'background',
   BACKGROUND_INVERTED: 'backgroundInverted',
