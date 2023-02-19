@@ -22,7 +22,9 @@ export const Navbar = ({ className }: NavbarProps) => {
       <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onToggleModal}>
         {t('signIn')}
       </Button>
-      <Modal isOpen={isAuthModal} onClose={onToggleModal} />
+      <Modal isOpen={isAuthModal} onClose={onToggleModal}>
+        dsfsdfsdfsdfsdfsdfsdf
+      </Modal>
     </div>
   );
 };

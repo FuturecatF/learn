@@ -5,4 +5,8 @@ module.exports = {
   core: {
     builder: '@storybook/builder-webpack5',
   },
+  env: (config) => ({
+    ...config,
+    __IS_DEV__: true,
+  }),
 };

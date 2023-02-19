@@ -1,9 +1,7 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta, addDecorator } from '@storybook/react';
-import { PageLoader } from 'widgets';
-
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/provider/ThemeProvider';
+import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {
