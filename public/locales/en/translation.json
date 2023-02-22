@@ -12,8 +12,11 @@
     "reloadButton": "Reload page"
   },
   "signIn": "Sign In",
+  "signOut": "Sign Out",
   "loginForm": {
+    "title": "Authorization form",
     "username": "Enter username",
-    "password": "Enter password"
+    "password": "Enter password",
+    "error": "You entered an incorrect login or password"
   }
 }

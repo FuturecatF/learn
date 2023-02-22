@@ -6,7 +6,9 @@
   "languageShort": "languageShort",
   "login": "login",
   "loginForm": {
+    "error": "",
     "password": "password",
+    "title": "",
     "username": "username"
   },
   "mainPage": {
@@ -20,6 +22,7 @@
     "title": "title"
   },
   "signIn": "signIn",
+  "signOut": "signOut",
   "someError": {
     "reloadButton": "reloadButton",
     "reloadPage": "reloadPage",
