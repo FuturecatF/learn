@@ -18,6 +18,6 @@ export const parameters = {
 
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
+addDecorator(StoreDecorator({ user: { authData: { username: 'user', password: '123' } } }));
 addDecorator(RouterDecorator);
 addDecorator(TranslateDecorator);
-addDecorator(StoreDecorator);
