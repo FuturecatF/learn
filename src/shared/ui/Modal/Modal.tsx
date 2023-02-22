@@ -1,5 +1,5 @@
 import React, {
-  MouseEvent, ReactNode, useEffect, useRef, useState, useCallback,
+  MouseEvent, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
 import { Portal } from 'shared';
@@ -22,19 +22,25 @@ export const Modal = ({
   const { theme } = useTheme();
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [isOpening, setIsOpening] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     if (isOpen) {
       setIsMounted(true);
+      timerRef.current = setTimeout(() => {
+        setIsOpening(true);
+      }, ANIMATION_DELAY);
     }
   }, [isOpen]);
 
   const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
+
       timerRef.current = setTimeout(() => {
         onClose();
+        setIsOpening(false);
         setIsClosing(false);
       }, ANIMATION_DELAY);
     }
@@ -45,7 +51,7 @@ export const Modal = ({
   };
 
   const mods: Record<string, boolean> = {
-    [cls.opened]: isOpen,
+    [cls.opened]: isOpening,
     [cls.isClosing]: isClosing,
   };
 
