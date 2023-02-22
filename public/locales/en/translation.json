@@ -10,5 +10,10 @@
   "pageError": {
     "title": "An unexpected error occurred",
     "reloadButton": "Reload page"
+  },
+  "signIn": "Sign In",
+  "loginForm": {
+    "username": "Enter username",
+    "password": "Enter password"
   }
 }

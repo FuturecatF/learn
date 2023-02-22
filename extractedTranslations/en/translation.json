@@ -5,6 +5,10 @@
   "language": "language",
   "languageShort": "languageShort",
   "login": "login",
+  "loginForm": {
+    "password": "password",
+    "username": "username"
+  },
   "mainPage": {
     "title": "title"
   },
@@ -21,5 +25,8 @@
     "reloadPage": "reloadPage",
     "title": "title",
     "titled": "titled"
-  }
+  },
+  "Введите имя": "Введите имя",
+  "Введите пароль": "Введите пароль",
+  "Имя пользователя": "Имя пользователя"
 }
