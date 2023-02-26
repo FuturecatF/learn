@@ -45,6 +45,7 @@ export const Button = ({
     [cls[size]]: size,
     [cls.disabled]: disabled,
   };
+
   return (
     <button
       className={classNames(cls.button, mods, [cls[theme], className])}
