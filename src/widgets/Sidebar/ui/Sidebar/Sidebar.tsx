@@ -1,21 +1,17 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LanguageSwitcher } from 'widgets';
-import {
-  Button, ButtonTheme, ButtonSize, Applink, AppLinkTheme,
-} from 'shared';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import AboutIcon from 'shared/assets/icons/about-20-20.svg';
-import MainIcon from 'shared/assets/icons/main-20-20.svg';
+import { Button, ButtonSize, ButtonTheme } from 'shared';
+import { SidebarItemList } from 'widgets/Sidebar/model/items';
+import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;
 }
-export const Sidebar = ({ className }: SidebarProps) => {
-  const [collapsed, setCollapsed] = useState<boolean>(false);
-
+export const Sidebar = memo(({ className }: SidebarProps) => {
+  const [collapsed, setCollapsed] = useState(false);
   const onToggle = async () => {
     setCollapsed((state) => !state);
   };
@@ -33,14 +29,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.links}>
-        <Applink to={RoutePath.main} className={cls.link} theme={AppLinkTheme.SECONDARY}>
-          <MainIcon className={cls.icon} />
-          {collapsed ? '' : 'Главная'}
-        </Applink>
-        <Applink to={RoutePath.about} className={cls.link} theme={AppLinkTheme.SECONDARY}>
-          <AboutIcon className={cls.icon} />
-          {collapsed ? '' : 'О сайте'}
-        </Applink>
+        {SidebarItemList.map((link) => (
+          <SidebarItem key={link.path} item={link} collapsed={collapsed} />
+        ))}
       </div>
 
       <div className={cls.switchers}>
@@ -49,4 +40,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </div>
     </div>
   );
-};
+});

@@ -31,6 +31,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Олег",
+    "lastname": "",
+    "age": 33,
+    "currency": "EVER",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "Futurecat",
+    "avatar": "https://cspromogame.ru//storage/upload_images/avatars/3903.jpg"
   }
 }

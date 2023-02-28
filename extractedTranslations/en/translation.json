@@ -21,6 +21,9 @@
     "reloadButton": "reloadButton",
     "title": "title"
   },
+  "profilePage": {
+    "title": "title"
+  },
   "signIn": "signIn",
   "signOut": "signOut",
   "someError": {

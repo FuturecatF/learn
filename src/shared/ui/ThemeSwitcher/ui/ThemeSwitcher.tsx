@@ -5,11 +5,12 @@ import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import { Button } from 'shared';
 import { ButtonTheme } from 'shared/ui/Button/Button';
 import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
+import { memo } from 'react';
 
 interface ThemeSwitcherProps {
   className?: string;
 }
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
   return (
     <div className={classNames('', {}, [className])}>
@@ -18,4 +19,4 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       </Button>
     </div>
   );
-};
+});
