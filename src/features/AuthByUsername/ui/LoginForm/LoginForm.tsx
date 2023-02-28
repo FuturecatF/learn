@@ -38,7 +38,6 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     },
     [dispatch],
   );
-
   const onChangePasswordHandler = useCallback(
     (value: string) => {
       dispatch(loginActions.setPassword(value));
