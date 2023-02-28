@@ -1,5 +1,12 @@
 import {
-  ChangeEvent, InputHTMLAttributes, memo, SyntheticEvent, useEffect, useRef, useState,
+  ChangeEvent,
+  InputHTMLAttributes,
+  memo,
+  MutableRefObject,
+  SyntheticEvent,
+  useEffect,
+  useRef,
+  useState,
 } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
 
@@ -19,7 +26,7 @@ export const Input = memo(
   ({
     className, value, onChange, type = 'text', placeholder, autoFocus, ...otherProps
   }: InputProps) => {
-    const ref = useRef<HTMLInputElement>();
+    const ref = useRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
     const [isFocused, setIsFocused] = useState(false);
     const [carriagePosition, setCarriagePosition] = useState(0);
 
@@ -44,7 +51,9 @@ export const Input = memo(
     };
 
     const onSelect = (event: SyntheticEvent<HTMLInputElement, Event>) => {
-      setCarriagePosition(event.currentTarget.selectionStart);
+      if (event.currentTarget.selectionStart) {
+        setCarriagePosition(event.currentTarget.selectionStart);
+      }
     };
 
     return (

@@ -35,16 +35,18 @@ module.exports = {
     'react/jsx-curly-brace-presence': 'off',
     'implicit-arrow-linebreak': 'off',
     'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
-    'max-len': ['error', { code: 120, ignoreComments: true }],
+    'max-len': ['error', { code: 140, ignoreComments: true }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
     // TODO next 2 rules
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
+    'no-undef': 'off',
   },
   globals: {
     __IS_DEV__: true,
+    __API__: true,
   },
   overrides: [
     {

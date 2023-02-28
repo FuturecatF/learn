@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta, addDecorator } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PageLoader } from 'widgets';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';

@@ -1,5 +1,5 @@
 import React, {
-  MouseEvent, ReactNode, useCallback, useEffect, useRef, useState,
+  MouseEvent, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
 import { Portal } from 'shared';
@@ -23,7 +23,7 @@ export const Modal = ({
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout>>() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   useEffect(() => {
     if (isOpen) {

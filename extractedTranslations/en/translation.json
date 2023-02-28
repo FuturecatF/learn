@@ -2,8 +2,11 @@
   "aboutPage": {
     "title": "title"
   },
+  "edit": "edit",
+  "firstname": "firstname",
   "language": "language",
   "languageShort": "languageShort",
+  "lastname": "lastname",
   "login": "login",
   "loginForm": {
     "error": "",
@@ -21,6 +24,7 @@
     "reloadButton": "reloadButton",
     "title": "title"
   },
+  "profile": "profile",
   "profilePage": {
     "title": "title"
   },

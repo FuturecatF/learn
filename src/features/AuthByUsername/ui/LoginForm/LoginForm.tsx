@@ -57,18 +57,18 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={classNames(cls.loginForm, {}, [className])}>
-        <Text title={t('loginForm.title')} />
-        {error && <Text text={t('loginForm.error')} variant={TextVariant.ERROR} />}
+        <Text title={t<string>('loginForm.title')} />
+        {error && <Text text={t<string>('loginForm.error')} variant={TextVariant.ERROR} />}
         <Input
           className={cls.input}
-          placeholder={t('loginForm.username')}
+          placeholder={t<string>('loginForm.username')}
           value={username}
           onChange={onChangeUsernameHandler}
           autoFocus
         />
         <Input
           className={cls.input}
-          placeholder={t('loginForm.password')}
+          placeholder={t<string>('loginForm.password')}
           value={password}
           onChange={onChangePasswordHandler}
         />

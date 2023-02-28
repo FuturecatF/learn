@@ -31,29 +31,31 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSizeTypes;
 }
 
-export const Button = memo(({
-  className,
-  children,
-  square,
-  size = ButtonSize.M,
-  theme,
-  disabled,
-  ...props
-}: ButtonProps) => {
-  const mods = {
-    [cls.square]: square,
-    [cls[size]]: size,
-    [cls.disabled]: disabled,
-  };
+export const Button = memo(
+  ({
+    className,
+    children,
+    square,
+    size = ButtonSize.M,
+    theme = ButtonTheme.OUTLINE,
+    disabled,
+    ...props
+  }: ButtonProps) => {
+    const mods = {
+      [cls.square]: square,
+      [cls[size]]: size,
+      [cls.disabled]: disabled,
+    };
 
-  return (
-    <button
-      className={classNames(cls.button, mods, [cls[theme], className])}
-      type="button"
-      disabled={disabled}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-});
+    return (
+      <button
+        className={classNames(cls.button, mods, [cls[theme], className])}
+        type="button"
+        disabled={disabled}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  },
+);
