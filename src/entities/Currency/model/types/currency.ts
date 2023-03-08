@@ -4,7 +4,4 @@ export const CURRENCY = {
   EUR: 'EUR',
 } as const;
 
-export const COUNTRY = {
-  Russia: 'Russia',
-  Belarus: 'Belarus',
-} as const;
+export type CurrencyType = ValueOf<typeof CURRENCY>;

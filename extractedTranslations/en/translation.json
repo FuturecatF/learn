@@ -1,7 +1,14 @@
 {
+  "Age": "Age",
+  "Avatar": "Avatar",
+  "City": "City",
+  "Firstname": "Firstname",
+  "Lastname": "Lastname",
+  "Username": "Username",
   "aboutPage": {
     "title": "title"
   },
+  "cancel": "cancel",
   "edit": "edit",
   "firstname": "firstname",
   "language": "language",
@@ -28,6 +35,7 @@
   "profilePage": {
     "title": "title"
   },
+  "save": "save",
   "signIn": "signIn",
   "signOut": "signOut",
   "someError": {
@@ -38,5 +46,7 @@
   },
   "Введите имя": "Введите имя",
   "Введите пароль": "Введите пароль",
-  "Имя пользователя": "Имя пользователя"
+  "Имя пользователя": "Имя пользователя",
+  "Укажите валюту": "Укажите валюту",
+  "Укажите страну": "Укажите страну"
 }
