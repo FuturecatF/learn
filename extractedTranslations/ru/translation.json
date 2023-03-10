@@ -3,8 +3,12 @@
   "Avatar": "Avatar",
   "City": "City",
   "Firstname": "Firstname",
+  "Incorrect country": "Incorrect country",
   "Lastname": "Lastname",
+  "No data": "No data",
   "Username": "Username",
+  "Wrong age": "Wrong age",
+  "Wrong user data": "Wrong user data",
   "aboutPage": {
     "title": "title"
   },
@@ -36,6 +40,7 @@
     "title": "title"
   },
   "save": "save",
+  "server error": "server error",
   "signIn": "signIn",
   "signOut": "signOut",
   "someError": {

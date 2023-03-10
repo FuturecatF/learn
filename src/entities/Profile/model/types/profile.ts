@@ -1,5 +1,6 @@
 import { CURRENCY } from 'entities/Currency/model/types/currency';
 import { COUNTRY } from 'entities/Country/model/types/country';
+import { ValidateProfileError } from 'entities/Profile/model/services/validateProfileData/validateProfileData';
 
 type ValueOf<T> = T[keyof T];
 
@@ -23,4 +24,5 @@ export interface ProfileSchema {
   isLoading: boolean;
   error?: string;
   readonly: boolean;
+  validateErrors?: ValidateProfileError[];
 }

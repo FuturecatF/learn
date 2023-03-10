@@ -3,11 +3,11 @@ import { classNames } from 'shared/config/theme/lib/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   fetchProfileData,
-  getProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
   getProfileReadonly,
+  getProfileValidationErrors,
   profileActions,
   ProfileCard,
   profileReducer,
@@ -17,6 +17,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { CurrencyType } from 'entities/Currency/model/types/currency';
 import { CountryType } from 'entities/Country';
+import { Text, TextVariant } from 'shared';
+import { VALIDATE_PROFILE_ERROR } from 'entities/Profile/model/services/validateProfileData/validateProfileData';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -33,9 +35,20 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
+  const validationErrors = useSelector(getProfileValidationErrors);
+
+  const validateErrorTranslates = {
+    [VALIDATE_PROFILE_ERROR.SERVER_ERROR]: t('server error'),
+    [VALIDATE_PROFILE_ERROR.NO_DATA]: t('No data'),
+    [VALIDATE_PROFILE_ERROR.INCORRECT_COUNTRY]: t('Incorrect country'),
+    [VALIDATE_PROFILE_ERROR.INCORRECT_USER_DATA]: t('Wrong user data'),
+    [VALIDATE_PROFILE_ERROR.INCORRECT_AGE]: t('Wrong age'),
+  };
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const onChangeFirstnameHandler = useCallback(
@@ -100,6 +113,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames('', {}, [className])}>
         <ProfilePageHeader />
+        {validationErrors?.length
+          && validationErrors.map((error) => (
+            <Text variant={TextVariant.ERROR} key={error} text={validateErrorTranslates[error]} />
+          ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}
