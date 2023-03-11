@@ -26,7 +26,8 @@
     "username": "username"
   },
   "mainPage": {
-    "title": "title"
+    "title": "title",
+    "titlea": "titlea"
   },
   "notFoundPage": {
     "title": "title"

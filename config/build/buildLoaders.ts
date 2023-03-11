@@ -2,21 +2,12 @@ import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export const buildLoaders = ({ isDev }: BuildOptions): webpack.RuleSetRule[] => {
-  const babelPlugins: any = [];
+export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
+  const { isDev } = options;
 
-  const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: [['@babel/preset-env', { targets: 'defaults' }]],
-        plugins: babelPlugins,
-      },
-    },
-  };
+  const babelLoader = buildBabelLoader(options);
 
   const typescriptLoader = {
     test: /\.tsx?$/,
@@ -36,17 +27,6 @@ export const buildLoaders = ({ isDev }: BuildOptions): webpack.RuleSetRule[] => 
   };
 
   const cssLoaders = buildCssLoader(isDev);
-
-  if (isDev) {
-    babelLoader.use.options.plugins.push([
-      'i18next-extract',
-      {
-        nsSeparator: '~',
-        locales: ['ru', 'en'],
-        keyAsDefaultValue: true,
-      },
-    ]);
-  }
 
   return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoaders];
 };
