@@ -3,8 +3,8 @@ import { classNames } from 'shared/config/theme/lib/classNames';
 
 import { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
-import { Text } from 'shared';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Button, Text } from 'shared';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
@@ -14,6 +14,7 @@ import { fetchCommentsByArticleId } from 'pages/ArticleDetailPage/model/services
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { addCommentForArticle } from 'pages/ArticleDetailPage/model/services/addCommentForArticle/addCommentForArticle';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -27,6 +28,7 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article');
   const { articleId } = useParams();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);
   const isLoadingComments = useSelector(getArticleCommentsIsLoading);
@@ -42,9 +44,14 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     [dispatch],
   );
 
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+        <Button onClick={onBackToList}>{t('backward')}</Button>
         <ArticleDetails articleId={articleId} />
         <Text className={cls.commentTitle} title={t<string>('Комментарии')} />
         <AddCommentForm onSendComment={onSendCommentHandler} />

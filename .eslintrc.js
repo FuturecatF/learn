@@ -44,6 +44,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'no-undef': 'off',
     'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
+    'react/no-array-index-key': 'off',
   },
   globals: {
     __IS_DEV__: true,

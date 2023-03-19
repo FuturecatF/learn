@@ -1,3 +1,5 @@
+import { User } from 'entities/User';
+
 export const ARTICLE_BLOCK_TYPES = {
   TEXT: 'TEXT',
   CODE: 'CODE',
@@ -46,5 +48,13 @@ export interface Article {
   views: number;
   createdAt: string;
   type: ArticleTypes[];
+  user: User;
   blocks: ArticleBlock[];
 }
+
+export const ARTICLE_VIEW = {
+  LIST: 'LIST',
+  TILE: 'TILE',
+} as const;
+
+export type ArticleViewType = ValueOf<typeof ARTICLE_VIEW>;

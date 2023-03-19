@@ -1,13 +1,9 @@
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/config/theme/lib/classNames';
-
-import { Article, ArticleList } from 'entities/Article';
-import cls from './ArticlesPage.module.scss';
-
-interface ArticlesPageProps {
-  className?: string;
-}
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
+import { Article, ARTICLE_VIEW } from 'entities/Article';
+import { ArticleListItem } from './ArticleListItem';
 
 const article = {
   id: '1',
@@ -82,23 +78,24 @@ const article = {
       ],
     },
   ],
+} as Article;
+
+export default {
+  title: 'entities/Article/ArticleListItem',
+  component: ArticleListItem,
+} as ComponentMeta<typeof ArticleListItem>;
+
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+
+export const List = Template.bind({});
+List.args = {
+  view: ARTICLE_VIEW.LIST,
+  article,
 };
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
-  const { t } = useTranslation('article');
-
-  const articles: Article[] = new Array(16).fill(0).map(
-    (item, index) =>
-      ({
-        ...article,
-        id: String(index),
-      } as Article),
-  );
-  return (
-    <div className={classNames(cls.articlesPage, {}, [className])}>
-      <ArticleList articles={articles} isLoading />
-    </div>
-  );
+export const Tile = Template.bind({});
+Tile.args = {
+  view: ARTICLE_VIEW.TILE,
+  article,
 };
-
-export default memo(ArticlesPage);
+Tile.decorators = [ThemeDecorator(Theme.DARK)];

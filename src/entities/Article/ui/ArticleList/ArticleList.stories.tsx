@@ -1,13 +1,9 @@
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/config/theme/lib/classNames';
-
-import { Article, ArticleList } from 'entities/Article';
-import cls from './ArticlesPage.module.scss';
-
-interface ArticlesPageProps {
-  className?: string;
-}
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
+import { Article, ARTICLE_VIEW } from 'entities/Article';
+import { ArticleList } from './ArticleList';
 
 const article = {
   id: '1',
@@ -82,23 +78,45 @@ const article = {
       ],
     },
   ],
+} as Article;
+
+export default {
+  title: 'entities/Article/ArticleList',
+  component: ArticleList,
+} as ComponentMeta<typeof ArticleList>;
+
+const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+
+export const PrimaryList = Template.bind({});
+PrimaryList.args = {
+  articles: [article, article, article, article],
+  view: ARTICLE_VIEW.LIST,
 };
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
-  const { t } = useTranslation('article');
-
-  const articles: Article[] = new Array(16).fill(0).map(
-    (item, index) =>
-      ({
-        ...article,
-        id: String(index),
-      } as Article),
-  );
-  return (
-    <div className={classNames(cls.articlesPage, {}, [className])}>
-      <ArticleList articles={articles} isLoading />
-    </div>
-  );
+export const PrimaryTile = Template.bind({});
+PrimaryTile.args = {
+  articles: [article, article, article, article],
+  view: ARTICLE_VIEW.TILE,
 };
 
-export default memo(ArticlesPage);
+export const PrimaryTileMono = Template.bind({});
+PrimaryTileMono.args = {
+  articles: [article, article, article, article],
+  view: ARTICLE_VIEW.TILE,
+};
+PrimaryTileMono.decorators = [ThemeDecorator(Theme.MONO)];
+
+export const isLoadingList = Template.bind({});
+isLoadingList.args = {
+  isLoading: true,
+  articles: [],
+  view: ARTICLE_VIEW.LIST,
+};
+
+export const isLoadingTile = Template.bind({});
+isLoadingTile.args = {
+  isLoading: true,
+  articles: [],
+  view: ARTICLE_VIEW.TILE,
+};
+isLoadingTile.decorators = [ThemeDecorator(Theme.DARK)];

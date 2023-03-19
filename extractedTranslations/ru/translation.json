@@ -15,6 +15,7 @@
     "title": "title"
   },
   "addCommentText": "addCommentText",
+  "backward": "backward",
   "cancel": "cancel",
   "edit": "edit",
   "firstname": "firstname",
@@ -42,6 +43,13 @@
   "profile": "profile",
   "profilePage": {
     "title": "title"
+  },
+  "readMore": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
   },
   "save": "save",
   "server error": "server error",

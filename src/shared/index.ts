@@ -11,3 +11,5 @@ export { Select } from './ui/Select/Select';
 export { Skeleton } from './ui/Skeleton/Skeleton';
 export { Icon } from './ui/Icon/Icon';
 export { Code } from './ui/Code/Code';
+export { Card } from './ui/Card/Card';
+export { useHover } from './lib/hooks/useHover/useHover';

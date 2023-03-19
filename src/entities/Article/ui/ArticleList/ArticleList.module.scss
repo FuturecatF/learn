@@ -1,0 +1,12 @@
+.tile {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 32px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}

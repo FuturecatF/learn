@@ -14,9 +14,8 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
+      "userId": "1",
       "blocks": [
         {
           "id": "1",
