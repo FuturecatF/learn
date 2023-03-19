@@ -5,7 +5,7 @@ import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
 import { CommentCard } from './CommentCard';
 
 export default {
-  title: 'pages/CommentCard',
+  title: 'entities/Comment/CommentCard',
   component: CommentCard,
 } as ComponentMeta<typeof CommentCard>;
 

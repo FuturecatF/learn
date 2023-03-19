@@ -7,12 +7,14 @@
   "Incorrect country": "Incorrect country",
   "Lastname": "Lastname",
   "No data": "No data",
+  "Send": "Send",
   "Username": "Username",
   "Wrong age": "Wrong age",
   "Wrong user data": "Wrong user data",
   "aboutPage": {
     "title": "title"
   },
+  "addCommentText": "addCommentText",
   "cancel": "cancel",
   "edit": "edit",
   "firstname": "firstname",

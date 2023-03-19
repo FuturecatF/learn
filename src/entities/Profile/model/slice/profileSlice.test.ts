@@ -13,6 +13,7 @@ const data = {
   city: 'Moscow',
   currency: CURRENCY.USD,
   first: 'first',
+  id: '1',
 };
 
 describe('profileSlice.test', () => {
@@ -55,7 +56,8 @@ describe('profileSlice.test', () => {
       isLoading: true,
       validateErrors: [VALIDATE_PROFILE_ERROR.SERVER_ERROR],
     };
-    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data, ''))).toEqual({
+    // @ts-ignore
+    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data))).toEqual({
       isLoading: false,
       validateErrors: undefined,
       readonly: true,

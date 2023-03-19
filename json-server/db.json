@@ -14,7 +14,9 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -95,6 +97,36 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdasdasd",
+      "id": "yTrfnGR"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "asdasd",
+      "id": "Y0t4xzB"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "1",
+      "id": "MaU2Zw7"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "2",
+      "id": "EY_oDLY"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "3",
+      "id": "PqQ6L77"
     }
   ],
   "users": [
@@ -113,14 +145,28 @@
       "avatar": "https://cspromogame.ru//storage/upload_images/avatars/3903.jpg"
     }
   ],
-  "profile": {
-    "first": "Oleg",
-    "lastname": "Kotikov",
-    "age": 18,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "FuturecatF",
-    "avatar": "https://cspromogame.ru//storage/upload_images/avatars/3903.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Oleg",
+      "lastname": "Kotikov",
+      "age": 18,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "FuturecatF",
+      "avatar": "https://cspromogame.ru//storage/upload_images/avatars/5183.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Ivan",
+      "lastname": "Ivanov",
+      "age": 88,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "Vanya404",
+      "avatar": "https://cspromogame.ru//storage/upload_images/avatars/3903.jpg"
+    }
+  ]
 }

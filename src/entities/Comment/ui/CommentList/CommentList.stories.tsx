@@ -5,15 +5,41 @@ import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
 import { CommentList } from './CommentList';
 
 export default {
-  title: 'pages/CommentList',
+  title: 'entities/Comment/CommentList',
   component: CommentList,
 } as ComponentMeta<typeof CommentList>;
 
 const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  comments: [
+    {
+      id: '1',
+      text: 'hello world',
+      user: {
+        id: 1,
+        username: 'Vasya',
+      },
+    },
+    {
+      id: '2',
+      text: 'hello world',
+      user: {
+        id: 2,
+        username: 'Ksusha',
+      },
+    },
+  ],
+};
 
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const WithoutComments = Template.bind({});
+WithoutComments.args = {};
+WithoutComments.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Loading = Template.bind({});
+Loading.args = {
+  isLoading: true,
+  comments: [],
+};
+Loading.decorators = [ThemeDecorator(Theme.MONO)];

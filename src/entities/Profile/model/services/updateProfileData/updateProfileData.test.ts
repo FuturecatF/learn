@@ -1,4 +1,4 @@
-import { fetchProfileData, updateProfileData } from 'entities/Profile';
+import { updateProfileData } from 'entities/Profile';
 
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
@@ -14,6 +14,7 @@ const data = {
   city: 'Moscow',
   currency: CURRENCY.USD,
   first: 'first',
+  id: '1',
 };
 
 jest.mock('axios');

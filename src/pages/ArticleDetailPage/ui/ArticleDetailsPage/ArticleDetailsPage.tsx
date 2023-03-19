@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
 
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared';
@@ -12,6 +12,8 @@ import { getArticleCommentsError, getArticleCommentsIsLoading } from 'pages/Arti
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { addCommentForArticle } from 'pages/ArticleDetailPage/model/services/addCommentForArticle/addCommentForArticle';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -32,11 +34,20 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(articleId));
   });
+
+  const onSendCommentHandler = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch],
+  );
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.articleDetailsPage, {}, [className])}>
         <ArticleDetails articleId={articleId} />
         <Text className={cls.commentTitle} title={t<string>('Комментарии')} />
+        <AddCommentForm onSendComment={onSendCommentHandler} />
         <CommentList comments={comments} isLoading={isLoadingComments} />
       </div>
     </DynamicModuleLoader>

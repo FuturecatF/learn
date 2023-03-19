@@ -12,7 +12,7 @@ export type AppRouteProps = RouteProps & {
 export const AppRoutes = {
   MAIN: 'main',
   ABOUT: 'about',
-  PROFILE: 'profile',
+  PROFILE: 'profile', // + :id
   ARTICLES: 'articles',
   ARTICLE_DETAILS: 'article_details',
   // last
@@ -43,7 +43,7 @@ export const routeConfig: Record<AppRoutesPaths, AppRouteProps> = {
     element: <AboutPageAsync />,
   },
   [AppRoutes.PROFILE]: {
-    path: RoutePath.profile,
+    path: `${RoutePath.profile}/:userId`,
     element: <ProfilePageLazy />,
     authOnly: true,
   },
