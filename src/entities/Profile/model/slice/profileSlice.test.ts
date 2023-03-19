@@ -56,8 +56,7 @@ describe('profileSlice.test', () => {
       isLoading: true,
       validateErrors: [VALIDATE_PROFILE_ERROR.SERVER_ERROR],
     };
-    // @ts-ignore
-    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data))).toEqual({
+    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data, ''))).toEqual({
       isLoading: false,
       validateErrors: undefined,
       readonly: true,
