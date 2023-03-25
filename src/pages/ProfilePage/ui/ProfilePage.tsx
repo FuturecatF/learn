@@ -17,7 +17,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { CurrencyType } from 'entities/Currency/model/types/currency';
 import { CountryType } from 'entities/Country';
-import { Text, TextVariant } from 'shared';
+import { Page, Text, TextVariant } from 'shared';
 import { VALIDATE_PROFILE_ERROR } from 'entities/Profile/model/services/validateProfileData/validateProfileData';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
@@ -114,7 +114,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames('', {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         <ProfilePageHeader />
         {validationErrors?.length
           && validationErrors.map((error) => (
@@ -134,7 +134,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           onChangeCountry={onChangeCountryHandler}
           readonly={readonly}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

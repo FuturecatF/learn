@@ -4,7 +4,7 @@ import { classNames } from 'shared/config/theme/lib/classNames';
 import { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Text } from 'shared';
+import { Button, Page, Text } from 'shared';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
@@ -48,15 +48,19 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     navigate(RoutePath.articles);
   }, [navigate]);
 
+  if (!articleId) {
+    return <Page className={classNames(cls.articleDetailsPage, {}, [className])}>{t('notFoundArticle')}</Page>;
+  }
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
         <Button onClick={onBackToList}>{t('backward')}</Button>
         <ArticleDetails articleId={articleId} />
         <Text className={cls.commentTitle} title={t<string>('Комментарии')} />
         <AddCommentForm onSendComment={onSendCommentHandler} />
         <CommentList comments={comments} isLoading={isLoadingComments} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

@@ -30,15 +30,16 @@ export const ArticleList = memo(function ArticleList({
 
   const renderArticle = (article: Article) => <ArticleListItem key={article.id} article={article} view={view} />;
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.articleList, {}, [className, cls[view?.toLowerCase()]])}>{getSkeletons(view)}</div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className={classNames(cls.articleList, {}, [className, cls[view?.toLowerCase()]])}>{getSkeletons(view)}</div>
+  //   );
+  // }
 
   return (
     <div className={classNames(cls.articleList, {}, [className, cls[view?.toLowerCase()]])}>
       {articles.length > 0 && articles.map(renderArticle)}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 });

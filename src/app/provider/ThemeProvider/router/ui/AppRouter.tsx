@@ -6,8 +6,8 @@ import { ProtectedRouter } from 'app/provider/ThemeProvider/router/ui/ProtectedR
 
 export const AppRouter = memo(() => {
   const renderWithWrapper = useCallback((route: AppRouteProps) => {
-    const element = <div className="page-wrapper">{route.element}</div>;
-
+    // const element = <div className={'content-page'}>{route.element}</div>;
+    const element = <Suspense fallback={<PageLoader />}>{route.element}</Suspense>;
     return (
       <Route
         key={route.path}
@@ -17,9 +17,5 @@ export const AppRouter = memo(() => {
     );
   }, []);
 
-  return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>
-    </Suspense>
-  );
+  return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
 });
