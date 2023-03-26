@@ -9,7 +9,8 @@ i18n
   .use(LanguageDetector)
   .init({
     fallbackLng: 'ru',
-    debug: __IS_DEV__,
+    // debug: __IS_DEV__,
+    debug: false,
     interpolation: {
       escapeValue: false,
     },

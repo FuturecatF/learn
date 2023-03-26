@@ -13,5 +13,7 @@ export { Icon } from './ui/Icon/Icon';
 export { Code } from './ui/Code/Code';
 export { Card } from './ui/Card/Card';
 export { useHover } from './lib/hooks/useHover/useHover';
-export { Page } from './ui/Page/Page';
+export { Page } from '../widgets/Page/Page';
 export { useInfinityScroll } from './lib/hooks/useInfinityScroll/useInfinityScroll';
+export { useThrottle } from './lib/hooks/useThrottle/useThrottle';
+export { useInitialEffect } from './lib/hooks/useInitialEffect/useInitialEffect';

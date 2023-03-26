@@ -1,0 +1,46 @@
+import {
+  memo, MutableRefObject, ReactNode, useRef, UIEvent,
+} from 'react';
+import { classNames } from 'shared/config/theme/lib/classNames';
+
+import { useInfinityScroll, useInitialEffect, useThrottle } from 'shared';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getScrollByPath, scrollRestoreActions } from 'features/scrollRestore';
+import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { StateSchema } from 'app/provider/StoreProvider';
+import cls from './Page.module.scss';
+
+interface PageProps {
+  className?: string;
+  children: ReactNode;
+  onScrollEnd?: () => void;
+}
+
+export const Page = memo(function Page({ className, children, onScrollEnd }: PageProps) {
+  const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const dispatch = useAppDispatch();
+  const location = useLocation();
+  const scrollPosition = useSelector((state: StateSchema) => getScrollByPath(state, location.pathname));
+
+  useInfinityScroll({ triggerRef, wrapperRef, callback: onScrollEnd });
+
+  useInitialEffect(() => {
+    wrapperRef.current.scrollTop = scrollPosition;
+  });
+
+  const scrollPageHandler = useThrottle((event: UIEvent<HTMLDivElement>) => {
+    console.log('SCROLL');
+    dispatch(
+      scrollRestoreActions.setScrollPosition({ path: location.pathname, position: event.currentTarget.scrollTop }),
+    );
+  }, 2000);
+
+  return (
+    <section ref={wrapperRef} onScroll={scrollPageHandler} className={classNames(cls.page, {}, [className])}>
+      {children}
+      <div ref={triggerRef} />
+    </section>
+  );
+});

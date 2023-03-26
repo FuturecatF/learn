@@ -10,19 +10,17 @@ import {
   getArticles,
 } from 'pages/ArticlesPage/ui/ArticlesPage/model/slice/articlesPageSlice';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchArticlesList } from 'pages/ArticlesPage/ui/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
-  getArticlesPageError, getArticlesPageHasMore,
+  getArticlesPageError,
+  getArticlesPageInited,
   getArticlesPageIsLoading,
-  getArticlesPageNumber,
   getArticlesPageView,
 } from 'pages/ArticlesPage/ui/ArticlesPage/model/selectors/articlesPageSelectors';
 import { Page } from 'shared';
-import {
-  fetchNextArticlePage,
-} from 'pages/ArticlesPage/ui/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { fetchNextArticlePage } from 'pages/ArticlesPage/ui/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { initArticlesPage } from 'pages/ArticlesPage/ui/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import cls from './ArticlesPage.module.scss';
 
 const reducers: ReducersList = {
@@ -38,6 +36,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
+  const inited = useSelector(getArticlesPageInited);
   const error = useSelector(getArticlesPageError);
 
   const onChangeViewHandler = useCallback(
@@ -48,12 +47,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   );
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(
-      fetchArticlesList({
-        page: 1,
-      }),
-    );
+    dispatch(initArticlesPage());
   });
 
   const onLoadNextPart = useCallback(() => {

@@ -16,12 +16,18 @@ interface DynamicModuleLoaderProps {
   removeAfterUnmount?: boolean;
 }
 
-export const DynamicModuleLoader = ({ children, reducers, removeAfterUnmount = true }: DynamicModuleLoaderProps) => {
+export const DynamicModuleLoader = ({ children, reducers, removeAfterUnmount = false }: DynamicModuleLoaderProps) => {
   const dispatch = useDispatch();
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
+    const mountedReducers = store.reducerManager.getMountedReducers();
     Object.entries(reducers).forEach(([name, reducer]) => {
+      const mounted = mountedReducers[name as StateSchemaKey];
+      if (mounted) {
+        return;
+      }
+
       store.reducerManager.add(name as StateSchemaKey, reducer);
       dispatch({ type: `@INIT ${name} reducer` });
     });
