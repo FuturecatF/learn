@@ -5,6 +5,7 @@ import { classNames } from 'shared/config/theme/lib/classNames';
 import { Article, ARTICLE_VIEW } from 'entities/Article';
 import { ArticleViewType } from 'entities/Article/model/types/article';
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
+import { Text, TextSize } from 'shared';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
 
@@ -30,11 +31,9 @@ export const ArticleList = memo(function ArticleList({
 
   const renderArticle = (article: Article) => <ArticleListItem key={article.id} article={article} view={view} />;
 
-  // if (isLoading) {
-  //   return (
-  //     <div className={classNames(cls.articleList, {}, [className, cls[view?.toLowerCase()]])}>{getSkeletons(view)}</div>
-  //   );
-  // }
+  if (!isLoading && !articles.length) {
+    return <Text className={cls.notFoundArticles} title={t<string>('articlesNotFound')} size={TextSize.L} />;
+  }
 
   return (
     <div className={classNames(cls.articleList, {}, [className, cls[view?.toLowerCase()]])}>

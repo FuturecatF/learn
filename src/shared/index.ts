@@ -17,3 +17,7 @@ export { Page } from '../widgets/Page/Page';
 export { useInfinityScroll } from './lib/hooks/useInfinityScroll/useInfinityScroll';
 export { useThrottle } from './lib/hooks/useThrottle/useThrottle';
 export { useInitialEffect } from './lib/hooks/useInitialEffect/useInitialEffect';
+export { SORT_ORDER } from './types';
+export { useDebounce } from './lib/hooks/useDebounce/useDebounce';
+export { addQueryParams } from './lib/url/addQueryParams';
+export { Tabs, TabItem } from './ui/Tabs/Tabs';

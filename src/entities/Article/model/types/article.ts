@@ -1,5 +1,13 @@
 import { User } from 'entities/User';
 
+export const ARTICLE_SORT_FIELD = {
+  VIEWS: 'views',
+  TITLE: 'title',
+  CREATED: 'created',
+} as const;
+
+export type ArticleSortFields = ValueOf<typeof ARTICLE_SORT_FIELD>
+
 export const ARTICLE_BLOCK_TYPES = {
   TEXT: 'TEXT',
   CODE: 'CODE',
@@ -33,6 +41,7 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
 export const ARTICLE_TYPES = {
+  ALL: 'ALL',
   IT: 'IT',
   SCIENCE: 'SCIENCE',
   ECONOMICS: 'ECONOMICS',

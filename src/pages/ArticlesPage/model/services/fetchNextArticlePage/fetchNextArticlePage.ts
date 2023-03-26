@@ -4,9 +4,9 @@ import {
   getArticlesPageHasMore,
   getArticlesPageIsLoading,
   getArticlesPageNumber,
-} from 'pages/ArticlesPage/ui/ArticlesPage/model/selectors/articlesPageSelectors';
-import { articlesPageActions } from 'pages/ArticlesPage/ui/ArticlesPage/model/slice/articlesPageSlice';
-import { fetchArticlesList } from 'pages/ArticlesPage/ui/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { articlesPageActions } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 
 export const fetchNextArticlePage = createAsyncThunk<void, void, ThunkConfig<string>>(
   'pages/fetchNextArticlePage',
@@ -18,11 +18,7 @@ export const fetchNextArticlePage = createAsyncThunk<void, void, ThunkConfig<str
 
     if (hasMore && !isLoading) {
       dispatch(articlesPageActions.setPage(page + 1));
-      dispatch(
-        fetchArticlesList({
-          page: page + 1,
-        }),
-      );
+      dispatch(fetchArticlesList({}));
     }
   },
 );
