@@ -1,3 +1,14 @@
 {
-
+  "filter": {
+    "orders": {
+      "asc": "asc",
+      "desc": "desc"
+    },
+    "tabs": {
+      "ALL": "ALL",
+      "IT": "IT",
+      "SCIENCE": "SCIENCE",
+      "ECONOMICS": "ECONOMICS"
+    }
+  }
 }
