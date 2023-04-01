@@ -5,7 +5,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { ReactNode } from 'react';
 
 interface ProtectedRouterProps {
-  children: JSX.Element;
+  children: ReactNode;
 }
 
 export const ProtectedRouter = ({ children }: ProtectedRouterProps) => {
