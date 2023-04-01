@@ -4,6 +4,16 @@
   background: var(--inverted-bg-color);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 20px;
 }
+
+.authButton {
+  margin-left: auto;
+}
+
+.appName {
+  width: calc(var(--sidebar-width) - 35px);
+  margin-left: 15px;
+}
+

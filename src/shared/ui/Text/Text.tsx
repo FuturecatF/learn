@@ -5,6 +5,7 @@ import cls from './Text.module.scss';
 
 export const TextVariant = {
   PRIMARY: 'primary',
+  INVERTED: 'inverted',
   ERROR: 'error',
 } as const;
 

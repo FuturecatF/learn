@@ -1,10 +1,19 @@
 .title {
-
   color: var(--primary-color);
 }
 
 .text {
   color: var(--secondary-color);
+}
+
+.inverted {
+  .title {
+    color: var(--inverted-primary-color);
+  }
+
+  .text {
+    color: var(--inverted-secondary-color);
+  }
 }
 
 .error {

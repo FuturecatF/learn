@@ -5,6 +5,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePageLazy } from 'pages/ProfilePage';
 import { ArticlesPageAsync } from 'pages/ArticlesPage';
 import { ArticleDetailsPageAsync } from 'pages/ArticleDetailPage';
+import { ArticleEditPageAsync } from 'pages/ArticleEditPage';
 
 export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
@@ -15,6 +16,8 @@ export const AppRoutes = {
   PROFILE: 'profile', // + :id
   ARTICLES: 'articles',
   ARTICLE_DETAILS: 'article_details',
+  ARTICLE_CREATE: 'article_create',
+  ARTICLE_EDIT: 'article_edit',
   // last
   NOT_FOUND: 'not_found',
 } as const;
@@ -29,8 +32,9 @@ export const RoutePath: Record<AppRoutesPaths, string> = {
   [AppRoutes.PROFILE]: '/profile',
   [AppRoutes.ARTICLES]: '/articles',
   [AppRoutes.ARTICLE_DETAILS]: '/articles', // +id
+  [AppRoutes.ARTICLE_CREATE]: '/articles/create',
+  [AppRoutes.ARTICLE_EDIT]: '/articles',
   [AppRoutes.NOT_FOUND]: '*',
-
 };
 
 export const routeConfig: Record<AppRoutesPaths, AppRouteProps> = {
@@ -55,6 +59,16 @@ export const routeConfig: Record<AppRoutesPaths, AppRouteProps> = {
   [AppRoutes.ARTICLE_DETAILS]: {
     path: `${RoutePath.article_details}/:articleId`,
     element: <ArticleDetailsPageAsync />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLE_CREATE]: {
+    path: `${RoutePath.article_create}/create`,
+    element: <ArticleEditPageAsync />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLE_EDIT]: {
+    path: `${RoutePath.article_edit}/:articleId/edit`,
+    element: <ArticleEditPageAsync />,
     authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {

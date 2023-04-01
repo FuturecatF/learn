@@ -21,6 +21,7 @@ import { getArticleRecommendations } from 'pages/ArticleDetailPage/model/slice/a
 import { getArticleRecommendationsIsLoading } from 'pages/ArticleDetailPage/model/selectors/recommendations';
 import { fetchArticleRecommendatios } from 'pages/ArticleDetailPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailPage/model/slice';
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -53,10 +54,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     [dispatch],
   );
 
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
-
   if (!articleId) {
     return <Page className={classNames(cls.articleDetailsPage, {}, [className])}>{t('notFoundArticle')}</Page>;
   }
@@ -64,7 +61,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-        <Button onClick={onBackToList}>{t('backward')}</Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails articleId={articleId} />
         <Text size={TextSize.L} className={cls.commentTitle} title={t<string>('Рекомендуем')} />
         <ArticleList
