@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
 
@@ -19,6 +19,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleViewType;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo(function ArticleList({
@@ -26,10 +27,13 @@ export const ArticleList = memo(function ArticleList({
   articles,
   view = ARTICLE_VIEW.LIST,
   isLoading,
+  target,
 }: ArticleListProps) {
   const { t } = useTranslation();
 
-  const renderArticle = (article: Article) => <ArticleListItem key={article.id} article={article} view={view} />;
+  const renderArticle = (article: Article) => (
+    <ArticleListItem key={article.id} article={article} view={view} target={target} />
+  );
 
   if (!isLoading && !articles.length) {
     return <Text className={cls.notFoundArticles} title={t<string>('articlesNotFound')} size={TextSize.L} />;

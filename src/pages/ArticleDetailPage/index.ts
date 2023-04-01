@@ -4,3 +4,5 @@ export {
   articleDetailsCommentsActions,
   articleDetailsCommentsReducer,
 } from './model/slice/articleDetailsCommentsSlice';
+export { ArticleDetailsPageRecommendationsSchema } from './model/types/articleDetailtsPageRecommendationsSchema';
+export { ArticleDetailsPageSchema } from './model/types';
