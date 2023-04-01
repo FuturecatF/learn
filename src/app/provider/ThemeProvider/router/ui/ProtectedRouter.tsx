@@ -2,10 +2,9 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { ReactNode } from 'react';
 
 interface ProtectedRouterProps {
-  children: ReactNode;
+  children: JSX.Element;
 }
 
 export const ProtectedRouter = ({ children }: ProtectedRouterProps) => {
