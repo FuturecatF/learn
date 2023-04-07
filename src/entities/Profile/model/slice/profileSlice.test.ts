@@ -1,9 +1,9 @@
-import {
-  profileActions, profileReducer, ProfileSchema, updateProfileData,
-} from 'entities/Profile';
 import { COUNTRY } from 'entities/Country';
 import { CURRENCY } from 'entities/Currency';
-import { VALIDATE_PROFILE_ERROR } from 'entities/Profile/model/services/validateProfileData/validateProfileData';
+import { profileActions, profileReducer } from '../slice/profileSlice';
+import { ProfileSchema } from '../types/profile';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import { VALIDATE_PROFILE_ERROR } from '../services/validateProfileData/validateProfileData';
 
 const data = {
   username: 'admin',

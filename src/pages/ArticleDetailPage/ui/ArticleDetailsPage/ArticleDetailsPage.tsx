@@ -4,24 +4,21 @@ import { classNames } from 'shared/config/theme/lib/classNames';
 import { memo, useCallback } from 'react';
 import { ARTICLE_VIEW, ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import {
-  Button, Page, Text, TextSize,
-} from 'shared';
+import { Page, Text, TextSize } from 'shared';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
-import { getArticleCommentsIsLoading } from 'pages/ArticleDetailPage/model/selectors/comments';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchCommentsByArticleId } from 'pages/ArticleDetailPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { addCommentForArticle } from 'pages/ArticleDetailPage/model/services/addCommentForArticle/addCommentForArticle';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { getArticleRecommendations } from 'pages/ArticleDetailPage/model/slice/articleDetailsPageRecommendationsSlice';
-import { getArticleRecommendationsIsLoading } from 'pages/ArticleDetailPage/model/selectors/recommendations';
-import { fetchArticleRecommendatios } from 'pages/ArticleDetailPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailPage/model/slice';
-import { ArticleDetailsPageHeader } from 'pages/ArticleDetailPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { getArticleRecommendations } from '../../model/slice/articleDetailsPageRecommendationsSlice';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
+import { fetchArticleRecommendatios } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { articleDetailsPageReducer } from '../../model/slice';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 

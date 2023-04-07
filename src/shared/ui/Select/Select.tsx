@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
 
 import { ChangeEvent, memo, useMemo } from 'react';
@@ -20,8 +19,6 @@ interface SelectProps {
 export const Select = memo(({
   className, label, options, value, onChange, readonly,
 }: SelectProps) => {
-  const { t } = useTranslation();
-
   const optionList = useMemo(
     () =>
       options?.map((item) => (

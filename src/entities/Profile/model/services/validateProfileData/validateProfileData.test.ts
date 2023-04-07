@@ -1,9 +1,9 @@
+import { COUNTRY } from 'entities/Country';
+import { CURRENCY } from 'entities/Currency';
 import {
   VALIDATE_PROFILE_ERROR,
   validateProfileData,
-} from 'entities/Profile/model/services/validateProfileData/validateProfileData';
-import { COUNTRY } from 'entities/Country';
-import { CURRENCY } from 'entities/Currency';
+} from './validateProfileData';
 
 const data = {
   username: 'admin',

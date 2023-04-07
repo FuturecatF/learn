@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
-import { ARTICLE_VIEW, ArticleViewType } from 'entities/Article';
 import { Card, Skeleton } from 'shared';
+import { ARTICLE_VIEW, ArticleViewType } from '../../model/types/article';
 
 import cls from './ArticleListItem.module.scss';
 

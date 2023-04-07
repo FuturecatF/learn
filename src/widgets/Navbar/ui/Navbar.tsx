@@ -3,7 +3,6 @@ import { classNames } from 'shared/config/theme/lib/classNames';
 import {
   Applink, AppLinkTheme, Button, ButtonTheme, Text, TextVariant,
 } from 'shared';
-
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,9 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
 
 import { memo } from 'react';
-import { ArticleTextBlock } from 'entities/Article/model/types/article';
 import { Text } from 'shared';
+import { ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockComponentProps {
@@ -15,11 +14,10 @@ export const ArticleTextBlockComponent = memo(function ArticleTextBlockComponent
   className,
   block,
 }: ArticleTextBlockComponentProps) {
-  const { t } = useTranslation();
   return (
     <div className={classNames(cls.articleTextBlockComponent, {}, [className])}>
       {block.title && <Text title={block.title} className={cls.title} />}
-      {block.paragraphs.map((paragraph, index) => (
+      {block.paragraphs.map((paragraph) => (
         <Text key={paragraph} text={paragraph} className={cls.paragraph} />
       ))}
     </div>

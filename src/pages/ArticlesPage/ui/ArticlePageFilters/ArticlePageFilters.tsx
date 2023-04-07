@@ -3,21 +3,22 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
 
 import { ArticleTypeTabs, ArticleViewSelector, ArticleViewType } from 'entities/Article';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import {
+  useAppDispatch, Card, Input, useDebounce,
+} from 'shared';
 import { useSelector } from 'react-redux';
+import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
+import { SortOrder } from 'shared/types';
+import { ArticleSortFields, ArticleTypes } from 'entities/Article/model/types/article';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
   getArticlesPageType,
   getArticlesPageView,
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { Card, Input, useDebounce } from 'shared';
-import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
-import { SortOrder } from 'shared/types';
-import { ArticleSortFields, ArticleTypes } from 'entities/Article/model/types/article';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+} from '../../model/selectors/articlesPageSelectors';
+import { articlesPageActions } from '../../model/slice/articlesPageSlice';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import cls from './ArticlePageFilters.module.scss';
 
 interface ArticlePageFiltersProps {

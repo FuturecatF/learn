@@ -1,10 +1,8 @@
-import { updateProfileData } from 'entities/Profile';
-
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-
 import { COUNTRY } from 'entities/Country';
 import { CURRENCY } from 'entities/Currency';
-import { VALIDATE_PROFILE_ERROR } from 'entities/Profile/model/services/validateProfileData/validateProfileData';
+import { updateProfileData } from './updateProfileData';
+import { VALIDATE_PROFILE_ERROR } from '../validateProfileData/validateProfileData';
 
 const data = {
   username: 'admin',

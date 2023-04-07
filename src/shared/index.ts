@@ -21,3 +21,4 @@ export { SORT_ORDER } from './types';
 export { useDebounce } from './lib/hooks/useDebounce/useDebounce';
 export { addQueryParams } from './lib/url/addQueryParams';
 export { Tabs, TabItem } from './ui/Tabs/Tabs';
+export { useAppDispatch } from './lib/hooks/useAppDispatch/useAppDispatch';

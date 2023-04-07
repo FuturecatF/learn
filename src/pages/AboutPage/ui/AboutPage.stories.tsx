@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import AboutPage from 'pages/AboutPage/ui/AboutPage';
 import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
+import AboutPage from './AboutPage';
 
 export default {
   title: 'pages/AboutPage',

@@ -1,6 +1,6 @@
 import { CURRENCY } from 'entities/Currency/model/types/currency';
 import { COUNTRY } from 'entities/Country/model/types/country';
-import { ValidateProfileError } from 'entities/Profile/model/services/validateProfileData/validateProfileData';
+import { ValidateProfileError } from '../services/validateProfileData/validateProfileData';
 
 type ValueOf<T> = T[keyof T];
 

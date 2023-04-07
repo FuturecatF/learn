@@ -1,5 +1,5 @@
 import {
-  memo, MutableRefObject, ReactNode, useRef, UIEvent,
+  memo, MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
 
@@ -16,6 +16,8 @@ interface PageProps {
   children: ReactNode;
   onScrollEnd?: () => void;
 }
+
+export const PAGE_ID = 'PAGE_ID';
 
 export const Page = memo(function Page({ className, children, onScrollEnd }: PageProps) {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -37,7 +39,12 @@ export const Page = memo(function Page({ className, children, onScrollEnd }: Pag
   }, 2000);
 
   return (
-    <section ref={wrapperRef} onScroll={scrollPageHandler} className={classNames(cls.page, {}, [className])}>
+    <section
+      id={PAGE_ID}
+      ref={wrapperRef}
+      onScroll={scrollPageHandler}
+      className={classNames(cls.page, {}, [className])}
+    >
       {children}
       {onScrollEnd && <div ref={triggerRef} />}
     </section>

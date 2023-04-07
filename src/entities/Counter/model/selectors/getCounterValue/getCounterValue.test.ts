@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/provider/StoreProvider';
-import { getCounterValue } from 'entities/Counter/model/selectors/getCounterValue/getCounterValue';
+import { getCounterValue } from '../../../model/selectors/getCounterValue/getCounterValue';
 
 describe('getCounterValue', () => {
   test('should return counter value', () => {

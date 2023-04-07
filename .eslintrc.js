@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'futurecat-fsd-plugin'],
   rules: {
     indent: [2, 2],
     'react/jsx-indent': [2, 2],
@@ -45,6 +45,7 @@ module.exports = {
     'no-undef': 'off',
     'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
     'react/no-array-index-key': 'off',
+    'futurecat-fsd-plugin/path-checker': 'error',
   },
   globals: {
     __IS_DEV__: true,

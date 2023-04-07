@@ -3,10 +3,10 @@ import { classNames, Mods } from 'shared/config/theme/lib/classNames';
 import {
   Avatar, Input, Text, TextAlign, TextVariant,
 } from 'shared';
-import { Profile } from 'entities/Profile';
 import { PageLoader } from 'widgets';
 import { CurrencyType, CurrencySelect } from 'entities/Currency';
 import { CountrySelect, CountryType } from 'entities/Country';
+import { Profile } from '../../model/types/profile';
 
 import cls from './ProfileCard.module.scss';
 

@@ -1,9 +1,7 @@
 import { memo, ReactNode, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
-
 import { Card } from 'shared';
-import { CARD_VARIANT } from 'shared/ui/Card/Card';
+import { CARD_VARIANT } from '../Card/Card';
 import cls from './Tabs.module.scss';
 
 export interface TabItem {
@@ -20,11 +18,12 @@ interface TabsProps {
 export const Tabs = memo(function Tabs({
   className, tabs, currentValue, onTabChange,
 }: TabsProps) {
-  const { t } = useTranslation();
-
-  const changeTabHandler = useCallback((tab: TabItem) => () => {
-    onTabChange(tab);
-  }, [onTabChange]);
+  const changeTabHandler = useCallback(
+    (tab: TabItem) => () => {
+      onTabChange(tab);
+    },
+    [onTabChange],
+  );
 
   return (
     <div className={classNames(cls.tabs, {}, [className])}>

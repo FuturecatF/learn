@@ -3,9 +3,9 @@ import { classNames } from 'shared/config/theme/lib/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LanguageSwitcher } from 'widgets';
 import { Button, ButtonSize, ButtonTheme } from 'shared';
-import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
-import { getSidebarItems } from 'widgets/Sidebar/model/getSidebarItems';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { getSidebarItems } from '../../model/getSidebarItems';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {

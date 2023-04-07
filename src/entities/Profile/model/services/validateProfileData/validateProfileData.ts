@@ -1,4 +1,4 @@
-import { Profile } from 'entities/Profile';
+import { Profile } from '../../types/profile';
 
 export const VALIDATE_PROFILE_ERROR = {
   INCORRECT_USER_DATA: 'INCORRECT_USER_DATA',

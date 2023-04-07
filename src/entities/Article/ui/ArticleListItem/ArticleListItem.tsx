@@ -2,13 +2,18 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { Article, ARTICLE_VIEW, ArticleViewType } from 'entities/Article';
 import {
   Applink, Avatar, Button, Card, Icon, Text, useHover,
 } from 'shared';
-import { ARTICLE_BLOCK_TYPES, ArticleTextBlock } from 'entities/Article/model/types/article';
-import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import {
+  Article,
+  ARTICLE_VIEW,
+  ARTICLE_BLOCK_TYPES,
+  ArticleViewType,
+  ArticleTextBlock,
+} from '../../model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
@@ -19,7 +24,10 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo(function ArticleListItem({
-  className, article, view, target,
+  className,
+  article,
+  view,
+  target,
 }: ArticleListItemProps) {
   const { t } = useTranslation();
   const [isHover, bindHover] = useHover();
