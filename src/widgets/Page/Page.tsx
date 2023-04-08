@@ -39,7 +39,7 @@ export const Page = memo(function Page({ className, children, onScrollEnd }: Pag
   }, 2000);
 
   return (
-    <section
+    <main
       id={PAGE_ID}
       ref={wrapperRef}
       onScroll={scrollPageHandler}
@@ -47,6 +47,6 @@ export const Page = memo(function Page({ className, children, onScrollEnd }: Pag
     >
       {children}
       {onScrollEnd && <div ref={triggerRef} />}
-    </section>
+    </main>
   );
 });

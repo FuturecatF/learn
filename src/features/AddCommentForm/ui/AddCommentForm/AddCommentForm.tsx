@@ -1,10 +1,12 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
-import { Button, Input, useAppDispatch } from 'shared';
+import {
+  Button, HStack, Input, useAppDispatch,
+} from 'shared';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
-import { addCommentFormError, addCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import { addCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import cls from './AddCommentForm.module.scss';
 
@@ -20,7 +22,6 @@ const AddCommentForm = memo(function AddCommentForm({ className, onSendComment }
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const text = useSelector(addCommentFormText);
-  const error = useSelector(addCommentFormError);
 
   const onCommentTextChange = useCallback(
     (value: string) => {
@@ -36,7 +37,7 @@ const AddCommentForm = memo(function AddCommentForm({ className, onSendComment }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.addCommentForm, {}, [className])}>
+      <HStack justify={'between'} className={classNames(cls.addCommentForm, {}, [className])} maxWidth>
         <Input
           className={cls.input}
           placeholder={t<string>('addCommentText')}
@@ -44,7 +45,7 @@ const AddCommentForm = memo(function AddCommentForm({ className, onSendComment }
           onChange={onCommentTextChange}
         />
         <Button onClick={onSendHandler}>{t('Send')}</Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 });

@@ -1,7 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
 
-import { Button, ButtonTheme, Text } from 'shared';
+import {
+  Button, ButtonTheme, HStack, Text,
+} from 'shared';
 import { useSelector } from 'react-redux';
 import {
   getProfileData, getProfileReadonly, profileActions, updateProfileData,
@@ -35,7 +37,7 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.profilePageHeader, {}, [className])}>
+    <HStack justify={'between'} className={classNames(cls.profilePageHeader, {}, [className])} maxWidth>
       <Text title={t<string>('profile')} />
 
       {canEdit && (
@@ -45,17 +47,17 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
               {t('edit')}
             </Button>
           ) : (
-            <>
+            <HStack gap="8">
               <Button className={cls.editButton} theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEditHandler}>
                 {t('cancel')}
               </Button>
               <Button className={cls.saveButton} theme={ButtonTheme.OUTLINE} onClick={onSaveEditHandler}>
                 {t('save')}
               </Button>
-            </>
+            </HStack>
           )}
         </div>
       )}
-    </div>
+    </HStack>
   );
 };

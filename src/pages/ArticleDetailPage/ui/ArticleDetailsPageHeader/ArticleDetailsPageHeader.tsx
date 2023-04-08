@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
-import { Button } from 'shared';
+import { Button, HStack } from 'shared';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -30,13 +30,13 @@ export const ArticleDetailsPageHeader = memo(function ArticleDetailsPageHeader({
   }, [navigate, article]);
 
   return (
-    <div className={classNames(cls.articleDetailsPageHeader, {}, [className])}>
+    <HStack justify={'between'} className={classNames('', {}, [className])} maxWidth>
       <Button onClick={onBackToList}>{t('backward')}</Button>
       {canEditArticle && (
         <Button className={cls.buttonEdit} onClick={onEditArticle}>
           {t('Редактировать')}
         </Button>
       )}
-    </div>
+    </HStack>
   );
 });

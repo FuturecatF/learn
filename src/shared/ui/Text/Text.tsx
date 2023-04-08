@@ -20,6 +20,7 @@ export const TextAlign = {
 type TextAligns = ValueOf<typeof TextAlign>;
 
 export const TextSize = {
+  S: 'size_s',
   M: 'size_m',
   L: 'size_l',
 } as const;
@@ -34,13 +35,26 @@ interface TextProps {
   align?: TextAligns;
   size?: TextSizes;
 }
+
+type HeaderTagType = 'h1' | 'h2' | 'h3';
+
+const mapSizeToHeaderTag: Record<TextSizes, HeaderTagType> = {
+  [TextSize.S]: 'h3',
+  [TextSize.M]: 'h2',
+  [TextSize.L]: 'h1',
+};
+
 export const Text = memo(
   ({
     className, title, text, variant = TextVariant.PRIMARY, align = TextAlign.LEFT, size = TextSize.M,
-  }: TextProps) => (
-    <div className={classNames('', {}, [cls[variant], cls[align], cls[size], className])}>
-      {title && <p className={cls.title}>{title}</p>}
-      {text && <p className={cls.text}>{text}</p>}
-    </div>
-  ),
+  }: TextProps) => {
+    const HeaderTag = mapSizeToHeaderTag[size];
+
+    return (
+      <div className={classNames('', {}, [cls[variant], cls[align], cls[size], className])}>
+        {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
+        {text && <p className={cls.text}>{text}</p>}
+      </div>
+    );
+  },
 );
