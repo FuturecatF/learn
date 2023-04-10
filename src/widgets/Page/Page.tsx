@@ -15,11 +15,14 @@ interface PageProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
+  isLoading?: boolean;
 }
 
 export const PAGE_ID = 'PAGE_ID';
 
-export const Page = memo(function Page({ className, children, onScrollEnd }: PageProps) {
+export const Page = memo(function Page({
+  className, children, onScrollEnd, isLoading,
+}: PageProps) {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
@@ -39,14 +42,9 @@ export const Page = memo(function Page({ className, children, onScrollEnd }: Pag
   }, 2000);
 
   return (
-    <main
-      id={PAGE_ID}
-      ref={wrapperRef}
-      onScroll={scrollPageHandler}
-      className={classNames(cls.page, {}, [className])}
-    >
+    <main id={PAGE_ID} ref={wrapperRef} onScroll={scrollPageHandler} className={classNames(cls.page, {}, [className])}>
       {children}
-      {onScrollEnd && <div ref={triggerRef} />}
+      {onScrollEnd && !isLoading && <div ref={triggerRef} />}
     </main>
   );
 });

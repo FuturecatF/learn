@@ -1,7 +1,7 @@
 import { useState, useCallback, memo } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
 import {
-  Applink, AppLinkTheme, Button, ButtonTheme, Text, TextVariant,
+  Applink, AppLinkTheme, Avatar, Button, ButtonTheme, DropDown, Text, TextVariant,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
@@ -40,9 +40,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <Applink theme={AppLinkTheme.SECONDARY} to={RoutePath.article_create}>
           {t('createArticle')}
         </Applink>
-        <Button className={cls.authButton} theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogoutHandler}>
-          {t('signOut')}
-        </Button>
+        <DropDown
+          className={cls.dropdown}
+          items={[
+            { content: t<string>('profile'), href: `${RoutePath.profile}/${authData.id}` },
+            { content: t<string>('signOut'), onClick: onLogoutHandler },
+          ]}
+          trigger={<Avatar src={authData.avatar} size={30} />}
+        />
       </header>
     );
   }

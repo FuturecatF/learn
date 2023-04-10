@@ -3,10 +3,17 @@
   "Avatar": "",
   "City": "",
   "Firstname": "",
+  "Incorrect country": "",
   "Lastname": "",
+  "No data": "",
   "Username": "",
+  "Wrong age": "",
+  "Wrong user data": "",
+  "cancel": "",
   "edit": "",
   "firstname": "",
   "lastname": "",
-  "profile": ""
+  "profile": "",
+  "save": "",
+  "server error": ""
 }

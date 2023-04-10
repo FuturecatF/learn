@@ -4,17 +4,19 @@ import {
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
-import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { articlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollRestoreSchema } from 'features/scrollRestore';
+import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/editableProfileCard';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
   // Async reducers
   login?: LoginSchema;
   profile?: ProfileSchema;
