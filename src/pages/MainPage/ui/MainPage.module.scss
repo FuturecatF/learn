@@ -1,0 +1,22 @@
+.icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: block;
+}
+
+.iconHide {
+  display: none;
+}
+
+.transition {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 200ms ease-in-out 0ms;
+}
+
+.open {
+  transition: all 400ms ease-in-out 0ms;
+  max-height: 300px;
+}
