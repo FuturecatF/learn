@@ -32,7 +32,7 @@ export const buildPlugins = ({
     plugins.push(
       new webpack.HotModuleReplacementPlugin(),
       new BundleAnalyzerPlugin({
-        openAnalyzer: true,
+        openAnalyzer: false,
       }),
       new ReactRefreshPlugin(),
     );

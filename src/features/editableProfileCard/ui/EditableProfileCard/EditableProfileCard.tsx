@@ -12,7 +12,7 @@ import { CountryType } from 'entities/Country';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { VALIDATE_PROFILE_ERROR } from '../../model/types/editableProfileCardSchema';
-import cls from './EditableProfileCard.module.scss';
+
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -114,11 +114,16 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <VStack gap={'16'} className={classNames(cls.EditableProfileCard, {}, [className])} maxWidth>
+      <VStack gap={'16'} className={classNames('', {}, [className])} maxWidth>
         <EditableProfileCardHeader />
         {validationErrors?.length
           && validationErrors.map((error) => (
-            <Text variant={TextVariant.ERROR} key={error} text={validateErrorTranslates[error]} />
+            <Text
+              data-testid={'EditableProfileCard.Error'}
+              variant={TextVariant.ERROR}
+              key={error}
+              text={validateErrorTranslates[error]}
+            />
           ))}
         <ProfileCard
           data={formData}

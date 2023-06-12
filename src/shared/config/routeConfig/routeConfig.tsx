@@ -6,9 +6,13 @@ import { ProfilePageLazy } from 'pages/ProfilePage';
 import { ArticlesPageAsync } from 'pages/ArticlesPage';
 import { ArticleDetailsPageAsync } from 'pages/ArticleDetailPage';
 import { ArticleEditPageAsync } from 'pages/ArticleEditPage';
+import { AdminPanelPageAsync } from 'pages/AdminPanelPage';
+import { USER_ROLES, UserRoles } from 'entities/User';
+import { ForbiddenPageAsync } from 'pages/ForbiddenPage/ui/ForbiddenPage.lazy';
 
 export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
+  roles?: UserRoles[];
 };
 export const AppRoutes = {
   MAIN: 'main',
@@ -18,6 +22,8 @@ export const AppRoutes = {
   ARTICLE_DETAILS: 'article_details',
   ARTICLE_CREATE: 'article_create',
   ARTICLE_EDIT: 'article_edit',
+  ADMIN_PANEL: 'admin_panel',
+  FORBIDDEN: 'forbidden',
   // last
   NOT_FOUND: 'not_found',
 } as const;
@@ -34,6 +40,8 @@ export const RoutePath: Record<AppRoutesPaths, string> = {
   [AppRoutes.ARTICLE_DETAILS]: '/articles', // +id
   [AppRoutes.ARTICLE_CREATE]: '/articles/create',
   [AppRoutes.ARTICLE_EDIT]: '/articles',
+  [AppRoutes.ADMIN_PANEL]: '/dashboard',
+  [AppRoutes.FORBIDDEN]: '/forbidden',
   [AppRoutes.NOT_FOUND]: '*',
 };
 
@@ -71,6 +79,17 @@ export const routeConfig: Record<AppRoutesPaths, AppRouteProps> = {
     element: <ArticleEditPageAsync />,
     authOnly: true,
   },
+  [AppRoutes.ADMIN_PANEL]: {
+    path: RoutePath.admin_panel,
+    element: <AdminPanelPageAsync />,
+    authOnly: true,
+    roles: [USER_ROLES.ADMIN],
+  },
+  [AppRoutes.FORBIDDEN]: {
+    path: RoutePath.forbidden,
+    element: <ForbiddenPageAsync />,
+  },
+
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath.not_found,
     element: <NotFoundPage />,

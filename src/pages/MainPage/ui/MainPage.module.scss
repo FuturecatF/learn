@@ -13,10 +13,10 @@
 .transition {
   max-height: 0;
   overflow: hidden;
-  transition: all 200ms ease-in-out 0ms;
+  transition: all 600ms ease-in-out 0ms;
 }
 
 .open {
-  transition: all 400ms ease-in-out 0ms;
-  max-height: 300px;
+  transition: all 600ms ease-in-out 0ms;
+  max-height: 100px;
 }

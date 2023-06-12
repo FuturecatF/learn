@@ -6,13 +6,13 @@ import { ProtectedRouter } from 'app/provider/ThemeProvider/router/ui/ProtectedR
 
 export const AppRouter = memo(() => {
   const renderWithWrapper = useCallback((route: AppRouteProps) => {
-    // const element = <div className={'content-page'}>{route.element}</div>;
     const element = <Suspense fallback={<PageLoader />}>{route.element}</Suspense>;
+
     return (
       <Route
         key={route.path}
         path={route.path}
-        element={route.authOnly ? <ProtectedRouter>{element}</ProtectedRouter> : element}
+        element={route.authOnly ? <ProtectedRouter roles={route.roles}>{element}</ProtectedRouter> : element}
       />
     );
   }, []);

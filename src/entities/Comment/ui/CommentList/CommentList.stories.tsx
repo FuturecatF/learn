@@ -18,7 +18,7 @@ Primary.args = {
       id: '1',
       text: 'hello world',
       user: {
-        id: 1,
+        id: '1',
         username: 'Vasya',
       },
     },
@@ -26,7 +26,7 @@ Primary.args = {
       id: '2',
       text: 'hello world',
       user: {
-        id: 2,
+        id: '2',
         username: 'Ksusha',
       },
     },

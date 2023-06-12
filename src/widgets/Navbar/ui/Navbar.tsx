@@ -6,7 +6,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
+import { getUserAuthData, isUserAdmin, userActions } from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
@@ -18,7 +18,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const authData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
-
+  const isAdmin = useSelector(isUserAdmin);
   const [isAuthModal, setIsAuthModal] = useState(false);
 
   const onOpenModal = useCallback(() => {
@@ -43,6 +43,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <DropDown
           className={cls.dropdown}
           items={[
+            ...(isAdmin ? [{ content: t<string>('dashboard'), href: RoutePath.admin_panel }] : []),
             { content: t<string>('profile'), href: `${RoutePath.profile}/${authData.id}` },
             { content: t<string>('signOut'), onClick: onLogoutHandler },
           ]}

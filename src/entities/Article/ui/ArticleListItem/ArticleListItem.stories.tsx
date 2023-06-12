@@ -14,7 +14,7 @@ const article = {
   createdAt: '26.02.2022',
   type: ['IT', 'ECONOMICS', 'SCIENCE'],
   user: {
-    id: 1,
+    id: '1',
     username: 'FuturecatF',
     avatar: 'https://cspromogame.ru//storage/upload_images/avatars/5183.jpg',
   },
