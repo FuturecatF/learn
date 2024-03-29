@@ -4,10 +4,10 @@ import { classNames } from 'shared/config/theme/lib/classNames';
 
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
-import { getProfileData } from 'features/editableProfileCard/model/selectors/getProfileData/getProfileData';
 import {
   Button, ButtonTheme, HStack, Text, useAppDispatch,
 } from 'shared';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';

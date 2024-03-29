@@ -9,6 +9,7 @@ interface SidebarItemProps {
   item: SidebarItemType;
   collapsed?: boolean;
 }
+
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   const isAuth = useSelector(getUserAuthData);
 

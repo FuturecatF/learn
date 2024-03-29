@@ -1,2 +1,2 @@
-export { AddCommentFormSchema } from './model/types/addCommentForm';
+export type { AddCommentFormSchema } from './model/types/addCommentForm';
 export { AddCommentForm } from './ui/AddCommentForm/AddCommentForm.lazy';

@@ -1,20 +1,11 @@
 import { User } from 'entities/User';
-
-export const ARTICLE_SORT_FIELD = {
-  VIEWS: 'views',
-  TITLE: 'title',
-  CREATED: 'created',
-} as const;
-
-export type ArticleSortFields = ValueOf<typeof ARTICLE_SORT_FIELD>
-
-export const ARTICLE_BLOCK_TYPES = {
-  TEXT: 'TEXT',
-  CODE: 'CODE',
-  IMAGE: 'IMAGE',
-} as const;
+import {
+  ARTICLE_BLOCK_TYPES, ARTICLE_SORT_FIELD, ARTICLE_TYPES, ARTICLE_VIEW,
+} from '../consts';
 
 export type ArticleBlockTypes = ValueOf<typeof ARTICLE_BLOCK_TYPES>;
+
+export type ArticleSortFields = ValueOf<typeof ARTICLE_SORT_FIELD>;
 
 export interface ArticleBlockBase {
   id: string;
@@ -40,13 +31,6 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
-export const ARTICLE_TYPES = {
-  ALL: 'ALL',
-  IT: 'IT',
-  SCIENCE: 'SCIENCE',
-  ECONOMICS: 'ECONOMICS',
-} as const;
-
 export type ArticleTypes = ValueOf<typeof ARTICLE_TYPES>;
 
 export interface Article {
@@ -60,10 +44,5 @@ export interface Article {
   user: User;
   blocks: ArticleBlock[];
 }
-
-export const ARTICLE_VIEW = {
-  LIST: 'LIST',
-  TILE: 'TILE',
-} as const;
 
 export type ArticleViewType = ValueOf<typeof ARTICLE_VIEW>;

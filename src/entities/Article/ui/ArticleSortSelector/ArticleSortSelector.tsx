@@ -3,9 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/config/theme/lib/classNames';
 
 import { Select, SORT_ORDER } from 'shared';
+import { SelectOption } from 'shared/ui/Select/types';
+import { ARTICLE_SORT_FIELD } from 'entities/Article/model/consts';
 import cls from './ArticleSortSelector.module.scss';
-import { SelectOption } from '../../../../shared/ui/Select/Select';
-import { ARTICLE_SORT_FIELD, ArticleSortFields } from '../../model/types/article';
+import { ArticleSortFields } from '../../model/types/article';
 import { SortOrder } from '../../../../shared/types';
 
 interface ArticleSortSelectorProps {

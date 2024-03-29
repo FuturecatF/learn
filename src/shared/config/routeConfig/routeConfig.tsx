@@ -13,6 +13,7 @@ import { ForbiddenPageAsync } from 'pages/ForbiddenPage/ui/ForbiddenPage.lazy';
 export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
   roles?: UserRoles[];
+  // nested?: Record<AppRoutesPaths, AppRouteProps>[];
 };
 export const AppRoutes = {
   MAIN: 'main',
@@ -49,6 +50,7 @@ export const routeConfig: Record<AppRoutesPaths, AppRouteProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
     element: <MainPageAsync />,
+
   },
   [AppRoutes.ABOUT]: {
     path: RoutePath.about,

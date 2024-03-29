@@ -1,8 +1,6 @@
 import { CURRENCY } from 'entities/Currency/model/types/currency';
 import { COUNTRY } from 'entities/Country/model/types/country';
 
-type ValueOf<T> = T[keyof T];
-
 type CurrencyType = ValueOf<typeof CURRENCY>;
 type CountryType = ValueOf<typeof COUNTRY>;
 

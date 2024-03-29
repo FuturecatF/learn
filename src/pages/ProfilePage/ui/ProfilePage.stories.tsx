@@ -36,6 +36,7 @@ Normal.decorators = [
 
 export const Dark = Template.bind({});
 Dark.args = {};
+Dark.parameters = { userId: '1' };
 Dark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({

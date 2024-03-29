@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { LoginFormProps } from 'features/AuthByUsername/model/types/loginSchema';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
@@ -21,10 +22,6 @@ const initialReducers: ReducersList = {
   login: loginReducer,
 };
 
-export interface LoginFormProps {
-  className?: string;
-  onSuccess?: () => void;
-}
 const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();

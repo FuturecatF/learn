@@ -20,9 +20,10 @@ export { useInitialEffect } from './lib/hooks/useInitialEffect/useInitialEffect'
 export { SORT_ORDER } from './types';
 export { useDebounce } from './lib/hooks/useDebounce/useDebounce';
 export { addQueryParams } from './lib/url/addQueryParams';
-export { Tabs, TabItem } from './ui/Tabs/Tabs';
+export { Tabs } from './ui/Tabs/Tabs';
 export { useAppDispatch } from './lib/hooks/useAppDispatch/useAppDispatch';
 export { VStack } from './ui/Stack/VStack/VStack';
 export { HStack } from './ui/Stack/HStack/HStack';
 export { ListBox } from './ui/ListBox/ListBox';
 export { DropDown } from './ui/DropDown/DropDown';
+export type { TabItem } from 'shared/ui/Tabs/types';

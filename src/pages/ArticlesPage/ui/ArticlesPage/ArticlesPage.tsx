@@ -5,7 +5,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from 'shared';
 import { useSelector } from 'react-redux';
-import { getArticlesPageIsLoading } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { getArticlesPageIsLoading } from '../../model/selectors/articlesPageSelectors';
 import { ArticleInfinityList } from '../ArticleInfinityList/ArticleInfinityList';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';

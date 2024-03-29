@@ -1,22 +1,23 @@
 {
-	"languageShort": "Ру",
-	"language": "Русский",
-	"aboutPage": {
-		"title": "О Сайте"
-	},
-	"mainPage": {
-		"title": "Главная Страница"
-	},
-	"pageError": {
-		"title": "Произошла непредвиденная ошибка",
-		"reloadButton": "Обновить страницу"
-	},
-	"signIn": "Войти",
-	"signOut": "Выйти",
-	"loginForm": {
-		"title": "Форма авторизации",
-		"username": "Введите имя",
-		"password": "Введите пароль",
-		"error": "Вы ввели неверный логин или пароль"
-	}
+  "languageShort": "Ру",
+  "language": "Русский",
+  "aboutPage": {
+    "title": "О Сайте"
+  },
+  "mainPage": {
+    "title": "Главная Страница"
+  },
+  "pageError": {
+    "title": "Произошла непредвиденная ошибка",
+    "reloadButton": "Обновить страницу"
+  },
+  "signIn": "Войти",
+  "signOut": "Выйти",
+  "loginForm": {
+    "title": "Форма авторизации",
+    "username": "Введите имя",
+    "password": "Введите пароль",
+    "error": "Вы ввели неверный логин или пароль"
+  },
+  "readMore": "sdfsdfsdfsdfsdfsdfsdfsd"
 }

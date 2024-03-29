@@ -1,26 +1,10 @@
-import { Fragment, memo, ReactNode } from 'react';
+import { Fragment, memo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import { classNames } from 'shared/config/theme/lib/classNames';
 import { Button, HStack } from 'shared';
 import cls from './ListBox.module.scss';
 import { DropdownDirection } from '../../types/ui';
-
-export interface ListBoxItems {
-  value: string;
-  content: ReactNode;
-  disabled?: boolean;
-}
-
-interface ListBoxProps {
-  className?: string;
-  items?: ListBoxItems[];
-  currentValue?: string;
-  defaultValue?: string;
-  onChange: (value: string) => void;
-  readonly?: boolean;
-  direction?: DropdownDirection;
-  label: string;
-}
+import { ListBoxProps } from './types';
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
   'top left': cls.topLeft,

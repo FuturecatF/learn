@@ -14,7 +14,7 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<st
       });
 
       if (!response.data) {
-        throw new Error();
+        throw new Error('data is null');
       }
       return response.data;
     } catch (e) {

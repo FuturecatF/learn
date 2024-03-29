@@ -6,10 +6,9 @@ import {
   Applink, Avatar, Button, Card, Icon, Text, useHover,
 } from 'shared';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { ARTICLE_BLOCK_TYPES, ARTICLE_VIEW } from 'entities/Article/model/consts';
 import {
   Article,
-  ARTICLE_VIEW,
-  ARTICLE_BLOCK_TYPES,
   ArticleViewType,
   ArticleTextBlock,
 } from '../../model/types/article';

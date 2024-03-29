@@ -10,8 +10,8 @@ import { ProfileCard } from 'entities/Profile';
 import { CurrencyType } from 'entities/Currency';
 import { CountryType } from 'entities/Country';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VALIDATE_PROFILE_ERROR } from 'features/editableProfileCard/model/consts';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { VALIDATE_PROFILE_ERROR } from '../../model/types/editableProfileCardSchema';
 
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';

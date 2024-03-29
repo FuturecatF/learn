@@ -3,7 +3,9 @@ import { Text, TextSize, VStack } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ARTICLE_VIEW, ArticleList } from 'entities/Article';
-import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
+import {
+  useGetArticleRecommendationsListQuery,
+} from '../../api/articleRecommendationsApi';
 import cls from './ArticleRecommendationsList.module.scss';
 
 interface ArticleRecommendationsListProps {
@@ -13,7 +15,7 @@ interface ArticleRecommendationsListProps {
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
   const { className } = props;
   const { t } = useTranslation();
-  const { isLoading, data: articles, error } = useArticleRecommendationsList(4);
+  const { isLoading, data: articles, error } = useGetArticleRecommendationsListQuery(4);
 
   if (!articles || isLoading || error) {
     return null;

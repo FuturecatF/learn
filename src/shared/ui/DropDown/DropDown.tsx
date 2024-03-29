@@ -1,23 +1,10 @@
-import { Fragment, memo, ReactNode } from 'react';
+import { Fragment, memo } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames } from 'shared/config/theme/lib/classNames';
+import { Applink } from 'shared';
+import { DropDownProps } from './types';
 import cls from './DropDown.module.scss';
-import { DropdownDirection } from '../../types/ui';
-import { Applink } from '../AppLink/Applink';
-
-export interface DropdownItems {
-  disabled?: boolean;
-  content: ReactNode;
-  onClick?: () => void;
-  href?: string;
-}
-
-interface DropDownProps {
-  className?: string;
-  items: DropdownItems[];
-  trigger: ReactNode;
-  direction?: DropdownDirection;
-}
+import type { DropdownDirection } from '../../types/ui';
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
   'top left': cls.topLeft,

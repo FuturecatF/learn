@@ -11,12 +11,20 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
     "paths": {
-      "*": ["./src/*"],
-      "react": ["./node_modules/@types/react"]
+      "*": [
+        "./src/*"
+      ],
+      "react": [
+        "./node_modules/@types/react"
+      ]
     }
   },
-  "include": ["src", "./config/jest/setupTests.ts"],
+  "include": [
+    "src",
+    "./config/jest/setupTests.ts"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
