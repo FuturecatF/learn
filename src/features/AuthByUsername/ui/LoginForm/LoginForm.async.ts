@@ -1,6 +1,6 @@
 import { FC, lazy } from 'react';
 
-import { LoginFormProps } from 'features/AuthByUsername/model/types/loginSchema';
+import { LoginFormProps } from '../../model/types/loginSchema';
 
 export const LoginFormAsync = lazy<FC<LoginFormProps>>(
   () =>

@@ -10,7 +10,7 @@ import { ProfileCard } from 'entities/Profile';
 import { CurrencyType } from 'entities/Currency';
 import { CountryType } from 'entities/Country';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VALIDATE_PROFILE_ERROR } from 'features/editableProfileCard/model/consts';
+import { VALIDATE_PROFILE_ERROR } from '../../model/consts';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';

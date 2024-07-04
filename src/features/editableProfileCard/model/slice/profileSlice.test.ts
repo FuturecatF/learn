@@ -1,6 +1,6 @@
 import { COUNTRY } from 'entities/Country';
 import { CURRENCY } from 'entities/Currency';
-import { VALIDATE_PROFILE_ERROR } from 'features/editableProfileCard/model/consts';
+import { VALIDATE_PROFILE_ERROR } from '../../model/consts';
 import { profileActions, profileReducer } from '../slice/profileSlice';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
