@@ -1,10 +1,11 @@
 import { Fragment, memo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import { classNames } from 'shared/config/theme/lib/classNames';
-import { Button, HStack } from 'shared';
 import cls from './ListBox.module.scss';
 import { DropdownDirection } from '../../types/ui';
 import { ListBoxProps } from './types';
+import { HStack } from '../Stack/HStack/HStack';
+import { Button } from '../Button/Button';
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
   'top left': cls.topLeft,

@@ -1,7 +1,7 @@
 import { Fragment, memo } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames } from 'shared/config/theme/lib/classNames';
-import { Applink } from 'shared';
+import { Applink } from '../AppLink/Applink';
 import { DropDownProps } from './types';
 import cls from './DropDown.module.scss';
 import type { DropdownDirection } from '../../types/ui';
@@ -27,6 +27,7 @@ export const DropDown = memo(function DropDown({
         {items.map((item) => {
           const content = ({ active }: { active: boolean }) => (
             <button
+              key={item.href}
               onClick={item.onClick}
               className={classNames(cls.item, { [cls.active]: active })}
               type="button"

@@ -3,9 +3,9 @@ import { classNames, Mods } from 'shared/config/theme/lib/classNames';
 import {
   Avatar, HStack, Input, Text, TextAlign, TextVariant, VStack,
 } from 'shared';
-import { PageLoader } from 'widgets';
 import { CurrencySelect, CurrencyType } from 'entities/Currency';
 import { CountrySelect, CountryType } from 'entities/Country';
+import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 import { Profile } from '../../model/types/profile';
 
 import cls from './ProfileCard.module.scss';

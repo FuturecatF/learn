@@ -2,8 +2,8 @@ import React, {
   MouseEvent, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
-import { Portal } from 'shared';
 import { useTheme } from 'app/provider/ThemeProvider';
+import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {

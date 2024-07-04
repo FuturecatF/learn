@@ -4,10 +4,10 @@ import {
   Applink, AppLinkTheme, Avatar, Button, ButtonTheme, DropDown, Text, TextVariant,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin, userActions } from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { LoginModal } from 'features/AuthByUsername/ui/LoginModal/LoginModal';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

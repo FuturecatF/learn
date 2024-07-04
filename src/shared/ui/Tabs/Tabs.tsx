@@ -1,8 +1,7 @@
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
-import { Card } from 'shared';
+import { Card, CARD_VARIANT } from '../Card/Card';
 import { TabItem, TabsProps } from './types';
-import { CARD_VARIANT } from '../Card/Card';
 import cls from './Tabs.module.scss';
 
 export const Tabs = memo(function Tabs({

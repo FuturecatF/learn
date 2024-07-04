@@ -4,6 +4,7 @@ import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import { BuildOptions } from './types/config';
 // @ts-ignore
 export const buildPlugins = ({
@@ -26,6 +27,10 @@ export const buildPlugins = ({
     new CopyPlugin({
       patterns: [{ from: paths.locales, to: paths.buildLocales }],
     }),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true,
+    }),
   ];
 
   if (isDev) {
@@ -38,5 +43,6 @@ export const buildPlugins = ({
     );
   }
 
+  // @ts-ignore
   return plugins;
 };
