@@ -1,0 +1,17 @@
+{
+  "Age": "Age",
+  "Avatar": "Avatar",
+  "City": "City",
+  "Firstname": "Firstname",
+  "Incorrect country": "Incorrect country",
+  "Lastname": "Lastname",
+  "No data": "No data",
+  "Username": "Username",
+  "Wrong age": "Wrong age",
+  "Wrong user data": "Wrong user data",
+  "cancel": "cancel",
+  "edit": "edit",
+  "profile": "profile",
+  "save": "save",
+  "server error": "server error"
+}
