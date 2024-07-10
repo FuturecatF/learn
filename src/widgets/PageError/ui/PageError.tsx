@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/config/theme/lib/classNames';
-import { Button } from 'shared';
+import { classNames } from '@/shared/config/theme/lib/classNames';
+import { Button } from '@/shared';
 
 import classes from './PageError.module.scss';
 

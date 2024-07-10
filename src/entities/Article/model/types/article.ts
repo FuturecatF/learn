@@ -1,4 +1,4 @@
-import { User } from 'entities/User';
+import { User } from '@/entities/User';
 import {
   ARTICLE_BLOCK_TYPES, ARTICLE_SORT_FIELD, ARTICLE_TYPES, ARTICLE_VIEW,
 } from '../consts';

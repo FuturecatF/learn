@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { classNames } from 'shared/config/theme/lib/classNames';
-import { Card, Skeleton } from 'shared';
+import { classNames } from '@/shared/config/theme/lib/classNames';
+import { Card, Skeleton } from '@/shared';
 import { ARTICLE_VIEW } from '../../model/consts';
 import { ArticleViewType } from '../../model/types/article';
 

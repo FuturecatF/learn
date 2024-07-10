@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/config/theme/lib/classNames';
+import { classNames } from '@/shared/config/theme/lib/classNames';
 
 interface ForbiddenPageProps {
   className?: string;

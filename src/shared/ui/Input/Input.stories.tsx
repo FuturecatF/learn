@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
-import { Input } from 'shared';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/provider/ThemeProvider/lib/ThemeContext';
+import { Input } from '@/shared';
 
 export default {
   title: 'shared/Input',

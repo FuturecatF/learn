@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/config/theme/lib/classNames';
+import { classNames } from '@/shared/config/theme/lib/classNames';
 
-import { Page } from 'widgets/Page/Page';
+import { Page } from '@/widgets/Page/Page';
 import classes from './NotFoundPage.module.scss';
 
 export const NotFoundPage = () => {

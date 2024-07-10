@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, useAppDispatch, useInitialEffect } from 'shared';
-import { ArticleList } from 'entities/Article';
+import { Text, useAppDispatch, useInitialEffect } from '@/shared';
+import { ArticleList } from '@/entities/Article';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { getArticles } from '../../model/slice/articlesPageSlice';

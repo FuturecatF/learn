@@ -1,4 +1,4 @@
-import { classNames, Mods } from 'shared/config/theme/lib/classNames';
+import { classNames, Mods } from '@/shared/config/theme/lib/classNames';
 import {
   FlexAlign, FlexDirection, FlexGap, FlexJustify, FlexProps,
 } from './types';

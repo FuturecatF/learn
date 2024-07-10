@@ -1,4 +1,4 @@
-import { classNames } from 'shared/config/theme/lib/classNames';
+import { classNames } from '@/shared/config/theme/lib/classNames';
 
 import { ChangeEvent, memo, useMemo } from 'react';
 import { SelectProps } from './types';

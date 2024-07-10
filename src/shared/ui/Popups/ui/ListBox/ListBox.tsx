@@ -1,6 +1,6 @@
 import { Fragment, memo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
-import { classNames } from 'shared/config/theme/lib/classNames';
+import { classNames } from '@/shared/config/theme/lib/classNames';
 import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
 import { ListBoxProps } from './types';

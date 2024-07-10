@@ -1,11 +1,11 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/config/theme/lib/classNames';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import { classNames } from '@/shared/config/theme/lib/classNames';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import {
   Applink, Avatar, Button, Card, Icon, Text, useHover,
-} from 'shared';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+} from '@/shared';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { ARTICLE_BLOCK_TYPES, ARTICLE_VIEW } from '../../model/consts';
 import {
   Article,

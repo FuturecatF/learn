@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/provider/StoreProvider';
+import { StateSchema } from '@/app/provider/StoreProvider';
 import { getCounterValue } from '../../../model/selectors/getCounterValue/getCounterValue';
 
 describe('getCounterValue', () => {

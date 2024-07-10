@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { DropdownDirection } from 'shared/types/ui';
+import { DropdownDirection } from '@/shared/types/ui';
 
 export interface ListBoxItems {
   value: string;

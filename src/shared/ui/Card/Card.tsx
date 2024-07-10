@@ -1,5 +1,5 @@
 import { HTMLAttributes, ReactNode } from 'react';
-import { classNames } from 'shared/config/theme/lib/classNames';
+import { classNames } from '@/shared/config/theme/lib/classNames';
 
 import cls from './Card.module.scss';
 

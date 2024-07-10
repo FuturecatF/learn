@@ -1,4 +1,4 @@
-import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
+import { Theme } from '@/app/provider/ThemeProvider/lib/ThemeContext';
 
 export type ThemeType = ValueOf<typeof Theme>;
 

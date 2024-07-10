@@ -1,15 +1,15 @@
-import { classNames } from 'shared/config/theme/lib/classNames';
+import { classNames } from '@/shared/config/theme/lib/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import {
   Text, TextVariant, useAppDispatch, useInitialEffect, VStack,
-} from 'shared';
+} from '@/shared';
 import { useSelector } from 'react-redux';
-import { ProfileCard } from 'entities/Profile';
+import { ProfileCard } from '@/entities/Profile';
 
-import { CurrencyType } from 'entities/Currency';
-import { CountryType } from 'entities/Country';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { CurrencyType } from '@/entities/Currency';
+import { CountryType } from '@/entities/Country';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VALIDATE_PROFILE_ERROR } from '../../model/consts';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 

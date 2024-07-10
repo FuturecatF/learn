@@ -1,6 +1,6 @@
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { COUNTRY } from 'entities/Country';
-import { CURRENCY } from 'entities/Currency';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { COUNTRY } from '@/entities/Country';
+import { CURRENCY } from '@/entities/Currency';
 import { fetchProfileData } from '../fetchProfileData/fetchProfileData';
 
 const data = {

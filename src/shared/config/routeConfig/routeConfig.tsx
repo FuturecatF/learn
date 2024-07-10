@@ -1,14 +1,14 @@
 import { RouteProps } from 'react-router-dom';
-import { MainPageAsync } from 'pages/MainPage';
-import { AboutPageAsync } from 'pages/AboutPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
-import { ProfilePageLazy } from 'pages/ProfilePage';
-import { ArticlesPageAsync } from 'pages/ArticlesPage';
-import { ArticleDetailsPageAsync } from 'pages/ArticleDetailPage';
-import { ArticleEditPageAsync } from 'pages/ArticleEditPage';
-import { AdminPanelPageAsync } from 'pages/AdminPanelPage';
-import { USER_ROLES, UserRoles } from 'entities/User';
-import { ForbiddenPageAsync } from 'pages/ForbiddenPage/ui/ForbiddenPage.lazy';
+import { MainPageAsync } from '@/pages/MainPage';
+import { AboutPageAsync } from '@/pages/AboutPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProfilePageLazy } from '@/pages/ProfilePage';
+import { ArticlesPageAsync } from '@/pages/ArticlesPage';
+import { ArticleDetailsPageAsync } from '@/pages/ArticleDetailPage';
+import { ArticleEditPageAsync } from '@/pages/ArticleEditPage';
+import { AdminPanelPageAsync } from '@/pages/AdminPanelPage';
+import { USER_ROLES, UserRoles } from '@/entities/User';
+import { ForbiddenPageAsync } from '@/pages/ForbiddenPage/ui/ForbiddenPage.lazy';
 
 export type AppRouteProps = RouteProps & {
   authOnly?: boolean;

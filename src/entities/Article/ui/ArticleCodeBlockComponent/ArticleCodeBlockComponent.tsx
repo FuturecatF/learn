@@ -1,6 +1,6 @@
-import { classNames } from 'shared/config/theme/lib/classNames';
+import { classNames } from '@/shared/config/theme/lib/classNames';
 import { memo } from 'react';
-import { Code } from 'shared';
+import { Code } from '@/shared';
 import { ArticleCodeBlock } from '../../model/types/article';
 import cls from './ArticleCodeBlockComponent.module.scss';
 

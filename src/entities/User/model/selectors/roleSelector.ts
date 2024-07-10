@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/provider/StoreProvider';
+import { StateSchema } from '@/app/provider/StoreProvider';
 import { createSelector } from '@reduxjs/toolkit';
 
 import { USER_ROLES } from '../consts';

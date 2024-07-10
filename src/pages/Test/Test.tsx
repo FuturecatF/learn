@@ -1,4 +1,4 @@
-import { classNames } from 'shared/config/theme/lib/classNames';
+import { classNames } from '@/shared/config/theme/lib/classNames';
 
 import cls from './Test.module.scss';
 

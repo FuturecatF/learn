@@ -1,7 +1,7 @@
-import { StateSchema } from 'app/provider/StoreProvider';
-import { ARTICLE_VIEW } from 'entities/Article';
-import { SORT_ORDER } from 'shared';
-import { ARTICLE_SORT_FIELD, ARTICLE_TYPES } from 'entities/Article/model/consts';
+import { StateSchema } from '@/app/provider/StoreProvider';
+import { ARTICLE_VIEW } from '@/entities/Article';
+import { SORT_ORDER } from '@/shared';
+import { ARTICLE_SORT_FIELD, ARTICLE_TYPES } from '@/entities/Article/model/consts';
 
 export const getArticlesPageIsLoading = (state: StateSchema) => state.articlesPage?.isLoading;
 export const getArticlesPageError = (state: StateSchema) => state.articlesPage?.error;

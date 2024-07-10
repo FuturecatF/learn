@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { ThemeContextProps } from 'app/provider/ThemeProvider/lib/types';
+import { ThemeContextProps } from '@/app/provider/ThemeProvider/lib/types';
 
 export const Theme = {
   LIGHT: 'app_light_theme',
