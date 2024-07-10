@@ -5,7 +5,7 @@ import React, {
 import { useTheme } from '@/app/provider/ThemeProvider';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
@@ -106,11 +106,20 @@ const DrawerContent = memo(function DrawerContent({
   );
 });
 
-export const Drawer = memo(function Drawer(props: DrawerProps) {
+const DrawerAsync = (props: DrawerProps) => {
   const { isLoaded } = useAnimationLibs();
-  console.log('isLoaded', isLoaded);
+
   if (!isLoaded) {
     return null;
   }
+  // eslint-disable-next-line react/destructuring-assignment
   return <DrawerContent {...props}>{props.children}</DrawerContent>;
-});
+};
+
+export const Drawer = (props: DrawerProps) =>
+  (
+    <AnimationProvider>
+      {/* eslint-disable-next-line react/destructuring-assignment */}
+      <DrawerAsync {...props}>{props.children}</DrawerAsync>
+    </AnimationProvider>
+  );
