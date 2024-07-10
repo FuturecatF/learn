@@ -27,3 +27,4 @@ export { ListBox } from './ui/Popups/ui/ListBox/ListBox';
 export { DropDown } from './ui/Popups/ui/DropDown/DropDown';
 export type { TabItem } from './ui/Tabs/types';
 export { Popover } from './ui/Popups/ui/Popover/Popover';
+export { Drawer } from './ui/Drawer/Drawer';

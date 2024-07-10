@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import { classNames } from 'shared/config/theme/lib/classNames';
 import { useTheme } from 'app/provider/ThemeProvider';
+import { Overlay } from 'shared/ui/Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -46,10 +47,6 @@ export const Modal = ({
     }
   }, [onClose]);
 
-  const onContentClick = (event: MouseEvent<HTMLDivElement>) => {
-    event.stopPropagation();
-  };
-
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpening,
     [cls.isClosing]: isClosing,
@@ -80,10 +77,9 @@ export const Modal = ({
   return (
     <Portal>
       <div className={classNames(cls.modal, mods, ['app_modal', theme, className])}>
-        <div className={cls.overlay} onClick={closeHandler}>
-          <div className={cls.content} onClick={onContentClick}>
-            {children}
-          </div>
+        <Overlay onclick={closeHandler} />
+        <div className={cls.content}>
+          {children}
         </div>
       </div>
     </Portal>

@@ -4,8 +4,8 @@ import {
   Applink, AppLinkTheme, Button, ButtonTheme, HStack, Text, TextVariant,
 } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, isUserAdmin, userActions } from 'entities/User';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { LoginModal } from 'features/AuthByUsername/ui/LoginModal/LoginModal';
 import { NotificationButton } from 'features/notificationButton';
@@ -40,7 +40,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           <NotificationButton />
           <AvatarDropdown />
         </HStack>
-
       </header>
     );
   }
