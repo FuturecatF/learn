@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { useTheme } from '@/app/provider/ThemeProvider';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
@@ -27,6 +27,12 @@ export const Modal = ({
     [cls.opened]: isOpening,
     [cls.isClosing]: isClosing,
   };
+
+  useEffect(() => {
+    if (!isOpen) {
+      closeHandler();
+    }
+  }, [isOpen]);
 
   if (lazy && !isMounted) {
     return null;

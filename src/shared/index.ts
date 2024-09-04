@@ -28,3 +28,4 @@ export { DropDown } from './ui/Popups/ui/DropDown/DropDown';
 export type { TabItem } from './ui/Tabs/types';
 export { Popover } from './ui/Popups/ui/Popover/Popover';
 export { Drawer } from './ui/Drawer/Drawer';
+export { StarRating } from './ui/StarRating/ui/StarRating/StarRating';

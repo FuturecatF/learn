@@ -18,7 +18,7 @@ export const DropDown = memo(function DropDown({
     <Menu as="div" className={classNames(popupCls.popup, {}, [className])}>
       <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
       <Menu.Items as="section" className={classNames(cls.menu, {}, menuClasses)}>
-        {items.map((item) => {
+        {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               key={item.href}
@@ -33,14 +33,14 @@ export const DropDown = memo(function DropDown({
 
           if (item.href) {
             return (
-              <Menu.Item as={Applink} to={item.href} disabled={item.disabled}>
+              <Menu.Item key={item.href} as={Applink} to={item.href} disabled={item.disabled}>
                 {content}
               </Menu.Item>
             );
           }
 
           return (
-            <Menu.Item as={Fragment} disabled={item.disabled}>
+            <Menu.Item key={index} as={Fragment} disabled={item.disabled}>
               {content}
             </Menu.Item>
           );
