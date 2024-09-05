@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
+import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 
-import { memo } from 'react';
 import { ArticleDetails } from '@/entities/Article';
-import { useParams } from 'react-router-dom';
 import { VStack } from '@/shared';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
@@ -12,6 +12,7 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
+import { ArticleRatingAsync } from '@/features/articleRating';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -24,12 +25,17 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article');
   const { articleId } = useParams();
 
+  if (!articleId) {
+    return null;
+  }
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
         <VStack gap={'16'} maxWidth>
           <ArticleDetailsPageHeader />
           <ArticleDetails articleId={articleId} />
+          <ArticleRatingAsync articleId={articleId} />
           <ArticleRecommendationsList />
           <ArticleDetailsComments articleId={articleId} />
         </VStack>

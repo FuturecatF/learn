@@ -14,12 +14,13 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: ReactNode;
   variant?: CardVariant;
+  max?: boolean;
 }
 
 export const Card = ({
-  className, children, variant = CARD_VARIANT.NORMAL, ...otherProps
+  className, children, variant = CARD_VARIANT.NORMAL, max, ...otherProps
 }: CardProps) => (
-  <div className={classNames(cls.card, {}, [className, cls[variant]])} {...otherProps}>
+  <div className={classNames(cls.card, { [cls.max]: max }, [className, cls[variant]])} {...otherProps}>
     {children}
   </div>
 );
