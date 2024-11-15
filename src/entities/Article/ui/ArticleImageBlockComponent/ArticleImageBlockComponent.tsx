@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/config/theme/lib/classNames';
 import { memo } from 'react';
+import { classNames } from '@/shared/config/theme/lib/classNames';
 import { Text } from '@/shared';
 import { ArticleImageBlock } from '../../model/types/article';
 import cls from './ArticleImageBlockComponent.module.scss';

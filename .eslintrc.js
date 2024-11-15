@@ -44,7 +44,7 @@ module.exports = {
     ],
     'max-len': ['error', { code: 120, ignoreComments: true, ignoreStrings: true }],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'no-param-reassign': 'off',
     // TODO next 2 rules
     'jsx-a11y/no-static-element-interactions': 'off',
@@ -52,7 +52,7 @@ module.exports = {
     'no-undef': 'off',
     'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
     'react/no-array-index-key': 'off',
-    'futurecat-fsd-plugin/path-checker': 'error',
+    'futurecat-fsd-plugin/path-checker': ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,

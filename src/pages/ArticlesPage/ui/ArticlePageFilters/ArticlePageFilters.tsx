@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 
 import { ArticleTypeTabs, ArticleViewSelector, ArticleViewType } from '@/entities/Article';
 import {
   useAppDispatch, Card, Input, useDebounce,
 } from '@/shared';
-import { useSelector } from 'react-redux';
 import { ArticleSortSelector } from '@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 import { SortOrder } from '@/shared/types';
 import { ArticleSortFields, ArticleTypes } from '@/entities/Article/model/types/article';

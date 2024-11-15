@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
+import { memo, useCallback, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { memo, useCallback, useEffect } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
 import {
   Avatar, HStack, Icon, Skeleton, Text, TextAlign, TextSize, VStack,
 } from '@/shared';

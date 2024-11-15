@@ -1,6 +1,6 @@
-import { Applink, AppLinkTheme } from '@/shared';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
+import { Applink, AppLinkTheme } from '@/shared';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';

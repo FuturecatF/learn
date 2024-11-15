@@ -1,10 +1,10 @@
-import { classNames } from '@/shared/config/theme/lib/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import {
   Text, TextVariant, useAppDispatch, useInitialEffect, VStack,
 } from '@/shared';
-import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/config/theme/lib/classNames';
 import { ProfileCard } from '@/entities/Profile';
 
 import { CurrencyType } from '@/entities/Currency';

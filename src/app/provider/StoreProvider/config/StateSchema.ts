@@ -1,9 +1,9 @@
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
 import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
-import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailPage';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';

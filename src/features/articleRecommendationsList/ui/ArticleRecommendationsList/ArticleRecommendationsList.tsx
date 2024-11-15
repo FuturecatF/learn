@@ -1,7 +1,7 @@
-import { classNames } from '@/shared/config/theme/lib/classNames';
-import { Text, TextSize, VStack } from '@/shared';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { classNames } from '@/shared/config/theme/lib/classNames';
+import { Text, TextSize, VStack } from '@/shared';
 import { ARTICLE_VIEW, ArticleList } from '@/entities/Article';
 import {
   useGetArticleRecommendationsListQuery,

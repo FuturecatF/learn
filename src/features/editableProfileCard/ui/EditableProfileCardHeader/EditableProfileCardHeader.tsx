@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 
-import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import {
   Button, ButtonTheme, HStack, Text, useAppDispatch,

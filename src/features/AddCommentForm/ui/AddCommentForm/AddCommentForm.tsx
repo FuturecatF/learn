@@ -1,13 +1,16 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import {
   Button, HStack, Input, useAppDispatch,
 } from '@/shared';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useSelector } from 'react-redux';
 import { addCommentFormText } from '../../model/selectors/addCommentFormSelectors';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
+import {
+  addCommentFormActions,
+  addCommentFormReducer,
+} from '../../model/slice/addCommentFormSlice';
 import cls from './AddCommentForm.module.scss';
 
 const reducers: ReducersList = {

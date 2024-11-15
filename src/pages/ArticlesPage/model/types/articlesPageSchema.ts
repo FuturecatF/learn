@@ -1,5 +1,5 @@
-import { Article, ArticleViewType } from '@/entities/Article';
 import { EntityState } from '@reduxjs/toolkit';
+import { Article, ArticleViewType } from '@/entities/Article';
 import { ArticleSortFields, ArticleTypes } from '@/entities/Article/model/types/article';
 import { SortOrder } from '@/shared/types';
 

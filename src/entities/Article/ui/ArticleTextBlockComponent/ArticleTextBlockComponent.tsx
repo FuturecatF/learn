@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 
-import { memo } from 'react';
 import { Text } from '@/shared';
 import { ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleTextBlockComponent.module.scss';
