@@ -184,7 +184,7 @@ Clear.args = {
 - [Country](/src/entities/Country)
 - [Currency](/src/entities/Currency)
 - [Notification](/src/entities/Notification)
-- [Profile](/src/entities/Profile)
+- [Profile](./src/entities/Profile)
 - [Rating](/src/entities/Rating)
 - [User](/src/entities/User)
 
