@@ -8160,10 +8160,10 @@ eslint-module-utils@^2.7.4:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-futurecat-fsd-plugin@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-futurecat-fsd-plugin/-/eslint-plugin-futurecat-fsd-plugin-0.0.6.tgz#9f4afec5abc0de85664b4ec2c9a32f8030448055"
-  integrity sha512-7aDvaKhB8QWUa0k5IOwOE8AXjjw0ZtQNVrwf4QJ+nms1IV7yjT2gbavNW7TEJKhqjMhNVTn3p0GZe2OJhju/6g==
+eslint-plugin-futurecat-fsd-plugin@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-futurecat-fsd-plugin/-/eslint-plugin-futurecat-fsd-plugin-0.0.8.tgz#d7ec2cdb6383871d3f93d702cd911ce6b3d8ba25"
+  integrity sha512-1HF7YvG0z1x/E1s7H7ZMorEEDJb28Q8uonIh1bmmeSfOqDgn19K9i8BI12Da65aZQ2rza9/tVdUvcdKR7KSquQ==
   dependencies:
     micromatch "^4.0.8"
     requireindex "^1.2.0"
@@ -8243,6 +8243,11 @@ eslint-plugin-react@^7.32.2:
     resolve "^2.0.0-next.4"
     semver "^6.3.0"
     string.prototype.matchall "^4.0.8"
+
+eslint-plugin-unused-imports@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-unused-imports/-/eslint-plugin-unused-imports-4.1.4.tgz#62ddc7446ccbf9aa7b6f1f0b00a980423cda2738"
+  integrity sha512-YptD6IzQjDardkl0POxnnRBhU1OEePMV0nd6siHaRBbd+lyh6NAhFEobiznKU7kTsSsDeSD62Pe7kAM1b7dAZQ==
 
 eslint-scope@5.1.1, eslint-scope@^5.1.1:
   version "5.1.1"

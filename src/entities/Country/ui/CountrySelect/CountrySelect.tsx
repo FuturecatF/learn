@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { classNames } from '@/shared/config/theme/lib/classNames';
-import { ListBox, Select } from '@/shared';
+import { ListBox } from '@/shared';
 import { COUNTRY, CountryType } from '../../model/types/country';
+import { Counter } from '@/entities/Counter';
 
 interface CountrySelectProps {
   className?: string;
@@ -10,7 +10,7 @@ interface CountrySelectProps {
   onChange?: (value: CountryType) => void;
   readonly?: boolean;
 }
-
+const a = Counter;
 const options = [
   { value: COUNTRY.Russia, content: COUNTRY.Russia },
   { value: COUNTRY.Belarus, content: COUNTRY.Belarus },

@@ -13,11 +13,12 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'futurecat-fsd-plugin'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'futurecat-fsd-plugin', 'unused-imports'],
   rules: {
     indent: [2, 2],
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
+    'unused-imports/no-unused-imports': 'warn',
     '@typescript-eslint/indent': [2, 2, { offsetTernaryExpressions: true }],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
     'import/no-unresolved': 'off',
@@ -60,7 +61,10 @@ module.exports = {
       'warn',
       { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] },
     ],
-    'futurecat-fsd-plugin/layer-imports': ['warn', { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] }],
+    'futurecat-fsd-plugin/layer-imports': [
+      'warn',
+      { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] },
+    ],
   },
   globals: {
     __IS_DEV__: true,
