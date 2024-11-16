@@ -52,7 +52,10 @@ module.exports = {
     'no-undef': 'off',
     'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
     'react/no-array-index-key': 'off',
-    'futurecat-fsd-plugin/path-checker': ['error', { alias: '@' }],
+    'futurecat-fsd-plugin/path-checker': [
+      'error',
+      { alias: '@', testFilesPatterns: ['**/*.story.*', '**/StoreDecorator.tsx'] },
+    ],
   },
   globals: {
     __IS_DEV__: true,

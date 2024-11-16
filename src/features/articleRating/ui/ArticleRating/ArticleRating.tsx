@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { Rating } from '@/entities/Rating';
 import { useGetArticleRatingQuery, useRateArticleMutation } from '../../api/articleRatingApi';
 import { getUserAuthData } from '@/entities/User';
-import { Loading } from '@/entities/Comment/ui/CommentList/CommentList.stories';
 import { Skeleton } from '@/shared';
 
 export interface ArticleRatingProps {
