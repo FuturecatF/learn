@@ -2,10 +2,10 @@ import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
-import { Theme } from '../../src/app/provider/ThemeProvider/lib/ThemeContext';
 import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { TranslateDecorator } from '../../src/shared/config/storybook/TranslateDecorator/TranslateDecorator';
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

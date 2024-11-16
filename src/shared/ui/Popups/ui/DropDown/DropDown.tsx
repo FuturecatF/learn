@@ -1,7 +1,7 @@
 import { Fragment, memo } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames } from '@/shared/config/theme/lib/classNames';
-import { Applink } from '../../../AppLink/Applink';
+import { Applink } from '../../../AppLink';
 import { DropDownProps } from './types';
 import cls from './DropDown.module.scss';
 import { mapDirectionClass } from '../../styles/consts';

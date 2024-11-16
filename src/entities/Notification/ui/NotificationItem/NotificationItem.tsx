@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Applink, Card, Text } from '@/shared';
-import { CARD_VARIANT } from '@/shared/ui/Card/Card';
+import { CARD_VARIANT } from '@/shared/ui/Card';
 import { Notification } from '../../model/types/notifications';
 import cls from './NotificationItem.module.scss';
 

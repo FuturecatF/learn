@@ -7,7 +7,7 @@ export {
   Text, TextVariant, TextAlign, TextSize,
 } from './ui/Text/Text';
 export { Avatar } from './ui/Avatar/Avatar';
-export { Select } from './ui/Select/Select';
+export { Select } from './ui/Select';
 export { Skeleton } from './ui/Skeleton/Skeleton';
 export { Icon } from './ui/Icon/Icon';
 export { Code } from './ui/Code/Code';

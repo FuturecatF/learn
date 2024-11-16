@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/provider/ThemeProvider/lib/ThemeContext';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
+import { Theme } from '@/shared/const/theme';
 
 const article: Article = {
   id: '1',

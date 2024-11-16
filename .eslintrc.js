@@ -56,6 +56,11 @@ module.exports = {
       'error',
       { alias: '@', testFilesPatterns: ['**/*.story.*', '**/StoreDecorator.tsx'] },
     ],
+    'futurecat-fsd-plugin/public-api-imports': [
+      'warn',
+      { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] },
+    ],
+    'futurecat-fsd-plugin/layer-imports': ['warn', { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] }],
   },
   globals: {
     __IS_DEV__: true,

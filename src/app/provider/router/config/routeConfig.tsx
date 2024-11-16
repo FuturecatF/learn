@@ -1,4 +1,3 @@
-import { RouteProps } from 'react-router-dom';
 import { MainPageAsync } from '@/pages/MainPage';
 import { AboutPageAsync } from '@/pages/AboutPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
@@ -7,50 +6,15 @@ import { ArticlesPageAsync } from '@/pages/ArticlesPage';
 import { ArticleDetailsPageAsync } from '@/pages/ArticleDetailPage';
 import { ArticleEditPageAsync } from '@/pages/ArticleEditPage';
 import { AdminPanelPageAsync } from '@/pages/AdminPanelPage';
-import { USER_ROLES, UserRoles } from '@/entities/User';
+import { USER_ROLES } from '@/entities/User';
 import { ForbiddenPageAsync } from '@/pages/ForbiddenPage/ui/ForbiddenPage.lazy';
-
-export type AppRouteProps = RouteProps & {
-  authOnly?: boolean;
-  roles?: UserRoles[];
-  // nested?: Record<AppRoutesPaths, AppRouteProps>[];
-};
-export const AppRoutes = {
-  MAIN: 'main',
-  ABOUT: 'about',
-  PROFILE: 'profile', // + :id
-  ARTICLES: 'articles',
-  ARTICLE_DETAILS: 'article_details',
-  ARTICLE_CREATE: 'article_create',
-  ARTICLE_EDIT: 'article_edit',
-  ADMIN_PANEL: 'admin_panel',
-  FORBIDDEN: 'forbidden',
-  // last
-  NOT_FOUND: 'not_found',
-} as const;
-
-type ValueOf<T> = T[keyof T];
-
-export type AppRoutesPaths = ValueOf<typeof AppRoutes>;
-
-export const RoutePath: Record<AppRoutesPaths, string> = {
-  [AppRoutes.MAIN]: '/',
-  [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile',
-  [AppRoutes.ARTICLES]: '/articles',
-  [AppRoutes.ARTICLE_DETAILS]: '/articles', // +id
-  [AppRoutes.ARTICLE_CREATE]: '/articles/create',
-  [AppRoutes.ARTICLE_EDIT]: '/articles',
-  [AppRoutes.ADMIN_PANEL]: '/dashboard',
-  [AppRoutes.FORBIDDEN]: '/forbidden',
-  [AppRoutes.NOT_FOUND]: '*',
-};
+import { AppRoutes, RoutePath } from '@/shared/const/router';
+import { AppRouteProps, AppRoutesPaths } from '@/shared/types/router';
 
 export const routeConfig: Record<AppRoutesPaths, AppRouteProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
     element: <MainPageAsync />,
-
   },
   [AppRoutes.ABOUT]: {
     path: RoutePath.about,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/provider/ThemeProvider/lib/ThemeContext';
 import { Icon } from './Icon';
+import { Theme } from '@/shared/const/theme';
 
 export default {
   title: 'pages/Icon',

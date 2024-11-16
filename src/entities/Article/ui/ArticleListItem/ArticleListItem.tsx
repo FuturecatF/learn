@@ -5,7 +5,6 @@ import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import {
   Applink, Avatar, Button, Card, Icon, Text, useHover,
 } from '@/shared';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { ARTICLE_BLOCK_TYPES, ARTICLE_VIEW } from '../../model/consts';
 import {
   Article,
@@ -14,6 +13,7 @@ import {
 } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface ArticleListItemProps {
   className?: string;

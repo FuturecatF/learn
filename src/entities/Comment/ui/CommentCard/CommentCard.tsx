@@ -3,9 +3,9 @@ import { classNames } from '@/shared/config/theme/lib/classNames';
 import {
   Applink, Avatar, HStack, Skeleton, Text, VStack,
 } from '@/shared';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface CommentCardProps {
   className?: string;

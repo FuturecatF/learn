@@ -6,11 +6,11 @@ import {
   Applink, AppLinkTheme, Button, ButtonTheme, HStack, Text, TextVariant,
 } from '@/shared';
 import { getUserAuthData } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { LoginModal } from '@/features/AuthByUsername/ui/LoginModal/LoginModal';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
   className?: string;

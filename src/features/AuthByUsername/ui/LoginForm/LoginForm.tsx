@@ -5,7 +5,7 @@ import { classNames } from '@/shared/config/theme/lib/classNames';
 import {
   Button, ButtonTheme, Text, TextVariant,
 } from '@/shared';
-import { Input } from '@/shared/ui/Input/Input';
+import { Input } from '@/shared/ui/Input';
 
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';

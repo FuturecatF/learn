@@ -1,4 +1,2 @@
 export { default as ThemeProvider } from './ui/ThemeProvider';
-export { useTheme } from './lib/useTheme';
-
-export type { ThemeType } from './lib/types';
+export { useTheme } from '../../../shared/lib/hooks/useTheme/useTheme';
