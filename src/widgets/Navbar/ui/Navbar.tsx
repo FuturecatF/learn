@@ -6,11 +6,11 @@ import {
   Applink, AppLinkTheme, Button, ButtonTheme, HStack, Text, TextVariant,
 } from '@/shared';
 import { getUserAuthData } from '@/entities/User';
-import { LoginModal } from '@/features/AuthByUsername/ui/LoginModal/LoginModal';
+import { LoginModal } from '@/features/AuthByUsername';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticlesCreate } from '@/shared/const/router';
 
 interface NavbarProps {
   className?: string;
@@ -33,7 +33,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     return (
       <header className={classNames(cls.navbar, { className })}>
         <Text variant={TextVariant.INVERTED} className={cls.appName} title={t<string>('FuturecatF App')} />
-        <Applink theme={AppLinkTheme.SECONDARY} to={RoutePath.article_create}>
+        <Applink theme={AppLinkTheme.SECONDARY} to={getRouteArticlesCreate()}>
           {t('createArticle')}
         </Applink>
         <HStack gap={'16'} className={cls.actions}>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Avatar, DropDown } from '@/shared';
 import { getUserAuthData, isUserAdmin, userActions } from '@/entities/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteDashboard, getRouteProfile } from '@/shared/const/router';
 
 export const AvatarDropdown = memo(function AvatarDropdown() {
   const { t } = useTranslation();
@@ -22,8 +22,8 @@ export const AvatarDropdown = memo(function AvatarDropdown() {
   return (
     <DropDown
       items={[
-        ...(isAdmin ? [{ content: t<string>('dashboard'), href: RoutePath.admin_panel }] : []),
-        { content: t<string>('profile'), href: `${RoutePath.profile}/${authData.id}` },
+        ...(isAdmin ? [{ content: t<string>('dashboard'), href: getRouteDashboard() }] : []),
+        { content: t<string>('profile'), href: getRouteProfile(authData.id) },
         { content: t<string>('signOut'), onClick: onLogoutHandler },
       ]}
       trigger={<Avatar src={authData.avatar} size={30} />}

@@ -5,10 +5,10 @@ import { MemoryRouter } from 'react-router-dom';
 import i18n from '@/shared/config/i18n/i18nForTests';
 import { StateSchema, StoreProvider } from '@/app/provider/StoreProvider';
 import type { ComponentRenderOptions } from './types';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteMain } from '@/shared/const/router';
 
 export function componentRender(component: ReactNode, options: ComponentRenderOptions = {}) {
-  const { route = RoutePath.main, initialState, asyncReducers } = options;
+  const { route = getRouteMain(), initialState, asyncReducers } = options;
   return render(
     <MemoryRouter initialEntries={[route]}>
       <StoreProvider asyncReducers={asyncReducers} initialState={initialState as StateSchema}>
