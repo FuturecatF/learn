@@ -29,7 +29,8 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "generate:ui": "node ./scripts/createSlice/templates/createUI.js"
+    "generate:ui": "node ./scripts/createSlice/templates/createUI.js",
+    "postinstall": "rm -rf ./node_modules/.cache"
   },
   "keywords": [],
   "author": "",
