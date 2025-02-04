@@ -9,7 +9,7 @@
 /storybook-static
 ./loki/report.json
 ./loki/report.html
-/reports
+/reports/unit
 
 # testing
 /coverage
@@ -34,3 +34,6 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .vscode
+
+
+
