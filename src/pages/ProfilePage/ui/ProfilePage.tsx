@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { Text, VStack } from '@/shared';
 import { EditableProfileCard } from '@/features/editableProfileCard';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets';
 
 interface ProfilePageProps {
   className?: string;
@@ -17,7 +17,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   }
 
   return (
-    <Page className={classNames('', {}, [className])}>
+    <Page className={classNames('', {}, [className])} data-testid={'ProfilePage'}>
       <VStack gap={'16'} maxWidth>
         <EditableProfileCard id={userId} />
       </VStack>

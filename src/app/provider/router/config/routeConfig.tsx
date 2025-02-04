@@ -9,10 +9,16 @@ import { AdminPanelPageAsync } from '@/pages/AdminPanelPage';
 import { USER_ROLES } from '@/entities/User';
 import { ForbiddenPageAsync } from '@/pages/ForbiddenPage';
 import {
-  AppRoutes, getRouteAbout, getRouteArticles, getRouteArticlesCreate,
-  getRouteArticlesEdit, getRouteArticlesId,
+  AppRoutes,
+  getRouteAbout,
+  getRouteArticles,
+  getRouteArticlesCreate,
+  getRouteArticlesEdit,
+  getRouteArticlesId,
   getRouteDashboard,
-  getRouteForbidden, getRouteMain, getRouteProfile,
+  getRouteForbidden,
+  getRouteMain,
+  getRouteProfile,
 } from '@/shared/const/router';
 import { AppRouteProps, AppRoutesPaths } from '@/shared/types/router';
 

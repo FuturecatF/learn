@@ -6,7 +6,7 @@ const AboutPage = () => {
   const { t } = useTranslation();
   const value = useCounterValue;
   return (
-    <Page>
+    <Page data-testid={'AboutPage'}>
       <>
         {t<string>('aboutPage.title')}
         {value}

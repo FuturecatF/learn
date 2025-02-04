@@ -7,7 +7,7 @@ import { ArticleViewType, ArticleSortFields, ArticleTypes } from '@/entities/Art
 import {
   useAppDispatch, Card, Input, useDebounce,
 } from '@/shared';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,

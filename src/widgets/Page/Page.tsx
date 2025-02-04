@@ -10,8 +10,9 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { getScrollByPath, scrollRestoreActions } from '@/features/scrollRestore';
 import { StateSchema } from '@/app/provider/StoreProvider';
 import cls from './Page.module.scss';
+import { TestProps } from '@/shared/types/tests';
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
@@ -21,7 +22,7 @@ interface PageProps {
 export const PAGE_ID = 'PAGE_ID';
 
 export const Page = memo(function Page({
-  className, children, onScrollEnd, isLoading,
+  className, children, onScrollEnd, isLoading, ...props
 }: PageProps) {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -29,7 +30,11 @@ export const Page = memo(function Page({
   const location = useLocation();
   const scrollPosition = useSelector((state: StateSchema) => getScrollByPath(state, location.pathname));
 
-  useInfinityScroll({ triggerRef, wrapperRef, callback: onScrollEnd });
+  useInfinityScroll({
+    triggerRef,
+    wrapperRef,
+    callback: onScrollEnd,
+  });
 
   useInitialEffect(() => {
     wrapperRef.current.scrollTop = scrollPosition;
@@ -37,12 +42,15 @@ export const Page = memo(function Page({
 
   const scrollPageHandler = useThrottle((event: UIEvent<HTMLDivElement>) => {
     dispatch(
-      scrollRestoreActions.setScrollPosition({ path: location.pathname, position: event.currentTarget.scrollTop }),
+      scrollRestoreActions.setScrollPosition({
+        path: location.pathname,
+        position: event.currentTarget.scrollTop,
+      }),
     );
   }, 2000);
 
   return (
-    <main id={PAGE_ID} ref={wrapperRef} onScroll={scrollPageHandler} className={classNames(cls.page, {}, [className])}>
+    <main id={PAGE_ID} ref={wrapperRef} onScroll={scrollPageHandler} className={classNames(cls.page, {}, [className])} data-testid={props['data-testid']}>
       {children}
       {onScrollEnd && !isLoading && <div ref={triggerRef} />}
     </main>
