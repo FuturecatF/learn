@@ -6,6 +6,7 @@ import { TranslateDecorator } from '../../src/shared/config/storybook/TranslateD
 
 const preview: Preview = {
   decorators: [RouterDecorator, ThemeDecorator, StoreDecorator({}), TranslateDecorator],
+
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -15,6 +16,8 @@ const preview: Preview = {
       },
     },
   },
+
+  tags: ['autodocs']
 };
 
 export default preview;
