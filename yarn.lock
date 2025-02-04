@@ -8236,10 +8236,10 @@ eslint-module-utils@^2.7.4:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-futurecat-fsd-plugin@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-futurecat-fsd-plugin/-/eslint-plugin-futurecat-fsd-plugin-0.0.8.tgz#d7ec2cdb6383871d3f93d702cd911ce6b3d8ba25"
-  integrity sha512-1HF7YvG0z1x/E1s7H7ZMorEEDJb28Q8uonIh1bmmeSfOqDgn19K9i8BI12Da65aZQ2rza9/tVdUvcdKR7KSquQ==
+eslint-plugin-futurecat-fsd-plugin@0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-futurecat-fsd-plugin/-/eslint-plugin-futurecat-fsd-plugin-0.1.4.tgz#0e117ea6831130411c44c2dbcaf05abfca8e2964"
+  integrity sha512-Mb0PMrAgWDJWhMlxKw2P6WA58dz+6XAzuevRubsJH5WSFIk8YRpsUwujTbAKqhRSEr9RVpVGnG45sA34iXYDHQ==
   dependencies:
     micromatch "^4.0.8"
     requireindex "^1.2.0"

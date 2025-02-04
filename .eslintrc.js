@@ -43,7 +43,14 @@ module.exports = {
         ignoreAttribute: ['data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap', 'as', 'borderRadius'],
       },
     ],
-    'max-len': ['error', { code: 120, ignoreComments: true, ignoreStrings: true }],
+    'max-len': [
+      'error',
+      {
+        code: 120,
+        ignoreComments: true,
+        ignoreStrings: true,
+      },
+    ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-param-reassign': 'off',
@@ -55,15 +62,24 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'futurecat-fsd-plugin/path-checker': [
       'error',
-      { alias: '@', testFilesPatterns: ['**/*.story.*', '**/StoreDecorator.tsx'] },
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.story.*', '**/StoreDecorator.tsx'],
+      },
     ],
     'futurecat-fsd-plugin/public-api-imports': [
       'warn',
-      { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] },
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+      },
     ],
     'futurecat-fsd-plugin/layer-imports': [
       'warn',
-      { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] },
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      },
     ],
   },
   globals: {

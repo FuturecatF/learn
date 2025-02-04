@@ -12,7 +12,6 @@ import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import { ARTICLE_BLOCK_TYPES } from '../../model/consts';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleBlock } from '../../model/types/article';
 import {
   getArticleDetailsData,
@@ -21,7 +20,8 @@ import {
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import cls from './ArticleDetails.module.scss';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { articleDetailsReducer } from '../..';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
