@@ -32,6 +32,9 @@
     "generate:ui": "node ./scripts/createSlice/templates/createUI.js",
     "postinstall": "rm -rf ./node_modules/.cache"
   },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -127,6 +130,7 @@
     "i18next": "^22.4.9",
     "i18next-browser-languagedetector": "6.1.3",
     "i18next-http-backend": "1.3.2",
+    "lint-staged": "^15.4.3",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
