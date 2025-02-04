@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/provider/StoreProvider';
 import { loginReducer } from '@/features/AuthByUsername';
 import { profileReducer } from '@/features/editableProfileCard';
@@ -15,9 +15,10 @@ const defaultAsyncReducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
 };
 
-export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) => (StoryComponent: Story) =>
-  (
-    <StoreProvider initialState={state as StateSchema} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
-      <StoryComponent />
-    </StoreProvider>
-  );
+export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
+  (StoryComponent: StoryFn) =>
+    (
+      <StoreProvider initialState={state as StateSchema} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
+        <StoryComponent />
+      </StoreProvider>
+    );

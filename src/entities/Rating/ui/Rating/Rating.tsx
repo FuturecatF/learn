@@ -2,10 +2,9 @@ import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
 import {
-  Button, ButtonTheme, Card, Drawer, HStack, Input, Modal, Popover, StarRating, Text, VStack,
+  Button, ButtonTheme, Card, Drawer, HStack, Input, Modal, StarRating, Text, VStack,
 } from '@/shared';
 import cls from './Rating.module.scss';
-import { NotificationList } from '@/entities/Notification';
 
 interface RatingProps {
   title?: string;

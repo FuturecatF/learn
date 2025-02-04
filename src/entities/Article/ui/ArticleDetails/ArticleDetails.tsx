@@ -20,7 +20,7 @@ import {
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import cls from './ArticleDetails.module.scss';
-import { articleDetailsReducer } from '../..';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 
 const reducers: ReducersList = {

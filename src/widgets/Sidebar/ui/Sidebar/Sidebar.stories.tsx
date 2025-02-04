@@ -1,39 +1,60 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Meta, StoryObj } from '@storybook/react';
 import { Sidebar } from './Sidebar';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Theme } from '@/shared/const/theme';
 
-export default {
-  title: 'widgets/Sidebar',
+const meta: Meta<typeof Sidebar> = {
   component: Sidebar,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof Sidebar>;
+};
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+export default meta;
+type Story = StoryObj<typeof Sidebar>;
 
-export const Light = Template.bind({});
-Light.args = {};
-Light.decorators = [
-  StoreDecorator({
-    user: { authData: {} },
-  }),
-];
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    user: { authData: {} },
-  }),
-];
+export const Basic: Story = {};
 
-export const NoAuth = Template.bind({});
-NoAuth.decorators = [
-  StoreDecorator({
-    user: {},
-  }),
-];
+export const WithProp: Story = {
+  render: () => <Sidebar />,
+};
+
+// const meta: Meta<typeof Sidebar> = {
+//   component: Sidebar,
+// };
+// export default meta;
+//
+// export const Default: Story = {
+//   render: (args) => <Sidebar {...args} />,
+//   args: {},
+//   },
+// };
+
+// export default {
+//   title: 'widgets/Sidebar',
+//   component: Sidebar,
+//   argTypes: {
+//     backgroundColor: { control: 'color' },
+//   },
+// } as ComponentMeta<typeof Sidebar>;
+
+// const Template: Meta<typeof Sidebar> = (args) => <Sidebar {...args} />;
+
+// export const Light = Template.bind({});
+// Light.args = {};
+// Light.decorators = [
+//   StoreDecorator({
+//     user: { authData: {} },
+//   }),
+// ];
+// export const Dark = Template.bind({});
+// Dark.args = {};
+// Dark.decorators = [
+//   ThemeDecorator(Theme.DARK),
+//   StoreDecorator({
+//     user: { authData: {} },
+//   }),
+// ];
+//
+// export const NoAuth = Template.bind({});
+// NoAuth.decorators = [
+//   StoreDecorator({
+//     user: {},
+//   }),
+// ];

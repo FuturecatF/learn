@@ -1,4 +1,3 @@
-import { GuardedType } from '@reduxjs/toolkit/dist/listenerMiddleware/types';
 import {
   createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState,
 } from 'react';

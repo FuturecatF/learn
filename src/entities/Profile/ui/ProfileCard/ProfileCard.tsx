@@ -5,7 +5,7 @@ import {
 } from '@/shared';
 import { CurrencySelect, CurrencyType } from '@/entities/Currency';
 import { CountrySelect, CountryType } from '@/entities/Country';
-import { PageLoader } from '@/widgets/PageLoader/ui/PageLoader';
+import { PageLoader } from '@/widgets';
 import { Profile } from '../../model/types/profile';
 
 import cls from './ProfileCard.module.scss';
@@ -25,6 +25,7 @@ interface ProfileCardProps {
   onChangeCurrency?: (currency: CurrencyType) => void;
   onChangeCountry?: (country: CountryType) => void;
 }
+
 export const ProfileCard = ({
   className,
   data,

@@ -5,7 +5,6 @@ import {
 } from '@/shared';
 import { NotificationList } from '@/entities/Notification';
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 
 export const NotificationButton = memo(function NotificationButton() {

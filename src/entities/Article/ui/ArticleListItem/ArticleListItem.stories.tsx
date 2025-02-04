@@ -1,10 +1,36 @@
+// import React from 'react';
+// import { ComponentMeta, ComponentStory } from '@.storybook/react';
+// import { ThemeDecorator } from '@/shared/config/.storybook/ThemeDecorator/ThemeDecorator';
+// import { ARTICLE_VIEW } from '../../model/consts';
+// import { Article } from '../../model/types/article';
+// import { ArticleListItem } from './ArticleListItem';
+// import { Theme } from '@/shared/const/theme';
+//
+//
+// export default {
+//   title: 'entities/Article/ArticleListItem',
+//   component: ArticleListItem,
+// } as ComponentMeta<typeof ArticleListItem>;
+//
+// const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+//
+// export const List = Template.bind({});
+// List.args = {
+//   view: ARTICLE_VIEW.LIST,
+//   article,
+// };
+//
+// export const Tile = Template.bind({});
+// Tile.args = {
+//   view: ARTICLE_VIEW.TILE,
+//   article,
+// };
+// Tile.decorators = [ThemeDecorator(Theme.DARK)];
+
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ARTICLE_VIEW } from '../../model/consts';
-import { Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
-import { Theme } from '@/shared/const/theme';
+import { Article, ARTICLE_VIEW } from '../..';
 
 const article = {
   id: '1',
@@ -81,22 +107,17 @@ const article = {
   ],
 } as Article;
 
-export default {
-  title: 'entities/Article/ArticleListItem',
+const meta: Meta<typeof ArticleListItem> = {
   component: ArticleListItem,
-} as ComponentMeta<typeof ArticleListItem>;
-
-const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
-
-export const List = Template.bind({});
-List.args = {
-  view: ARTICLE_VIEW.LIST,
-  article,
 };
+export default meta;
+type Story = StoryObj<typeof ArticleListItem>;
 
-export const Tile = Template.bind({});
-Tile.args = {
-  view: ARTICLE_VIEW.TILE,
-  article,
+export const Basic: Story = {};
+
+export const WithProp: Story = {
+  render: () => (
+    <ArticleListItem article={article} view={ARTICLE_VIEW.LIST} />
+
+  ),
 };
-Tile.decorators = [ThemeDecorator(Theme.DARK)];

@@ -3,16 +3,16 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 
-import { ArticleDetails } from '@/entities/Article';
 import { VStack } from '@/shared';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRatingAsync } from '@/features/articleRating';
+import { ArticleDetails } from '@/entities/Article';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,

@@ -1,10 +1,56 @@
+// import React from 'react';
+// import { ComponentStory, ComponentMeta } from '@.storybook/react';
+// import { ThemeDecorator } from '@/shared/config/.storybook/ThemeDecorator/ThemeDecorator';
+// import { ARTICLE_VIEW } from '../../model/consts';
+// import { Article } from '../../model/types/article';
+// import { ArticleList } from './ArticleList';
+// import { Theme } from '@/shared/const/theme';
+//
+//
+// export default {
+//   title: 'entities/Article/ArticleList',
+//   component: ArticleList,
+// } as ComponentMeta<typeof ArticleList>;
+//
+// const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+//
+// export const PrimaryList = Template.bind({});
+// PrimaryList.args = {
+//   articles: [article, article, article, article],
+//   view: ARTICLE_VIEW.LIST,
+// };
+//
+// export const PrimaryTile = Template.bind({});
+// PrimaryTile.args = {
+//   articles: [article, article, article, article],
+//   view: ARTICLE_VIEW.TILE,
+// };
+//
+// export const PrimaryTileMono = Template.bind({});
+// PrimaryTileMono.args = {
+//   articles: [article, article, article, article],
+//   view: ARTICLE_VIEW.TILE,
+// };
+// PrimaryTileMono.decorators = [ThemeDecorator(Theme.MONO)];
+//
+// export const isLoadingList = Template.bind({});
+// isLoadingList.args = {
+//   isLoading: true,
+//   articles: [],
+//   view: ARTICLE_VIEW.LIST,
+// };
+//
+// export const isLoadingTile = Template.bind({});
+// isLoadingTile.args = {
+//   isLoading: true,
+//   articles: [],
+//   view: ARTICLE_VIEW.TILE,
+// };
+// isLoadingTile.decorators = [ThemeDecorator(Theme.DARK)];
+
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ARTICLE_VIEW } from '../../model/consts';
-import { Article } from '../../model/types/article';
-import { ArticleList } from './ArticleList';
-import { Theme } from '@/shared/const/theme';
+import { Article, ARTICLE_VIEW, ArticleList } from '../..';
 
 const article = {
   id: '1',
@@ -53,7 +99,7 @@ const article = {
     {
       id: '3',
       type: 'CODE',
-      code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
+      code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
     },
     {
       id: '7',
@@ -81,43 +127,17 @@ const article = {
   ],
 } as Article;
 
-export default {
-  title: 'entities/Article/ArticleList',
+const meta: Meta<typeof ArticleList> = {
   component: ArticleList,
-} as ComponentMeta<typeof ArticleList>;
-
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
-
-export const PrimaryList = Template.bind({});
-PrimaryList.args = {
-  articles: [article, article, article, article],
-  view: ARTICLE_VIEW.LIST,
 };
+export default meta;
+type Story = StoryObj<typeof ArticleList>;
 
-export const PrimaryTile = Template.bind({});
-PrimaryTile.args = {
-  articles: [article, article, article, article],
-  view: ARTICLE_VIEW.TILE,
-};
+export const Basic: Story = {};
 
-export const PrimaryTileMono = Template.bind({});
-PrimaryTileMono.args = {
-  articles: [article, article, article, article],
-  view: ARTICLE_VIEW.TILE,
-};
-PrimaryTileMono.decorators = [ThemeDecorator(Theme.MONO)];
+export const WithProp: Story = {
+  render: () => (
+    <ArticleList articles={[]} isLoading view={ARTICLE_VIEW.LIST} />
 
-export const isLoadingList = Template.bind({});
-isLoadingList.args = {
-  isLoading: true,
-  articles: [],
-  view: ARTICLE_VIEW.LIST,
+  ),
 };
-
-export const isLoadingTile = Template.bind({});
-isLoadingTile.args = {
-  isLoading: true,
-  articles: [],
-  view: ARTICLE_VIEW.TILE,
-};
-isLoadingTile.decorators = [ThemeDecorator(Theme.DARK)];

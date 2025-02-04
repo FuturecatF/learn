@@ -5,6 +5,6 @@ npx lint-staged
 #npm run lint:ts
 #npm run lint:scss
 #npm run test:unit
-#npm run storybook
+#npm run .storybook
 #npm run test:ui
 

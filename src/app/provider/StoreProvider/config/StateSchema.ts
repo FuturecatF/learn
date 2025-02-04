@@ -11,7 +11,7 @@ import { articlesPageSchema } from '@/pages/ArticlesPage';
 import { ScrollRestoreSchema } from '@/features/scrollRestore';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ProfileSchema } from '@/features/editableProfileCard';
-import { LoginSchema } from '@/features/AuthByUsername/model/types/loginSchema';
+import { LoginSchema } from '@/features/AuthByUsername';
 
 export interface StateSchema {
   counter: CounterSchema;

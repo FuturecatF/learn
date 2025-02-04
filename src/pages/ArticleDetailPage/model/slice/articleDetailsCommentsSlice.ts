@@ -30,7 +30,6 @@ const articleDetailsCommentsSlice = createSlice({
       .addCase(fetchCommentsByArticleId.fulfilled, (state, action: PayloadAction<Comment[]>) => {
         state.isLoading = false;
         commentsAdapter.setAll(state, action.payload);
-        
       })
       .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
         state.isLoading = false;
