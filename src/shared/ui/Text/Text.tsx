@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 
 import cls from './Text.module.scss';
+import { TestProps } from '@/shared/types/tests';
 
 export const TextVariant = {
   PRIMARY: 'primary',
@@ -65,7 +66,7 @@ export const Text = memo(
           </HeaderTag>
         )}
         {text && (
-          <p data-testid={`${dataTestId}.Paragraph`} className={cls.text}>
+          <p data-testid={`${dataTestId}`} className={cls.text}>
             {text}
           </p>
         )}

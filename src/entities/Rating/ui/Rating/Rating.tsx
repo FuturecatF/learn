@@ -47,7 +47,6 @@ export const Rating = memo(function Rating({
   }, [feedBack, onAccept, starsCount]);
 
   const cancelHandler = useCallback(() => {
-    console.log('sdfsdf');
     setIsModalOpen(false);
     onCancel?.(starsCount);
   }, [onCancel, starsCount]);
@@ -55,18 +54,18 @@ export const Rating = memo(function Rating({
   const modalContent = (
     <VStack gap={'32'} maxWidth>
       <Text text={feedBackTitle} />
-      <Input placeholder={t<string>('Ваш отзыв')} />
+      <Input placeholder={t<string>('Ваш отзыв')} data-testid={'RatingCard.Input'} />
       <HStack gap={'16'} justify={'center'}>
-        <Button theme={ButtonTheme.OUTLINE_RED}>
+        <Button theme={ButtonTheme.OUTLINE_RED} data-testid={'RatingCard.Close'}>
           {t('Закрыть')}
         </Button>
-        <Button onClick={acceptHandler}>{t('Отправить')}</Button>
+        <Button onClick={acceptHandler} data-testid={'RatingCard.Send'}>{t('Отправить')}</Button>
       </HStack>
     </VStack>
   );
 
   return (
-    <Card className={cls.rating} max>
+    <Card className={cls.rating} data-testid={'RatingCard'} max>
       <VStack align={'center'} gap={'8'}>
         <Text text={starsCount ? 'Спасибо за оценку' : title} />
         <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />

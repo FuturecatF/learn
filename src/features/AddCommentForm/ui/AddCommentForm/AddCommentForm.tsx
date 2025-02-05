@@ -16,12 +16,16 @@ import cls from './AddCommentForm.module.scss';
 const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer,
 };
+
 interface AddCommentFormProps {
   className?: string;
   onSendComment: (text: string) => void;
 }
 
-const AddCommentForm = memo(function AddCommentForm({ className, onSendComment }: AddCommentFormProps) {
+const AddCommentForm = memo(function AddCommentForm({
+  className,
+  onSendComment,
+}: AddCommentFormProps) {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const text = useSelector(addCommentFormText);
@@ -40,14 +44,16 @@ const AddCommentForm = memo(function AddCommentForm({ className, onSendComment }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <HStack justify={'between'} className={classNames(cls.addCommentForm, {}, [className])} maxWidth>
+      <HStack justify={'between'} className={classNames(cls.addCommentForm, {}, [className])} maxWidth
+              data-testid={'AddCommentForm'}>
         <Input
           className={cls.input}
           placeholder={t<string>('addCommentText')}
           value={text}
           onChange={onCommentTextChange}
+          data-testid={'AddCommentForm.Input'}
         />
-        <Button onClick={onSendHandler}>{t('Send')}</Button>
+        <Button onClick={onSendHandler} data-testid={'AddCommentForm.Button'}>{t('Send')}</Button>
       </HStack>
     </DynamicModuleLoader>
   );

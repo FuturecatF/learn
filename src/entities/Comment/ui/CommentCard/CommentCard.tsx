@@ -13,7 +13,11 @@ interface CommentCardProps {
   isLoading?: boolean;
 }
 
-export const CommentCard = memo(function CommentCard({ className, comment, isLoading }: CommentCardProps) {
+export const CommentCard = memo(function CommentCard({
+  className,
+  comment,
+  isLoading,
+}: CommentCardProps) {
   if (isLoading) {
     return (
       <div className={classNames(cls.commentCard, {}, [className, cls.loading])}>

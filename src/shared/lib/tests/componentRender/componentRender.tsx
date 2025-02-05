@@ -6,14 +6,40 @@ import i18n from '@/shared/config/i18n/i18nForTests';
 import { StateSchema, StoreProvider } from '@/app/provider/StoreProvider';
 import type { ComponentRenderOptions } from './types';
 import { getRouteMain } from '@/shared/const/router';
+import { ThemeProvider } from '@/app/provider/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
+import '@/app/styles/index.scss';
 
-export function componentRender(component: ReactNode, options: ComponentRenderOptions = {}) {
-  const { route = getRouteMain(), initialState, asyncReducers } = options;
-  return render(
+interface TestProviderProps {
+  children: ReactNode;
+  options?: ComponentRenderOptions;
+}
+
+export function TestProvider({
+  children,
+  options = {},
+}: TestProviderProps) {
+  const {
+    route = getRouteMain(),
+    initialState,
+    asyncReducers,
+    theme = Theme.LIGHT,
+  } = options;
+  return (
     <MemoryRouter initialEntries={[route]}>
       <StoreProvider asyncReducers={asyncReducers} initialState={initialState as StateSchema}>
-        <I18nextProvider i18n={i18n}>{component}</I18nextProvider>
+        <I18nextProvider i18n={i18n}>
+          <ThemeProvider initialTheme={theme}>
+            <div className={`app ${theme}`}>
+              {children}
+            </div>
+          </ThemeProvider>
+        </I18nextProvider>
       </StoreProvider>
-    </MemoryRouter>,
+    </MemoryRouter>
   );
+}
+
+export function componentRender(component: ReactNode, options: ComponentRenderOptions = {}) {
+  return render(<TestProvider options={options}>{component}</TestProvider>);
 }

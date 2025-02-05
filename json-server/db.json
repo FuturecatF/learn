@@ -544,6 +544,32 @@
           ]
         }
       ]
+    },
+    {
+      "title": "TESTING ARTICLE",
+      "subtitle": "БиологиЯ",
+      "img": "https://avatars.mds.yandex.net/get-zen_doc/2746556/pub_5f50dd7e1a1ddf4776aa5569_5f50decd2506f211d1de6284/scale_1200",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "JQcse7v"
+    },
+    {
+      "title": "TESTING ARTICLE",
+      "subtitle": "БиологиЯ",
+      "img": "https://avatars.mds.yandex.net/get-zen_doc/2746556/pub_5f50dd7e1a1ddf4776aa5569_5f50decd2506f211d1de6284/scale_1200",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "wjsmQHh"
     }
   ],
   "comments": [
@@ -600,6 +626,12 @@
       "userId": "1",
       "text": "111111111111",
       "id": "GwYDKwG"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfsdfsdfsdf",
+      "id": "BuoQzht"
     }
   ],
   "users": [
@@ -629,14 +661,14 @@
   "profile": [
     {
       "id": "1",
-      "first": "Oleg",
-      "lastname": "Kotikov228",
-      "age": 18,
-      "currency": "RUB",
-      "country": "Belarus",
+      "first": "test",
+      "lastname": "user",
+      "age": 465,
+      "currency": "EUR",
+      "country": "Ukraine",
       "city": "Moscow",
-      "username": "FuturecatF",
-      "avatar": "https://cspromogame.ru//storage/upload_images/avatars/5183.jpg"
+      "username": "testuser",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
       "id": "2",

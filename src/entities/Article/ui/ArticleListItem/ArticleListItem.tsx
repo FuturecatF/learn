@@ -10,8 +10,9 @@ import { Article, ArticleViewType, ArticleTextBlock } from '../../model/types/ar
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 import { getRouteArticlesId } from '@/shared/const/router';
+import { TestProps } from '@/shared/types/tests';
 
-interface ArticleListItemProps {
+interface ArticleListItemProps extends TestProps {
   className?: string;
   article: Article;
   view: ArticleViewType;
@@ -23,6 +24,7 @@ export const ArticleListItem = memo(function ArticleListItem({
   article,
   view,
   target,
+  ...props
 }: ArticleListItemProps) {
   const { t } = useTranslation();
   const [isHover, bindHover] = useHover();
@@ -38,10 +40,10 @@ export const ArticleListItem = memo(function ArticleListItem({
   if (view === ARTICLE_VIEW.LIST) {
     const textBlock = article.blocks.find((block) => block.type === ARTICLE_BLOCK_TYPES.TEXT) as ArticleTextBlock;
     return (
-      <div className={classNames(cls.articleListItem, {}, [className, cls[view.toLowerCase()]])}>
+      <div className={classNames(cls.articleListItem, {}, [className, cls[view.toLowerCase()]])} data-testid={props['data-testid']}>
         <Card>
           <div className={cls.header}>
-            <Avatar size={30} src={article.user.avatar} />
+            <Avatar size={30} src={article.user.avatar ?? ''} />
             <Text text={article.user.username} className={cls.username} />
             <Text text={article.createdAt} className={cls.date} />
           </div>
@@ -67,7 +69,7 @@ export const ArticleListItem = memo(function ArticleListItem({
   }
 
   return (
-    <Applink target={target} to={getRouteArticlesId(article.id)}>
+    <Applink target={target} to={getRouteArticlesId(article.id)} data-testid={props['data-testid']}>
       <div {...bindHover} className={classNames(cls.articleListItem, {}, [className, cls[view.toLowerCase()]])}>
         <Card>
           <div className={cls.imageWrapper}>

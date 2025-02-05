@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { Text, VStack } from '@/shared';
-import { Comment } from '../../model/types/comment';
+import { Comment } from '@/entities/Comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 
 interface CommentListProps {
@@ -11,7 +11,11 @@ interface CommentListProps {
   isLoading?: boolean;
 }
 
-export const CommentList = memo(function CommentList({ className, comments, isLoading }: CommentListProps) {
+export const CommentList = memo(function CommentList({
+  className,
+  comments,
+  isLoading,
+}: CommentListProps) {
   const { t } = useTranslation();
 
   if (isLoading) {
@@ -25,7 +29,7 @@ export const CommentList = memo(function CommentList({ className, comments, isLo
   }
 
   return (
-    <VStack gap={'16'} className={classNames('', {}, [className])} maxWidth>
+    <VStack gap={'16'} className={classNames('', {}, [className])} maxWidth data-testid={'CommentCard.Content'}>
       {comments && comments.length ? (
         comments.map((comment) => <CommentCard key={comment.id} comment={comment} isLoading={isLoading} />)
       ) : (

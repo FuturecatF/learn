@@ -31,7 +31,7 @@ export const ArticleList = memo(function ArticleList({
   const { t } = useTranslation();
 
   const renderArticle = (article: Article) => (
-    <ArticleListItem key={article.id} article={article} view={view} target={target} />
+    <ArticleListItem key={article.id} article={article} view={view} target={target} data-testid={'ArticleListItem'} />
   );
 
   if (!isLoading && !articles.length) {
@@ -80,7 +80,7 @@ export const ArticleList = memo(function ArticleList({
     //     </div>
     //   )}
     // </WindowScroller>
-    <div className={classNames(cls.articleList, {}, [className, cls[view?.toLowerCase()]])}>
+    <div className={classNames(cls.articleList, {}, [className, cls[view?.toLowerCase()]])} data-testid={'ArticleList'}>
       {articles.length > 0 && articles.map(renderArticle)}
       {isLoading && getSkeletons(view)}
     </div>

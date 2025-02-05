@@ -16,11 +16,11 @@ export const AppRoutes = {
 
 export const getRouteMain = () => '/';
 export const getRouteAbout = () => '/about';
-export const getRouteProfile = (id: string) => `/profile${id}`;
+export const getRouteProfile = (id: string) => `/profile/${id}`;
 export const getRouteArticles = () => '/articles';
-export const getRouteArticlesId = (id: string) => `/articles:${id}`;
+export const getRouteArticlesId = (id: string) => `/articles/${id}`;
 export const getRouteArticlesCreate = () => '/articles/create';
-export const getRouteArticlesEdit = (id: string) => `/articles/edit${id}`;
+export const getRouteArticlesEdit = (id: string) => `/articles/edit/${id}`;
 export const getRouteDashboard = () => '/dashboard';
 export const getRouteForbidden = () => '/forbidden';
 

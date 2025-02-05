@@ -14,7 +14,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
-
+console.log('__IS_DEV__', __IS_DEV__)
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
