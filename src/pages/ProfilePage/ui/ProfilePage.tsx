@@ -8,7 +8,11 @@ import { Page } from '@/widgets';
 interface ProfilePageProps {
   className?: string;
 }
-const ProfilePage = ({ className }: ProfilePageProps) => {
+
+const ProfilePage = ({
+  className,
+
+}: ProfilePageProps) => {
   const { t } = useTranslation();
   const { userId } = useParams<{ userId: string }>();
 
@@ -17,7 +21,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   }
 
   return (
-    <Page className={classNames('', {}, [className])} data-testid={'ProfilePage'}>
+    <Page
+      className={classNames('', {}, [className])}
+      data-testid={'ProfilePage'}
+    >
       <VStack gap={'16'} maxWidth>
         <EditableProfileCard id={userId} />
       </VStack>

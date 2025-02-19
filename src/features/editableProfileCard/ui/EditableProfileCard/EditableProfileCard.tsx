@@ -2,14 +2,21 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import {
-  Text, TextVariant, useAppDispatch, useInitialEffect, VStack,
+  Text,
+  TextVariant,
+  useAppDispatch,
+  useInitialEffect,
+  VStack,
 } from '@/shared';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { ProfileCard } from '@/entities/Profile';
 
 import { CurrencyType } from '@/entities/Currency';
 import { CountryType } from '@/entities/Country';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VALIDATE_PROFILE_ERROR } from '../../model/consts';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
@@ -116,8 +123,8 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     <DynamicModuleLoader reducers={reducers}>
       <VStack gap={'16'} className={classNames('', {}, [className])} maxWidth>
         <EditableProfileCardHeader />
-        {validationErrors?.length
-          && validationErrors.map((error) => (
+        {validationErrors?.length &&
+          validationErrors.map((error) => (
             <Text
               data-testid={'EditableProfileCard.Error'}
               variant={TextVariant.ERROR}

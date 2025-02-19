@@ -4,7 +4,12 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:i18next/recommended',
+    'prettier',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -13,14 +18,24 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'futurecat-fsd-plugin', 'unused-imports'],
+  plugins: [
+    'react',
+    'i18next',
+    'react-hooks',
+    'futurecat-fsd-plugin',
+    'unused-imports',
+    '@typescript-eslint'
+  ],
   rules: {
     indent: [2, 2],
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     'unused-imports/no-unused-imports': 'warn',
     '@typescript-eslint/indent': [2, 2, { offsetTernaryExpressions: true }],
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.tsx'] },
+    ],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'react/require-default-props': 'off',
@@ -40,7 +55,17 @@ module.exports = {
       'warn',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap', 'as', 'borderRadius'],
+        ignoreAttribute: [
+          'data-testid',
+          'to',
+          'target',
+          'justify',
+          'align',
+          'direction',
+          'gap',
+          'as',
+          'borderRadius',
+        ],
       },
     ],
     'max-len': [
@@ -71,7 +96,11 @@ module.exports = {
       'warn',
       {
         alias: '@',
-        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+        testFilesPatterns: [
+          '**/*.test.*',
+          '**/*.story.*',
+          '**/StoreDecorator.tsx',
+        ],
       },
     ],
     'futurecat-fsd-plugin/layer-imports': [
@@ -81,6 +110,7 @@ module.exports = {
         ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
       },
     ],
+    'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
   },
   globals: {
     __IS_DEV__: true,
