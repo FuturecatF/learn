@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 
-import { VStack } from '@/shared';
+import { Card, VStack } from '@/shared';
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -16,7 +16,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRatingAsync } from '@/features/articleRating';
 import { ArticleDetails } from '@/entities/Article';
-import { getFeatureFlag } from '@/shared/lib/features';
+import { getFeatureFlag, toggleFeatures } from '@/shared/lib/features';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -35,6 +35,18 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return null;
   }
 
+  const rating = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRatingAsync articleId={articleId} />,
+    off: () => <Card>{t('Оченка статей скоро появится!')}</Card>,
+  });
+
+  toggleFeatures({
+    name: 'isCounterEnabled',
+    on: () => console.log('NEW'),
+    off: () => console.log('OLD'),
+  });
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page
@@ -44,9 +56,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         <VStack gap={'16'} maxWidth>
           <ArticleDetailsPageHeader />
           <ArticleDetails articleId={articleId} />
-          {isArticleRatingEnabled && (
-            <ArticleRatingAsync articleId={articleId} />
-          )}
+          {rating}
           <ArticleRecommendationsList />
           {isCounterEnabled && <ArticleDetailsComments articleId={articleId} />}
         </VStack>
