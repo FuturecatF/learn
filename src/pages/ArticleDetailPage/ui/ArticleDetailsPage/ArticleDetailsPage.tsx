@@ -4,7 +4,10 @@ import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 
 import { VStack } from '@/shared';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { Page } from '@/widgets';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
@@ -13,10 +16,12 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRatingAsync } from '@/features/articleRating';
 import { ArticleDetails } from '@/entities/Article';
+import { getFeatureFlag } from '@/shared/lib/features';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
 };
+
 interface ArticleDetailsPageProps {
   className?: string;
 }
@@ -24,20 +29,26 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article');
   const { articleId } = useParams();
-
+  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+  const isCounterEnabled = getFeatureFlag('isCounterEnabled');
   if (!articleId) {
     return null;
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page className={classNames(cls.articleDetailsPage, {}, [className])} data-testid={'ArticleDetails.Info'}>
+      <Page
+        className={classNames(cls.articleDetailsPage, {}, [className])}
+        data-testid={'ArticleDetails.Info'}
+      >
         <VStack gap={'16'} maxWidth>
           <ArticleDetailsPageHeader />
           <ArticleDetails articleId={articleId} />
-          <ArticleRatingAsync articleId={articleId} />
+          {isArticleRatingEnabled && (
+            <ArticleRatingAsync articleId={articleId} />
+          )}
           <ArticleRecommendationsList />
-          <ArticleDetailsComments articleId={articleId} />
+          {isCounterEnabled && <ArticleDetailsComments articleId={articleId} />}
         </VStack>
       </Page>
     </DynamicModuleLoader>

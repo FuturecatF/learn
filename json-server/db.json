@@ -645,6 +645,10 @@
         "ADMIN",
         "OWNER"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
       "avatar": "https://cdn.freelance.ru/images/att/1575043_900_600.png"
     },
     {
@@ -655,6 +659,10 @@
         "USER",
         "MANAGER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      },
       "avatar": "https://cspromogame.ru//storage/upload_images/avatars/3903.jpg"
     }
   ],
