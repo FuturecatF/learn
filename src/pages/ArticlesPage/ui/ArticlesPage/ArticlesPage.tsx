@@ -2,10 +2,16 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/config/theme/lib/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/widgets';
-import { getArticlesPageIsLoading } from '../../model/selectors/articlesPageSelectors';
+import {
+  getArticlesPageIsLoading,
+  useArticleItemById,
+} from '../../model/selectors/articlesPageSelectors';
 import { ArticleInfinityList } from '../ArticleInfinityList/ArticleInfinityList';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
@@ -24,7 +30,9 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticlesPageIsLoading);
+  const data = useArticleItemById('1');
 
+  console.log('data', data);
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
