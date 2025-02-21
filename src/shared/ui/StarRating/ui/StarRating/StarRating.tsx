@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import StarIcon from '@/shared/assets/icons/star.svg';
-import { Icon } from '../../../Icon/Icon';
+import { Icon } from '../../../deprecated/Icon/Icon';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import cls from './StarRating.module.scss';
 
@@ -55,7 +55,7 @@ export const StarRating = memo(function StarRating({ onSelect, size = 30, select
           onMouseLeave={onLeave}
           onMouseEnter={onHover(starNumber)}
           onClick={onClick(starNumber)}
-          data-testid={'StarRating.' + starNumber}
+          data-testid={`StarRating.${  starNumber}`}
           data-selected={currentStarsCount >= starNumber}
         />
       ))}

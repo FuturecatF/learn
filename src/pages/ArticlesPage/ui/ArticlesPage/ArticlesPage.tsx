@@ -8,15 +8,13 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/widgets';
-import {
-  getArticlesPageIsLoading,
-  useArticleItemById,
-} from '../../model/selectors/articlesPageSelectors';
+import { getArticlesPageIsLoading } from '../../model/selectors/articlesPageSelectors';
 import { ArticleInfinityList } from '../ArticleInfinityList/ArticleInfinityList';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 
 const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
@@ -30,9 +28,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticlesPageIsLoading);
-  const data = useArticleItemById('1');
 
-  console.log('data', data);
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
@@ -47,6 +43,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       >
         <ArticlePageFilters />
         <ArticleInfinityList className={cls.list} />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   );

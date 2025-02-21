@@ -1,7 +1,7 @@
 import { Fragment, memo } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames } from '@/shared/config/theme/lib/classNames';
-import { Applink } from '../../../AppLink';
+import { Applink } from '../../../deprecated/AppLink';
 import { DropDownProps } from './types';
 import cls from './DropDown.module.scss';
 import { mapDirectionClass } from '../../styles/consts';
@@ -33,7 +33,8 @@ export const DropDown = memo(function DropDown({
 
           if (item.href) {
             return (
-              <Menu.Item key={item.href} as={Applink} to={item.href} disabled={item.disabled}>
+              <Menu.Item key={item.href} as={Applink} to={item.href}
+                disabled={item.disabled}>
                 {content}
               </Menu.Item>
             );

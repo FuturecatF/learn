@@ -5,7 +5,7 @@ import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
 import { ListBoxProps } from './types';
 import { HStack } from '../../../Stack/HStack/HStack';
-import { Button } from '../../../Button/Button';
+import { Button } from '../../../deprecated/Button/Button';
 import { mapDirectionClass } from '../../styles/consts';
 
 export const ListBox = memo(function ListBox({
@@ -37,7 +37,8 @@ export const ListBox = memo(function ListBox({
           {items
             && items.length > 0
             && items.map((item) => (
-              <HListbox.Option as={Fragment} key={item.value} value={item.value} disabled={item.disabled}>
+              <HListbox.Option as={Fragment} key={item.value} value={item.value}
+                disabled={item.disabled}>
                 {({ active, selected }) => (
                   <li
                     className={classNames(cls.option, {

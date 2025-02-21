@@ -6,7 +6,7 @@ import { Select, SORT_ORDER } from '@/shared';
 import { ARTICLE_SORT_FIELD, ArticleSortFields } from '@/entities/Article';
 import cls from './ArticleSortSelector.module.scss';
 import { SortOrder } from '@/shared/types/sort';
-import { SelectOption } from '@/shared/ui/Select/types';
+import { SelectOption } from '@/shared/ui/deprecated/Select/types';
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -73,7 +73,8 @@ export const ArticleSortSelector = memo(function ArticleSortSelector({
 
   return (
     <div className={classNames(cls.articleSortSelector, {}, [className])}>
-      <Select value={sort} onChange={changeOrderHandler} options={orderOptions} label={t<string>('Sort by')} />
+      <Select value={sort} onChange={changeOrderHandler} options={orderOptions}
+        label={t<string>('Sort by')} />
       <Select<ArticleSortFields>
         className={cls.order}
         value={order}

@@ -3,9 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import {
-  Button, ButtonTheme, Text, TextVariant,
+  Button, ButtonTheme, Text, TextVariant, Input,
 } from '@/shared';
-import { Input } from '@/shared/ui/Input';
 
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -69,7 +68,8 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
           value={password}
           onChange={onChangePasswordHandler}
         />
-        <Button className={cls.loginBtn} theme={ButtonTheme.OUTLINE} onClick={loginHandler} disabled={isLoading}>
+        <Button className={cls.loginBtn} theme={ButtonTheme.OUTLINE} onClick={loginHandler}
+          disabled={isLoading}>
           {t('signIn')}
         </Button>
       </div>

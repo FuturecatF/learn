@@ -3,7 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import {
-  Applink, AppLinkTheme, Button, ButtonTheme, HStack, Text, TextVariant,
+  Applink,
+  AppLinkTheme,
+  Button,
+  ButtonTheme,
+  HStack,
+  Text,
+  TextVariant,
 } from '@/shared';
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
@@ -11,6 +17,7 @@ import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
 import { getRouteArticlesCreate } from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
   className?: string;
@@ -31,25 +38,51 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.navbar, { className })}>
-        <Text variant={TextVariant.INVERTED} className={cls.appName} title={t<string>('FuturecatF App')} />
-        <Applink theme={AppLinkTheme.SECONDARY} to={getRouteArticlesCreate()}>
-          {t('createArticle')}
-        </Applink>
-        <HStack gap={'16'} className={cls.actions}>
-          <NotificationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+      <ToggleFeatures
+        feature={'isAppRedesigned'}
+        on={
+          <header className={classNames(cls.navbarRedesigned, { className })}>
+            <HStack gap={'16'} className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+        off={
+          <header className={classNames(cls.navbar, { className })}>
+            <Text
+              variant={TextVariant.INVERTED}
+              className={cls.appName}
+              title={t<string>('FuturecatF App')}
+            />
+            <Applink
+              theme={AppLinkTheme.SECONDARY}
+              to={getRouteArticlesCreate()}
+            >
+              {t('createArticle')}
+            </Applink>
+            <HStack gap={'16'} className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+      />
     );
   }
 
   return (
     <header className={classNames(cls.navbar, { className })}>
-      <Button className={cls.authButton} theme={ButtonTheme.CLEAR_INVERTED} onClick={onOpenModal}>
+      <Button
+        className={cls.authButton}
+        theme={ButtonTheme.CLEAR_INVERTED}
+        onClick={onOpenModal}
+      >
         {t('signIn')}
       </Button>
-      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
+      {isAuthModal && (
+        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      )}
     </header>
   );
 });

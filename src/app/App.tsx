@@ -1,29 +1,49 @@
 import { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useTheme } from '@/app/provider/ThemeProvider';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { Navbar, Sidebar } from '@/widgets';
-import { getUserInited, userActions } from '@/entities/User';
+import { getUserInited, initAuthData } from '@/entities/User';
 import { AppRouter } from './provider/ThemeProvider/router';
+import { useAppDispatch } from '@/shared';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 
 export const App = () => {
   const { theme } = useTheme();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    dispatch(initAuthData());
   }, [dispatch]);
-console.log('__IS_DEV__', __IS_DEV__)
+
   return (
-    <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback="">
-        <Navbar />
-        <div className="content-page">
-          <Sidebar />
-          {inited && <AppRouter />}
+    <ToggleFeatures
+      feature={'isAppRedesigned'}
+      on={
+        <div className={classNames('app_redesigned', {}, [theme])}>
+          <Suspense fallback="">
+            <MainLayout
+              content={inited ? <AppRouter /> : <></>}
+              header={<Navbar />}
+              sidebar={<Sidebar />}
+              toolbar={<div>{'sdfsdfsdf'}</div>}
+            />
+          </Suspense>
         </div>
-      </Suspense>
-    </div>
+      }
+      off={
+        <div className={classNames('app', {}, [theme])}>
+          <Suspense fallback="">
+            <Navbar />
+            <div className="content-page">
+              <Sidebar />
+              {inited && <AppRouter />}
+            </div>
+          </Suspense>
+        </div>
+      }
+    />
   );
 };

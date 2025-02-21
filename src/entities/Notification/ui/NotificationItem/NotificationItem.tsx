@@ -1,13 +1,16 @@
 import React, { memo } from 'react';
-import { Card, Text } from '@/shared';
-import { CARD_VARIANT } from '@/shared/ui/Card';
+import { Card, CARD_VARIANT } from '@/shared/ui/deprecated/Card/Card';
+import { Text } from '@/shared';
 import { Notification } from '../../model/types/notifications';
 import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
   notification: Notification;
 }
-export const NotificationItem = memo(function NotificationItem({ notification }: NotificationItemProps) {
+
+export const NotificationItem = memo(function NotificationItem({
+  notification,
+}: NotificationItemProps) {
   const content = (
     <Card className={cls.notificationItem} variant={CARD_VARIANT.OUTLINED}>
       <Text title={notification.title} text={notification.description} />
@@ -16,7 +19,12 @@ export const NotificationItem = memo(function NotificationItem({ notification }:
 
   if (notification.href) {
     return (
-      <a className={cls.link} href={notification.href} target={'_blank'} rel="noreferrer">
+      <a
+        className={cls.link}
+        href={notification.href}
+        target={'_blank'}
+        rel="noreferrer"
+      >
         {content}
       </a>
     );

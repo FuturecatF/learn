@@ -10,8 +10,8 @@ export function setFeatureFlags(newFeatureFlags?: FeatureFlags) {
 
 export function getFeatureFlag(flag: keyof FeatureFlags) {
   if (!featureFlags) {
-    return true;
+    return false;
   }
   console.log('featureFlags', featureFlags);
-  return featureFlags[flag] ?? true;
+  return featureFlags[flag];
 }

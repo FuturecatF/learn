@@ -33,7 +33,8 @@
     "generate:slice": "node ./scripts/createSlice/index.js",
     "generate:ui": "node ./scripts/createSlice/templates/createUI.js",
     "postinstall": "rm -rf ./node_modules/.cache",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "remove-feature": "ts-node ./scripts/remove-feature.ts"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [

@@ -16,7 +16,11 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRatingAsync } from '@/features/articleRating';
 import { ArticleDetails } from '@/entities/Article';
-import { getFeatureFlag, toggleFeatures } from '@/shared/lib/features';
+import {
+  getFeatureFlag,
+  ToggleFeatures,
+  toggleFeatures,
+} from '@/shared/lib/features';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -35,11 +39,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return null;
   }
 
-  const rating = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRatingAsync articleId={articleId} />,
-    off: () => <Card>{t('Оченка статей скоро появится!')}</Card>,
-  });
+  const rating = <ArticleRatingAsync articleId={articleId} />;
 
   toggleFeatures({
     name: 'isCounterEnabled',
@@ -56,7 +56,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         <VStack gap={'16'} maxWidth>
           <ArticleDetailsPageHeader />
           <ArticleDetails articleId={articleId} />
-          {rating}
+          <ToggleFeatures
+            feature={'isArticleRatingEnabled'}
+            on={<ArticleRatingAsync articleId={articleId} />}
+            off={<Card>{t('Оченка статей скоро появится!')}</Card>}
+          />
           <ArticleRecommendationsList />
           {isCounterEnabled && <ArticleDetailsComments articleId={articleId} />}
         </VStack>

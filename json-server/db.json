@@ -649,6 +649,12 @@
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true
       },
+      "jsonSettings": {
+        "theme": "app_mono_theme",
+        "isFirstVisit": false,
+        "settingsPageHasBeenOpened": false,
+        "isArticlesPageWasOpened": true
+      },
       "avatar": "https://cdn.freelance.ru/images/att/1575043_900_600.png"
     },
     {
@@ -662,6 +668,12 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpened": false,
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://cspromogame.ru//storage/upload_images/avatars/3903.jpg"
     }
