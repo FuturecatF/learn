@@ -3,5 +3,5 @@ import { MutableRefObject } from 'react';
 export interface UseInfinityScrollProps {
   callback?: () => void;
   triggerRef: MutableRefObject<HTMLElement>;
-  wrapperRef: MutableRefObject<HTMLElement>;
+  wrapperRef?: MutableRefObject<HTMLElement>;
 }

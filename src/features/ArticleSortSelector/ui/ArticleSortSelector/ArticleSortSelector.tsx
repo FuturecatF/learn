@@ -2,11 +2,13 @@ import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 
-import { Select, SORT_ORDER } from '@/shared';
+import { ListBox, Select, SORT_ORDER, VStack } from '@/shared';
 import { ARTICLE_SORT_FIELD, ArticleSortFields } from '@/entities/Article';
 import cls from './ArticleSortSelector.module.scss';
 import { SortOrder } from '@/shared/types/sort';
 import { SelectOption } from '@/shared/ui/deprecated/Select/types';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -72,16 +74,46 @@ export const ArticleSortSelector = memo(function ArticleSortSelector({
   );
 
   return (
-    <div className={classNames(cls.articleSortSelector, {}, [className])}>
-      <Select value={sort} onChange={changeOrderHandler} options={orderOptions}
-        label={t<string>('Sort by')} />
-      <Select<ArticleSortFields>
-        className={cls.order}
-        value={order}
-        onChange={changeSortHandler}
-        options={sortFieldOptions}
-        label={t<string>('Filter by')}
-      />
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <div
+          className={classNames(cls.articleSortSelectorRedesigned, {}, [
+            className,
+          ])}
+        >
+          <VStack gap="8">
+            <Text text={t<string>('Сортировать по:')} />
+            <ListBox
+              items={sortFieldOptions}
+              value={order}
+              onChange={onChangeSort}
+            />
+            <ListBox
+              items={orderOptions}
+              value={sort}
+              onChange={onChangeOrder}
+            />
+          </VStack>
+        </div>
+      }
+      off={
+        <div className={classNames(cls.articleSortSelector, {}, [className])}>
+          <Select
+            value={sort}
+            onChange={changeOrderHandler}
+            options={orderOptions}
+            label={t<string>('Sort by')}
+          />
+          <Select<ArticleSortFields>
+            className={cls.order}
+            value={order}
+            onChange={changeSortHandler}
+            options={sortFieldOptions}
+            label={t<string>('Filter by')}
+          />
+        </div>
+      }
+    />
   );
 });

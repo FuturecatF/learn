@@ -1,9 +1,12 @@
 import { memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Avatar, DropDown } from '@/shared';
+import { Avatar as AvatarDeprecated, DropDown as DropDownDeprecated } from '@/shared';
 import { getUserAuthData, isUserAdmin, userActions } from '@/entities/User';
 import { getRouteDashboard, getRouteProfile } from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { DropDown } from '@/shared/ui/redesigned/Popups/ui/DropDown/DropDown';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
 export const AvatarDropdown = memo(function AvatarDropdown() {
   const { t } = useTranslation();
@@ -19,14 +22,38 @@ export const AvatarDropdown = memo(function AvatarDropdown() {
     return null;
   }
 
+  const items = [
+    ...(isAdmin
+      ? [
+        {
+          content: t<string>('dashboard'),
+          href: getRouteDashboard(),
+        },
+      ]
+      : []),
+    {
+      content: t<string>('profile'),
+      href: getRouteProfile(authData.id),
+    },
+    {
+      content: t<string>('signOut'),
+      onClick: onLogoutHandler,
+    },
+  ];
+
   return (
-    <DropDown
-      items={[
-        ...(isAdmin ? [{ content: t<string>('dashboard'), href: getRouteDashboard() }] : []),
-        { content: t<string>('profile'), href: getRouteProfile(authData.id) },
-        { content: t<string>('signOut'), onClick: onLogoutHandler },
-      ]}
-      trigger={<Avatar src={authData.avatar} size={30} />}
+    <ToggleFeatures
+      feature={'isAppRedesigned'}
+      on={<DropDown
+        items={items}
+        trigger={<Avatar src={authData.avatar} size={40} />}
+      />}
+      off={
+        <DropDownDeprecated
+          items={items}
+          trigger={<AvatarDeprecated src={authData.avatar} size={30} />}
+        />
+      }
     />
   );
 });

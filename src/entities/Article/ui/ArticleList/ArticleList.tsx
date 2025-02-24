@@ -9,7 +9,7 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import cls from './ArticleList.module.scss';
 
 const getSkeletons = (view: ArticleViewType) =>
-  new Array(view === ARTICLE_VIEW.TILE ? 9 : 3)
+  new Array(view === ARTICLE_VIEW.SMALL ? 9 : 3)
     .fill(0)
     .map((item, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
@@ -24,14 +24,15 @@ interface ArticleListProps {
 export const ArticleList = memo(function ArticleList({
   className,
   articles,
-  view = ARTICLE_VIEW.LIST,
+  view = ARTICLE_VIEW.SMALL,
   isLoading,
   target,
 }: ArticleListProps) {
   const { t } = useTranslation();
 
   const renderArticle = (article: Article) => (
-    <ArticleListItem key={article.id} article={article} view={view} target={target} data-testid={'ArticleListItem'} />
+    <ArticleListItem key={article.id} article={article} view={view}
+      target={target} data-testid={'ArticleListItem'} />
   );
 
   if (!isLoading && !articles.length) {

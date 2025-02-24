@@ -27,7 +27,7 @@ const articlesPageSlice = createSlice({
     error: undefined,
     ids: [],
     entities: {},
-    view: ARTICLE_VIEW.LIST,
+    view: ARTICLE_VIEW.BIG,
     page: 1,
     hasMore: true,
     _inited: false,
@@ -61,7 +61,7 @@ const articlesPageSlice = createSlice({
     initState: (state) => {
       const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_AUTH_KEY) as ArticleViewType;
       state.view = view;
-      state.limit = view === ARTICLE_VIEW.LIST ? 4 : 9;
+      state.limit = view === ARTICLE_VIEW.BIG ? 4 : 9;
       state._inited = true;
     },
   },

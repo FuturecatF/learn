@@ -2,8 +2,8 @@ import React, { ReactNode, useEffect } from 'react';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { useTheme } from '@/app/provider/ThemeProvider';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
-import { Overlay } from '../Overlay/Overlay';
-import { Portal } from '../../Portal';
+import { Overlay } from '@/shared/ui/redesigned/Overlay/Overlay';
+import { Portal } from '../../redesigned/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {

@@ -1,3 +1,13 @@
-.selected {
-  fill: var(--inverted-primary-color);
+.articleViewSelector {
+  .notSelected {
+    color: var(--secondary-color);
+  }
 }
+
+
+.articleViewSelectorRedesigned {
+  .notSelected {
+    color: var(--text-redesigned);
+  }
+}
+

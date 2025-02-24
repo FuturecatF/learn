@@ -16,12 +16,13 @@ export const ArticleListItemSkeleton = memo(function ArticleListItem({
 
   view,
 }: ArticleListItemProps) {
-  if (view === ARTICLE_VIEW.LIST) {
+  if (view === ARTICLE_VIEW.BIG) {
     return (
       <div className={classNames(cls.articleListItem, {}, [className, cls[view.toLowerCase()]])}>
         <Card>
           <div className={cls.header}>
-            <Skeleton borderRadius={'50%'} width={30} height={30} className={cls.avatar} />
+            <Skeleton borderRadius={'50%'} width={30} height={30}
+              className={cls.avatar} />
             <Skeleton width={150} height={16} className={cls.username} />
             <Skeleton width={120} height={16} className={cls.date} />
           </div>

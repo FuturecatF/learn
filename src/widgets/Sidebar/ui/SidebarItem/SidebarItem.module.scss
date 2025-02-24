@@ -1,9 +1,34 @@
 .link {
   display: flex;
   align-items: center;
-  column-gap: 8px;
 }
 
 .icon {
   fill: var(--inverted-primary-color);
+}
+
+.linkRedesigned {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.collapsedRedesigned {
+  padding: 0 8px;
+
+}
+
+.active {
+  background: linear-gradient(89.97deg, rgba(94, 211, 243, 0.3) 1.15%, rgba(94, 211, 243, 0) 99.97%);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    left: 0;
+    background: var(--accent-redesigned);
+    height: 100%;
+  }
 }

@@ -4,7 +4,7 @@ import { classNames } from '@/shared/config/theme/lib/classNames';
 import LightIcon from '@/shared/assets/icons/theme-light.svg';
 import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
 import ThemeIcon from '@/shared/assets/icons/theme.svg';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui/redesigned/Button/Button';
 import { Theme } from '@/shared/const/theme';
 import { Icon, useAppDispatch } from '@/shared';
 import { saveJsonSettings } from '@/entities/User/model/services/saveJsonSettings';
@@ -32,6 +32,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
           height={40}
           width={40}
           onClick={onToggleHandler}
+          clickable
         />
       }
       off={

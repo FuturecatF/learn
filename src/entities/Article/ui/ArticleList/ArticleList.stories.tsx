@@ -137,7 +137,7 @@ export const Basic: Story = {};
 
 export const WithProp: Story = {
   render: () => (
-    <ArticleList articles={[]} isLoading view={ARTICLE_VIEW.LIST} />
+    <ArticleList articles={[]} isLoading view={ARTICLE_VIEW.BIG} />
 
   ),
 };

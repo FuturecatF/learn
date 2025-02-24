@@ -1,14 +1,13 @@
-export { Applink, AppLinkTheme } from './ui/deprecated/AppLink/Applink';
+export { Applink, AppLinkTheme } from '@/shared/ui/redesigned/AppLink/Applink';
 export {
   Button,
   ButtonTheme,
   ButtonSize,
-} from '@/shared/ui/deprecated/Button/Button';
+} from '@/shared/ui/redesigned/Button/Button';
 export { Modal } from './ui/deprecated/Modal/Modal';
-export { Portal } from './ui/Portal/Portal';
+export { Portal } from '@/shared/ui/redesigned/Portal/Portal';
 export { Input } from './ui/deprecated/Input/Input';
 export {
-  Text,
   TextVariant,
   TextAlign,
   TextSize,
@@ -16,7 +15,7 @@ export {
 export { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
 export { Select } from './ui/deprecated/Select';
 export { Skeleton } from './ui/deprecated/Skeleton/Skeleton';
-export { Icon } from '@/shared/ui/deprecated/Icon/Icon';
+export { Icon } from '@/shared/ui/redesigned/Icon/Icon';
 export { Code } from '@/shared/ui/deprecated/Code/Code';
 export { Card } from '@/shared/ui/deprecated/Card';
 export { useHover } from './lib/hooks/useHover/useHover';
@@ -28,12 +27,13 @@ export { useDebounce } from './lib/hooks/useDebounce/useDebounce';
 export { addQueryParams } from './lib/url/addQueryParams';
 export { Tabs } from '@/shared/ui/deprecated/Tabs/Tabs';
 export { useAppDispatch } from './lib/hooks/useAppDispatch/useAppDispatch';
-export { VStack } from './ui/Stack/VStack/VStack';
-export { HStack } from './ui/Stack/HStack/HStack';
-export { ListBox } from './ui/Popups/ui/ListBox/ListBox';
-export { DropDown } from './ui/Popups/ui/DropDown/DropDown';
+export { VStack } from '@/shared/ui/redesigned/Stack/VStack/VStack';
+export { HStack } from '@/shared/ui/redesigned/Stack/HStack/HStack';
+export { ListBox } from '@/shared/ui/redesigned/Popups/ui/ListBox/ListBox';
+export { DropDown } from '@/shared/ui/deprecated/Popups/ui/DropDown/DropDown';
 export type { TabItem } from '@/shared/ui/deprecated/Tabs/types';
-export { Popover } from './ui/Popups/ui/Popover/Popover';
+export { Popover } from '@/shared/ui/redesigned/Popups/ui/Popover/Popover';
 export { Drawer } from './ui/deprecated/Drawer/Drawer';
 export { StarRating } from './ui/StarRating/ui/StarRating/StarRating';
-export { AppImage } from './ui/deprecated/AppImage';
+export { AppImage } from './ui/redesigned/AppImage';
+export { Text } from './ui/redesigned/Text'

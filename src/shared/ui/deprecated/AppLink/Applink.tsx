@@ -16,17 +16,15 @@ type AppLinkThemeTypes = ValueOf<typeof AppLinkTheme>;
 
 interface ApplinkProps extends LinkProps {
   className?: string;
-  theme?: AppLinkThemeTypes;
+  variant?: AppLinkThemeTypes;
   children?: ReactNode;
 }
-/**
- * @deprecated
- */
+
 export const Applink: FC<ApplinkProps> = memo(
   ({
-    className, children, to, theme = AppLinkTheme.PRIMARY, ...props
+    className, children, to, variant = AppLinkTheme.PRIMARY, ...props
   }: ApplinkProps) => (
-    <Link to={to} className={classNames(classes.applink, {}, [className, classes[theme]])} {...props}>
+    <Link to={to} className={classNames(classes.applink, {}, [className, classes[variant]])} {...props}>
       {children}
     </Link>
   ),

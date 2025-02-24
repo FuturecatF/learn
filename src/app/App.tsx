@@ -28,7 +28,6 @@ export const App = () => {
               content={inited ? <AppRouter /> : <></>}
               header={<Navbar />}
               sidebar={<Sidebar />}
-              toolbar={<div>{'sdfsdfsdf'}</div>}
             />
           </Suspense>
         </div>

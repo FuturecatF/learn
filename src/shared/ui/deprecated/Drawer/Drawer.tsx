@@ -6,9 +6,9 @@ import { useTheme } from '@/app/provider/ThemeProvider';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
-import { Overlay } from '../Overlay/Overlay';
+import { Overlay } from '../../redesigned/Overlay/Overlay';
 import cls from './Drawer.module.scss';
-import { Portal } from '../../Portal';
+import { Portal } from '../../redesigned/Portal';
 
 interface DrawerProps {
   className?: string;

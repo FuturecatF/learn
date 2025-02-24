@@ -9,7 +9,6 @@ import {
   ButtonTheme,
   HStack,
   Text,
-  TextVariant,
 } from '@/shared';
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
@@ -51,12 +50,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         off={
           <header className={classNames(cls.navbar, { className })}>
             <Text
-              variant={TextVariant.INVERTED}
               className={cls.appName}
               title={t<string>('FuturecatF App')}
             />
             <Applink
-              theme={AppLinkTheme.SECONDARY}
+              variant={AppLinkTheme.SECONDARY}
               to={getRouteArticlesCreate()}
             >
               {t('createArticle')}

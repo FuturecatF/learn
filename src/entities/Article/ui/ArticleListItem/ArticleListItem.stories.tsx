@@ -117,7 +117,7 @@ export const Basic: Story = {};
 
 export const WithProp: Story = {
   render: () => (
-    <ArticleListItem article={article} view={ARTICLE_VIEW.LIST} />
+    <ArticleListItem article={article} view={ARTICLE_VIEW.BIG} />
 
   ),
 };

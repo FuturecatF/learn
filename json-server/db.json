@@ -647,10 +647,11 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_mono_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": false,
         "settingsPageHasBeenOpened": false,
         "isArticlesPageWasOpened": true
@@ -670,7 +671,7 @@
         "isCounterEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_mono_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": false,
         "isArticlesPageWasOpened": true
@@ -685,10 +686,10 @@
       "lastname": "user",
       "age": 465,
       "currency": "EUR",
-      "country": "Ukraine",
+      "country": "Belarus",
       "city": "Moscow",
       "username": "testuser",
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+      "avatar": "https://cdn.freelance.ru/images/att/1575043_900_600.png"
     },
     {
       "id": "2",

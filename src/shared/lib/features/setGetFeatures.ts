@@ -12,6 +12,5 @@ export function getFeatureFlag(flag: keyof FeatureFlags) {
   if (!featureFlags) {
     return false;
   }
-  console.log('featureFlags', featureFlags);
   return featureFlags[flag];
 }

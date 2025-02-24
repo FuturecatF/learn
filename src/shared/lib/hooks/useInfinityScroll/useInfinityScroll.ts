@@ -4,7 +4,7 @@ import { UseInfinityScrollProps } from './types';
 export const useInfinityScroll = ({ callback, triggerRef, wrapperRef }: UseInfinityScrollProps) => {
   useEffect(() => {
     let observer: IntersectionObserver | null = null;
-    const wrapperElement = wrapperRef.current;
+    const wrapperElement = wrapperRef?.current || null;
     const triggerElement = triggerRef.current;
     if (callback) {
       const options = {

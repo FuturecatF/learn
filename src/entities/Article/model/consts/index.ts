@@ -15,6 +15,6 @@ export const ARTICLE_TYPES = {
   ECONOMICS: 'ECONOMICS',
 } as const;
 export const ARTICLE_VIEW = {
-  LIST: 'LIST',
-  TILE: 'TILE',
+  BIG: 'BIG',
+  SMALL: 'SMALL',
 } as const;

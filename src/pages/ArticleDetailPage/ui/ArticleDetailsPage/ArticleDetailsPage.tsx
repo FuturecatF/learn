@@ -21,6 +21,9 @@ import {
   ToggleFeatures,
   toggleFeatures,
 } from '@/shared/lib/features';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout/StickyContentLayout';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -49,22 +52,41 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page
-        className={classNames(cls.articleDetailsPage, {}, [className])}
-        data-testid={'ArticleDetails.Info'}
-      >
-        <VStack gap={'16'} maxWidth>
-          <ArticleDetailsPageHeader />
-          <ArticleDetails articleId={articleId} />
-          <ToggleFeatures
-            feature={'isArticleRatingEnabled'}
-            on={<ArticleRatingAsync articleId={articleId} />}
-            off={<Card>{t('Оченка статей скоро появится!')}</Card>}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <StickyContentLayout
+            content={
+              <Page
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+              >
+                <VStack gap="16">
+                  <DetailsContainer />
+                  <ArticleRatingAsync articleId={articleId} />
+                  <ArticleRecommendationsList />
+                  <ArticleDetailsComments articleId={articleId} />
+                </VStack>
+              </Page>
+            }
+            right={<AdditionalInfoContainer />}
           />
-          <ArticleRecommendationsList />
-          {isCounterEnabled && <ArticleDetailsComments articleId={articleId} />}
-        </VStack>
-      </Page>
+        }
+        off={
+          <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <VStack gap="16">
+              <ArticleDetailsPageHeader />
+              <ArticleDetails articleId={articleId} />
+              <ToggleFeatures
+                feature="isArticleRatingEnabled"
+                on={<ArticleRatingAsync articleId={articleId} />}
+                off={<Card>{t('Оценка статей скоро появится!')}</Card>}
+              />
+              <ArticleRecommendationsList />
+              <ArticleDetailsComments articleId={articleId} />
+            </VStack>
+          </Page>
+        }
+      />
     </DynamicModuleLoader>
   );
 };

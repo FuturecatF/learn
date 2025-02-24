@@ -12,7 +12,7 @@ export const getArticlesPageIsLoading = (state: StateSchema) =>
 export const getArticlesPageError = (state: StateSchema) =>
   state.articlesPage?.error;
 export const getArticlesPageView = (state: StateSchema) =>
-  state.articlesPage?.view || ARTICLE_VIEW.LIST;
+  state.articlesPage?.view || ARTICLE_VIEW.SMALL;
 export const getArticlesPageNumber = (state: StateSchema) =>
   state.articlesPage?.page || 1;
 export const getArticlesPageLimit = (state: StateSchema) =>
@@ -26,7 +26,7 @@ export const getArticlesPageSort = (state: StateSchema) =>
 export const getArticlesPageOrder = (state: StateSchema) =>
   state.articlesPage?.sort || ARTICLE_SORT_FIELD.CREATED;
 export const getArticlesPageSearch = (state: StateSchema) =>
-  state.articlesPage?.search;
+  state.articlesPage?.search || '';
 export const getArticlesPageType = (state: StateSchema) =>
   state.articlesPage?.type || ARTICLE_TYPES.ALL;
 

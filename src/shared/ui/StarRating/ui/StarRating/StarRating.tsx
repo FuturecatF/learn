@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import StarIcon from '@/shared/assets/icons/star.svg';
-import { Icon } from '../../../deprecated/Icon/Icon';
+import { Icon } from '../../../redesigned/Icon/Icon';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import cls from './StarRating.module.scss';
 
