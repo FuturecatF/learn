@@ -2,8 +2,10 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { Text, VStack } from '@/shared';
-import { Comment } from '@/entities/Comment';
+import { Comment } from '../..';
 import { CommentCard } from '../CommentCard/CommentCard';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
 interface CommentListProps {
   className?: string;
@@ -29,11 +31,21 @@ export const CommentList = memo(function CommentList({
   }
 
   return (
-    <VStack gap={'16'} className={classNames('', {}, [className])} maxWidth data-testid={'CommentCard.Content'}>
-      {comments && comments.length ? (
-        comments.map((comment) => <CommentCard key={comment.id} comment={comment} isLoading={isLoading} />)
+    <VStack gap="16" maxWidth className={classNames('', {}, [className])}>
+      {comments?.length ? (
+        comments.map((comment) => (
+          <CommentCard
+            isLoading={isLoading}
+            comment={comment}
+            key={comment.id}
+          />
+        ))
       ) : (
-        <Text text={t<string>('Комментариев нет')} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text text={t<string>('Комментарии отсутствуют')} />}
+          off={<TextDeprecated text={t<string>('Комментарии отсутствуют')} />}
+        />
       )}
     </VStack>
   );

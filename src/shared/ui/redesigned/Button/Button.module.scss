@@ -4,14 +4,14 @@
   padding: 6px 15px;
   display: flex;
   align-items: center;
+  width: max-content;
 
   &:hover {
     color: var(--accent-redesigned)
   }
 }
 
-.clear,
-.clearInverted {
+.clear {
   padding: 0;
   margin: 0;
   border: none;
@@ -31,9 +31,24 @@
 }
 
 .outline {
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
   background: none;
+  border-radius: 34px;
+
+  &:hover {
+    border: 2px solid var(--accent-redesigned);
+  }
+
+  &.normal {
+    border: 2px solid var(--icon-redesigned);
+  }
+
+  &.error {
+    border: 2px solid var(--cancel-redesigned);
+  }
+
+  &.success {
+    border: 2px solid var(--save-redesigned);
+  }
 }
 
 .withAddon {
@@ -74,19 +89,18 @@
 .square.size_m {
   width: var(--font-line-m);
   height: var(--font-line-m);
-  font: var(--font-m);
+
 }
 
 .square.size_l {
   width: var(--font-line-l);
   height: var(--font-line-l);
-  font: var(--font-l);
+
 }
 
 .square.size_xl {
   width: var(--font-line-xl);
   height: var(--font-line-xl);
-  font: var(--font-xl);
 }
 
 .size_m {
@@ -103,4 +117,8 @@
 
 .disabled {
   opacity: 0.5;
+}
+
+.fullWidth {
+  width: 100%;
 }

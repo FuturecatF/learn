@@ -16,7 +16,7 @@ import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
 import { getRouteArticlesCreate } from '@/shared/const/router';
-import { ToggleFeatures } from '@/shared/lib/features';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
   className?: string;
@@ -34,6 +34,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
   }, []);
+
+  const mainClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => cls.navbarRedesigned,
+    off: () => cls.navbar,
+  });
 
   if (authData) {
     return (
@@ -71,13 +77,28 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   return (
     <header className={classNames(cls.navbar, { className })}>
-      <Button
-        className={cls.authButton}
-        theme={ButtonTheme.CLEAR_INVERTED}
-        onClick={onOpenModal}
-      >
-        {t('signIn')}
-      </Button>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <Button
+            className={cls.authButton}
+            theme={'clear'}
+            onClick={onOpenModal}
+          >
+            {t('signIn')}
+          </Button>
+        }
+        off={
+          <Button
+            className={cls.authButton}
+            theme={ButtonTheme.CLEAR_INVERTED}
+            onClick={onOpenModal}
+          >
+            {t('signIn')}
+          </Button>
+        }
+      />
+
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       )}

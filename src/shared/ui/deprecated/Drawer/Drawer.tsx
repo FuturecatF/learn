@@ -9,6 +9,7 @@ import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/Ani
 import { Overlay } from '../../redesigned/Overlay/Overlay';
 import cls from './Drawer.module.scss';
 import { Portal } from '../../redesigned/Portal';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps {
   className?: string;
@@ -93,8 +94,12 @@ const DrawerContent = memo(function DrawerContent({
   const display = y.to((py) => (py < height ? 'block' : 'none'));
 
   return (
-    <Portal>
-      <div className={classNames(cls.drawer, mods, [className, theme, 'app_drawer'])}>
+    <Portal element={document.getElementById('app') ?? document.body}>
+      <div className={classNames(cls.drawer, mods, [className, theme, 'app_drawer', toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.drawerNew,
+        off: () => cls.drawerOld,
+      }),])}>
         <Overlay onclick={close} />
         <Spring.a.div
           className={cls.sheet}

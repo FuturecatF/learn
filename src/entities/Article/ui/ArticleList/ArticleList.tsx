@@ -1,12 +1,13 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, TextSize } from '@/shared';
+import { HStack, Text, TextSize } from '@/shared';
 import { classNames } from '@/shared/config/theme/lib/classNames';
 import { ARTICLE_VIEW } from '../../model/consts';
 import { Article, ArticleViewType } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 const getSkeletons = (view: ArticleViewType) =>
   new Array(view === ARTICLE_VIEW.SMALL ? 9 : 3)
@@ -39,51 +40,37 @@ export const ArticleList = memo(function ArticleList({
     return <Text className={cls.notFoundArticles} title={t<string>('articlesNotFound')} size={TextSize.L} />;
   }
 
-  // const isList = view === ARTICLE_VIEW.LIST;
-  // const itemsPerRow = isList ? 1 : 3;
-  // const rowCount = isList ? articles.length : articles.length / itemsPerRow;
-  //
-  // const rowRenderer = ({ index, key, style }: ListRowProps) => {
-  //   const items = [];
-  //   const fromIndex = index * itemsPerRow;
-  //   const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
-  //
-  //   for (let i = fromIndex; i < toIndex; i += 1) {
-  //     items.push(
-  //       <ArticleListItem key={articles[i].id} article={articles[i]} view={view} target={target} className={cls.card} />,
-  //     );
-  //   }
-  //   return (
-  //     <div key={key} style={style} className={classNames('', { [cls.cardTile]: !isList })}>
-  //       {items}
-  //     </div>
-  //   );
-  // };
 
   return (
-    // <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
-    //   {({
-    //     width, height, registerChild, onChildScroll, isScrolling, scrollTop,
-    //   }) => (
-    //     <div className={classNames(cls.articleList, {}, [className, cls[view?.toLowerCase()]])} ref={registerChild}>
-    //       <List
-    //         rowCount={rowCount}
-    //         height={height ?? 700}
-    //         rowHeight={isList ? 700 : 330}
-    //         rowRenderer={rowRenderer}
-    //         width={width ? width - 80 : 700}
-    //         onScroll={onChildScroll}
-    //         isScrolling={isScrolling}
-    //         scrollTop={scrollTop}
-    //         autoHeight
-    //       />
-    //       {isLoading && getSkeletons(view)}
-    //     </div>
-    //   )}
-    // </WindowScroller>
-    <div className={classNames(cls.articleList, {}, [className, cls[view?.toLowerCase()]])} data-testid={'ArticleList'}>
-      {articles.length > 0 && articles.map(renderArticle)}
-      {isLoading && getSkeletons(view)}
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <HStack
+          wrap="wrap"
+          gap="16"
+          className={classNames(cls.articleListRedesigned, {}, [])}
+          data-testid="ArticleList"
+        >
+          {articles.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cls.card}
+            />
+          ))}
+          {isLoading && getSkeletons(view)}
+        </HStack>
+      }
+      off={
+        <div className={classNames(cls.articleList, {}, [className, cls[view?.toLowerCase()]])}
+          data-testid={'ArticleList'}>
+          {articles.length > 0 && articles.map(renderArticle)}
+          {isLoading && getSkeletons(view)}
+        </div>
+      }
+    />
+
   );
 });

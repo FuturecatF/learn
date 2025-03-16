@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Avatar as AvatarDeprecated, DropDown as DropDownDeprecated } from '@/shared';
 import { getUserAuthData, isUserAdmin, userActions } from '@/entities/User';
-import { getRouteDashboard, getRouteProfile } from '@/shared/const/router';
+import { getRouteDashboard, getRouteProfile, getRouteSettings } from '@/shared/const/router';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { DropDown } from '@/shared/ui/redesigned/Popups/ui/DropDown/DropDown';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
@@ -38,6 +38,10 @@ export const AvatarDropdown = memo(function AvatarDropdown() {
     {
       content: t<string>('signOut'),
       onClick: onLogoutHandler,
+    },
+    {
+      content: t<string>('settings'),
+      href: getRouteSettings(),
     },
   ];
 

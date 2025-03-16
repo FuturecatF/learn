@@ -9,12 +9,12 @@ interface DetailsContainterProps {
 
 export const DetailsContainer = memo((props: DetailsContainterProps) => {
   const { className } = props;
-  const { id } = useParams<{ id: string }>();
+  const { articleId } = useParams<{ articleId: string }>();
 
   return (
     <Card max border="partial" className={className}
       padding="24">
-      <ArticleDetails articleId={id} />
+      <ArticleDetails articleId={articleId} />
     </Card>
   );
 });

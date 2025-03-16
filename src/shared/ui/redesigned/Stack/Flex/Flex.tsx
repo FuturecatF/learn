@@ -38,6 +38,7 @@ export const Flex = ({
   direction = 'row',
   gap,
   maxWidth,
+  wrap = 'nowrap',
   ...otherProps
 }: FlexProps) => {
   const classes = [
@@ -45,6 +46,7 @@ export const Flex = ({
     alignClasses[align],
     directionClasses[direction],
     gap && gapClasses[gap],
+    cls[wrap],
     className,
   ];
 

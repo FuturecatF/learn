@@ -18,7 +18,7 @@ export const ButtonSize = {
   L: 'size_l',
   XL: 'size_xl',
 } as const;
-
+export type ButtonColor = 'normal' | 'success' | 'error';
 type ValueOf<T> = T[keyof T];
 
 type ButtonThemeTypes = ValueOf<typeof ButtonTheme>;
@@ -33,6 +33,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSizeTypes;
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
+  color?: ButtonColor;
+  fullWidth?: boolean;
 }
 
 export const Button = memo(
@@ -44,6 +46,8 @@ export const Button = memo(
     theme = ButtonTheme.OUTLINE,
     addonLeft,
     addonRight,
+    color = 'normal',
+    fullWidth,
     ...props
   }: ButtonProps) => {
     const mods = {
@@ -51,11 +55,12 @@ export const Button = memo(
       [cls[size]]: size,
       [cls.disabled]: props.disabled,
       [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
+      [cls.fullWidth]: fullWidth,
     };
 
     return (
       <button
-        className={classNames(cls.button, mods, [className, cls[theme]])}
+        className={classNames(cls.button, mods, [className, cls[theme], cls[color]])}
         type="button"
         disabled={props.disabled}
         {...props}

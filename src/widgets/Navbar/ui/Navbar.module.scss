@@ -4,25 +4,23 @@
   background: var(--inverted-bg-color);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   padding: 20px;
 }
 
 .navbarRedesigned {
-  width: 100%;
   padding: 16px;
 }
 
-.authButton {
-  margin-left: auto;
-}
-
-.appName {
-  width: calc(var(--sidebar-width) - 35px);
-  margin-left: 15px;
-}
-
+.links,
 .actions {
   margin-left: auto;
 }
 
+.mainLink {
+  margin-right: 15px;
+}
+
+.appName {
+  width: var(--sidebar-width);
+  margin-left: 15px;
+}

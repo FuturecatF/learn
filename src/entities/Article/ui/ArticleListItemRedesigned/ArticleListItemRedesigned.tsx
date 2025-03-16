@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import cls from '../ArticleListItem/ArticleListItem.module.scss';
+import cls from './ArticleListItemRedesigned.module.scss';
 
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -31,7 +31,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     </>
   );
   const views = (
-    <HStack gap="8">
+    <HStack gap="8" justify={'end'}>
       <Icon Svg={EyeIcon} />
       <Text text={String(article.views)} className={cls.views} />
     </HStack>

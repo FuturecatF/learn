@@ -22,7 +22,7 @@ export const App = () => {
     <ToggleFeatures
       feature={'isAppRedesigned'}
       on={
-        <div className={classNames('app_redesigned', {}, [theme])}>
+        <div className={classNames('app_redesigned', {}, [theme])} id={'app'}>
           <Suspense fallback="">
             <MainLayout
               content={inited ? <AppRouter /> : <></>}
@@ -33,7 +33,7 @@ export const App = () => {
         </div>
       }
       off={
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app', {}, [theme])} id={'app'}>
           <Suspense fallback="">
             <Navbar />
             <div className="content-page">

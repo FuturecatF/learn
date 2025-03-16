@@ -2,6 +2,7 @@ import { AppRoutesPaths } from '@/shared/types/router';
 
 export const AppRoutes = {
   MAIN: 'main',
+  SETTINGS: 'settings',
   ABOUT: 'about',
   PROFILE: 'profile', // + :id
   ARTICLES: 'articles',
@@ -15,6 +16,7 @@ export const AppRoutes = {
 } as const;
 
 export const getRouteMain = () => '/';
+export const getRouteSettings = () => '/settings'
 export const getRouteAbout = () => '/about';
 export const getRouteProfile = (id: string) => `/profile/${id}`;
 export const getRouteArticles = () => '/articles';
@@ -26,6 +28,7 @@ export const getRouteForbidden = () => '/forbidden';
 
 export const RoutePath: Record<AppRoutesPaths, string> = {
   [AppRoutes.MAIN]: getRouteMain(),
+  [AppRoutes.SETTINGS]: getRouteSettings(),
   [AppRoutes.ABOUT]: getRouteAbout(),
   [AppRoutes.PROFILE]: getRouteProfile(':userId'),
   [AppRoutes.ARTICLES]: getRouteArticles(),
