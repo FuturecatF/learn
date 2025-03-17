@@ -43,6 +43,7 @@ export const ArticlePageFilters = memo(function ArticlePageFilters({ className }
 
   const onChangeViewHandler = useCallback(
     (view: ArticleViewType) => {
+      console.log('view 2', view);
       dispatch(articlesPageActions.setView(view));
     },
     [dispatch],

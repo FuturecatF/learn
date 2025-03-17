@@ -32,6 +32,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
   });
 
   config!.module!.rules.push(buildSvgLoader());
+
+
+
   config!.plugins!.push(
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
@@ -39,6 +42,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
       __PROJECT__: JSON.stringify('.storybook'),
     }),
   );
+
   config!.module!.rules.push(buildCssLoader(true));
 
   return config;

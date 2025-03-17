@@ -1,9 +1,8 @@
 import { StorybookConfig } from '@storybook/react-webpack5';
 import webpack, { RuleSetRule, Configuration } from 'webpack';
-import { BuildPaths } from '../build/types/config';
 import path from 'path';
+import { BuildPaths } from '../build/types/config';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
-import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 const config: StorybookConfig = {
   stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -54,7 +53,38 @@ const config: StorybookConfig = {
         __PROJECT__: JSON.stringify('.storybook'),
       }),
     );
-    config!.module!.rules.push(buildCssLoader(true));
+    config!.module!.rules.push({
+      test: /\.(ts|tsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+          presets: [['@babel/preset-env', { targets: 'defaults' }]],
+        },
+      },
+    });
+
+    config!.module!.rules.push({
+      test: /\.s[ac]ss$/i,
+      exclude: /node_modules/,
+      use: [
+        // Creates `style` nodes from JS strings
+        'style-loader',
+        // Translates CSS into CommonJS
+        {
+          loader: 'css-loader',
+          options: {
+            modules: {
+              auto: (resPath: string) => Boolean(resPath.includes('.module.')),
+              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+            },
+          },
+        },
+        // Compiles Sass to CSS
+        'sass-loader',
+      ],
+    });
 
     return config;
   },

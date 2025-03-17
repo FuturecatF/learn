@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import {  useAppDispatch, useInitialEffect, Text } from '@/shared';
+import { useAppDispatch, useInitialEffect, Text } from '@/shared';
 import { ArticleList } from '@/entities/Article';
 import { getArticles } from '../../model/slice/articlesPageSlice';
 import {
@@ -16,7 +16,9 @@ interface ArticleInfinityListProps {
   className?: string;
 }
 
-export const ArticleInfinityList = memo(function ArticleInfinityList({ className }: ArticleInfinityListProps) {
+export const ArticleInfinityList = memo(function ArticleInfinityList({
+  className,
+}: ArticleInfinityListProps) {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
@@ -33,6 +35,12 @@ export const ArticleInfinityList = memo(function ArticleInfinityList({ className
     return <Text text={error} />;
   }
 
-  return <ArticleList className={className} articles={articles} isLoading={isLoading}
-  view={view} />;
+  return (
+    <ArticleList
+      className={className}
+      articles={articles}
+      isLoading={isLoading}
+      view={view}
+    />
+  );
 });
